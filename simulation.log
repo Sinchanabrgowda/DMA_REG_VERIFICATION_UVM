@@ -1,0 +1,229 @@
+# vsim -vopt work.top -voptargs="+acc=npr" -assertdebug -l simulation.log -coverage -c -do "coverage save -onexit -assert -directive -cvg -codeAll coverage.ucdb; run -all; exit" 
+# Start time: 15:35:10 on Jan 21,2026
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: dma_topreg_block.sv(28): (vopt-2240) Treating stand-alone use of function 'set_coverage' as an implicit VOID cast.
+# ** Warning: dma_topreg_block.sv(34): (vopt-2240) Treating stand-alone use of function 'set_coverage' as an implicit VOID cast.
+# ** Warning: dma_topreg_block.sv(40): (vopt-2240) Treating stand-alone use of function 'set_coverage' as an implicit VOID cast.
+# ** Warning: dma_topreg_block.sv(46): (vopt-2240) Treating stand-alone use of function 'set_coverage' as an implicit VOID cast.
+# ** Warning: dma_topreg_block.sv(52): (vopt-2240) Treating stand-alone use of function 'set_coverage' as an implicit VOID cast.
+# ** Warning: dma_topreg_block.sv(58): (vopt-2240) Treating stand-alone use of function 'set_coverage' as an implicit VOID cast.
+# ** Warning: dma_topreg_block.sv(64): (vopt-2240) Treating stand-alone use of function 'set_coverage' as an implicit VOID cast.
+# ** Warning: dma_topreg_block.sv(70): (vopt-2240) Treating stand-alone use of function 'set_coverage' as an implicit VOID cast.
+# ** Warning: dma_topreg_block.sv(76): (vopt-2240) Treating stand-alone use of function 'set_coverage' as an implicit VOID cast.
+# ** Warning: dma_topreg_block.sv(82): (vopt-2240) Treating stand-alone use of function 'set_coverage' as an implicit VOID cast.
+# //  Questa Sim
+# //  Version 10.6c linux Jul 25 2017
+# //
+# //  Copyright 1991-2017 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.dma_interface(fast)
+# Loading mtiUvm.uvm_pkg
+# Loading work.dma_pkg(fast)
+# Loading work.top(fast)
+# Loading work.dma_interface(fast)
+# Loading work.dma_design_(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/linux/uvm_dpi.so
+# coverage save -onexit -assert -directive -cvg -codeAll coverage.ucdb
+#  run -all
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test dma_regression_test...
+# include_coverage not located
+#   did you mean recording_detail?
+# UVM_INFO dma_reg_sequence.sv(571) @ 0: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq [dma_regression_seq] Starting regression with regmodel = '{m_leaf_name:"dma_regmodel", m_inst_id:531, use_uvm_seeding:1, m_inst_count:759, __m_uvm_status_container:@uvm_status_container@1, parent:null, blks:'{ }, regs:'{@intr_reg@1:0, @ctrl_reg@1:1, @io_addr_reg@1:2, @mem_addr_reg@1:3, @extra_info_reg@1:4, @status_reg@1:5, @transfer_count_reg@1:6, @descriptor_addr_reg@1:7, @error_status_reg@1:8, @config_reg@1:9 }, vregs:'{ }, mems:'{ }, maps:'{@uvm_reg_map@1:1 }, default_path:UVM_DEFAULT_PATH, default_hdl_path:"RTL", backdoor:null, hdl_paths_pool:@uvm_object_string_pool__4@1, root_hdl_paths:'{ }, locked:1, has_cover:0, cover_on:0, fname:"", lineno:0, default_map:@uvm_reg_map@1, m_roots:'{@top_dma_reg_block@1:1 }, id:10, intr_reg_inst:@intr_reg@1, ctrl_reg_inst:@ctrl_reg@1, io_addr_reg_inst:@io_addr_reg@1, mem_addr_reg_inst:@mem_addr_reg@1, extra_info_reg_inst:@extra_info_reg@1, status_reg_inst:@status_reg@1, transfer_count_reg_inst:@transfer_count_reg@1, descriptor_addr_reg_inst:@descriptor_addr_reg@1, error_status_reg_inst:@error_status_reg@1, config_reg_inst:@config_reg@1, type_name:"top_dma_reg_block"}
+# 
+# ============== intr_reg_inst reset check==============
+# UVM_INFO dma_reg_sequence.sv(42) @ 0: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.rst_seq [SEQ] Register Reset Value : 0x0 
+# UVM_INFO dma_driver.sv(48) @ 15: uvm_test_top.dma_e.dma_agt.dma_drv [DRV] READ : addr=400 rdata=0
+# UVM_INFO dma_monitor.sv(33) @ 15: uvm_test_top.dma_e.dma_agt.dma_mon [MON] MON : addr=400 wdata=0 rdata = 0 wr_en = 0 rd_en = 1
+# UVM_INFO dma_reg_sequence.sv(45) @ 15: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.rst_seq [SEQ]  Read from DUT : 0x0 
+# UVM_INFO dma_reg_sequence.sv(48) @ 15: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.rst_seq [rst_check_seq] INTR register reset verified
+# 
+# ============== ctrl_reg_inst reset check ==============
+# UVM_INFO dma_reg_sequence.sv(57) @ 15: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.rst_seq [SEQ] Register Reset Value : 0x0
+# UVM_INFO dma_driver.sv(48) @ 35: uvm_test_top.dma_e.dma_agt.dma_drv [DRV] READ : addr=404 rdata=0
+# UVM_INFO dma_monitor.sv(33) @ 35: uvm_test_top.dma_e.dma_agt.dma_mon [MON] MON : addr=404 wdata=0 rdata = 0 wr_en = 0 rd_en = 1
+# UVM_INFO dma_reg_sequence.sv(60) @ 35: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.rst_seq [SEQ] Read from DUT : 0x0
+# UVM_INFO dma_reg_sequence.sv(63) @ 35: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.rst_seq [rst_check_seq] CTRL register reset verified
+# 
+# ============== io_addr_reg_inst reset check ==============
+# UVM_INFO dma_reg_sequence.sv(71) @ 35: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.rst_seq [SEQ] Register Reset Value : 0x0
+# UVM_INFO dma_driver.sv(48) @ 55: uvm_test_top.dma_e.dma_agt.dma_drv [DRV] READ : addr=408 rdata=0
+# UVM_INFO dma_monitor.sv(33) @ 55: uvm_test_top.dma_e.dma_agt.dma_mon [MON] MON : addr=408 wdata=0 rdata = 0 wr_en = 0 rd_en = 1
+# UVM_INFO dma_reg_sequence.sv(74) @ 55: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.rst_seq [SEQ] Read from DUT : 0x0
+# UVM_INFO dma_reg_sequence.sv(77) @ 55: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.rst_seq [rst_check_seq] IO_ADDR register reset verified
+# 
+# ============== mem_addr_reg_inst reset check ==============
+# UVM_INFO dma_reg_sequence.sv(85) @ 55: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.rst_seq [SEQ] Register Reset Value : 0x0
+# UVM_INFO dma_driver.sv(48) @ 75: uvm_test_top.dma_e.dma_agt.dma_drv [DRV] READ : addr=40c rdata=0
+# UVM_INFO dma_monitor.sv(33) @ 75: uvm_test_top.dma_e.dma_agt.dma_mon [MON] MON : addr=40c wdata=0 rdata = 0 wr_en = 0 rd_en = 1
+# UVM_INFO dma_reg_sequence.sv(88) @ 75: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.rst_seq [SEQ] Read from DUT : 0x0
+# UVM_INFO dma_reg_sequence.sv(91) @ 75: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.rst_seq [rst_check_seq] MEM_ADDR register reset verified
+# 
+# ============== extra_info_reg_inst reset check ==============
+# UVM_INFO dma_reg_sequence.sv(100) @ 75: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.rst_seq [SEQ] Register Reset Value : 0x0
+# UVM_INFO dma_driver.sv(48) @ 95: uvm_test_top.dma_e.dma_agt.dma_drv [DRV] READ : addr=410 rdata=0
+# UVM_INFO dma_monitor.sv(33) @ 95: uvm_test_top.dma_e.dma_agt.dma_mon [MON] MON : addr=410 wdata=0 rdata = 0 wr_en = 0 rd_en = 1
+# UVM_INFO dma_reg_sequence.sv(103) @ 95: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.rst_seq [SEQ] Read from DUT : 0x0
+# UVM_INFO dma_reg_sequence.sv(106) @ 95: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.rst_seq [rst_check_seq] EXTRA_INFO register reset verified
+# 
+# ============== status_reg_inst reset check ==============
+# UVM_INFO dma_reg_sequence.sv(115) @ 95: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.rst_seq [SEQ] Register Reset Value : 0x0
+# UVM_INFO dma_driver.sv(48) @ 115: uvm_test_top.dma_e.dma_agt.dma_drv [DRV] READ : addr=414 rdata=0
+# UVM_INFO dma_monitor.sv(33) @ 115: uvm_test_top.dma_e.dma_agt.dma_mon [MON] MON : addr=414 wdata=0 rdata = 0 wr_en = 0 rd_en = 1
+# UVM_INFO dma_reg_sequence.sv(118) @ 115: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.rst_seq [SEQ] Read from DUT : 0x0
+# UVM_INFO dma_reg_sequence.sv(121) @ 115: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.rst_seq [rst_check_seq] STATUS register reset verified
+# 
+# ============== transfer_count_reg_inst reset check ==============
+# UVM_INFO dma_reg_sequence.sv(130) @ 115: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.rst_seq [SEQ] Register Reset Value : 0x0
+# UVM_INFO dma_driver.sv(48) @ 135: uvm_test_top.dma_e.dma_agt.dma_drv [DRV] READ : addr=418 rdata=0
+# UVM_INFO dma_monitor.sv(33) @ 135: uvm_test_top.dma_e.dma_agt.dma_mon [MON] MON : addr=418 wdata=0 rdata = 0 wr_en = 0 rd_en = 1
+# UVM_INFO dma_reg_sequence.sv(133) @ 135: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.rst_seq [SEQ] Read from DUT : 0x0
+# UVM_INFO dma_reg_sequence.sv(136) @ 135: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.rst_seq [rst_check_seq] TRANSFER_COUNT register reset verified
+# 
+# ============== descriptor_addr_reg_inst reset check ==============
+# UVM_INFO dma_reg_sequence.sv(145) @ 135: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.rst_seq [SEQ] Register Reset Value : 0x0
+# UVM_INFO dma_driver.sv(48) @ 155: uvm_test_top.dma_e.dma_agt.dma_drv [DRV] READ : addr=41c rdata=0
+# UVM_INFO dma_monitor.sv(33) @ 155: uvm_test_top.dma_e.dma_agt.dma_mon [MON] MON : addr=41c wdata=0 rdata = 0 wr_en = 0 rd_en = 1
+# UVM_INFO dma_reg_sequence.sv(148) @ 155: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.rst_seq [SEQ] Read from DUT : 0x0
+# UVM_INFO dma_reg_sequence.sv(151) @ 155: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.rst_seq [rst_check_seq] DESCRIPTOR_ADDR register reset verified
+# 
+# ============== error_status_reg_inst reset check ==============
+# UVM_INFO dma_reg_sequence.sv(160) @ 155: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.rst_seq [SEQ] Register Reset Value : 0x0
+# UVM_INFO dma_driver.sv(48) @ 175: uvm_test_top.dma_e.dma_agt.dma_drv [DRV] READ : addr=420 rdata=0
+# UVM_INFO dma_monitor.sv(33) @ 175: uvm_test_top.dma_e.dma_agt.dma_mon [MON] MON : addr=420 wdata=0 rdata = 0 wr_en = 0 rd_en = 1
+# UVM_INFO dma_reg_sequence.sv(163) @ 175: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.rst_seq [SEQ] Read from DUT : 0x0
+# UVM_INFO dma_reg_sequence.sv(166) @ 175: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.rst_seq [rst_check_seq] ERROR_STATUS register reset verified
+# 
+# ============== config_reg_inst reset check ==============
+# UVM_INFO dma_reg_sequence.sv(175) @ 175: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.rst_seq [SEQ] Register Reset Value : 0x0
+# UVM_INFO dma_driver.sv(48) @ 195: uvm_test_top.dma_e.dma_agt.dma_drv [DRV] READ : addr=424 rdata=0
+# UVM_INFO dma_monitor.sv(33) @ 195: uvm_test_top.dma_e.dma_agt.dma_mon [MON] MON : addr=424 wdata=0 rdata = 0 wr_en = 0 rd_en = 1
+# UVM_INFO dma_reg_sequence.sv(178) @ 195: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.rst_seq [SEQ] Read from DUT : 0x0
+# UVM_INFO dma_reg_sequence.sv(181) @ 195: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.rst_seq [rst_check_seq] CONFIG register reset verified
+# 
+# ============== ctrl reg seq check ==============
+# UVM_INFO dma_driver.sv(29) @ 195: uvm_test_top.dma_e.dma_agt.dma_drv [DRV] WRITE : addr=404 wdata=10015
+# UVM_INFO dma_monitor.sv(33) @ 215: uvm_test_top.dma_e.dma_agt.dma_mon [MON] MON : addr=404 wdata=10015 rdata = 0 wr_en = 1 rd_en = 0
+# UVM_INFO dma_reg_sequence.sv(249) @ 215: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.ctrl_seq [CTRL_SEQ] WRITE CTRL: start_dma=1 w_count=10 io_mem=1 (wdata=0x10015)
+# UVM_INFO dma_reg_sequence.sv(253) @ 215: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.ctrl_seq [SEQ] Write -> Des: 10015 Mir: 10015
+# UVM_INFO dma_driver.sv(48) @ 235: uvm_test_top.dma_e.dma_agt.dma_drv [DRV] READ : addr=404 rdata=10015
+# UVM_INFO dma_monitor.sv(33) @ 235: uvm_test_top.dma_e.dma_agt.dma_mon [MON] MON : addr=404 wdata=0 rdata = 10015 wr_en = 0 rd_en = 1
+# UVM_INFO dma_reg_sequence.sv(256) @ 235: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.ctrl_seq [CTRL_SEQ] READ  CTRL: start_dma=1 w_count=10 io_mem=1 (rdata=0x10015)
+# UVM_INFO dma_reg_sequence.sv(260) @ 235: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.ctrl_seq [CTRL_SEQ] read -> Des:10015 Mir:10015 
+# UVM_INFO dma_driver.sv(48) @ 255: uvm_test_top.dma_e.dma_agt.dma_drv [DRV] READ : addr=404 rdata=10014
+# UVM_INFO dma_monitor.sv(33) @ 255: uvm_test_top.dma_e.dma_agt.dma_mon [MON] MON : addr=404 wdata=0 rdata = 10014 wr_en = 0 rd_en = 1
+# UVM_INFO dma_reg_sequence.sv(263) @ 255: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.ctrl_seq [CTRL_SEQ] READ 2nd cycle CTRL: start_dma=0 w_count=10 io_mem=1 (rdata=0x10014)
+# UVM_INFO dma_reg_sequence.sv(267) @ 255: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.ctrl_seq [CTRL_SEQ] read 2nd cycle -> Des:10014 Mir:10014 
+# 
+# ============== io_addr reg seq check ==============
+# UVM_INFO dma_driver.sv(29) @ 255: uvm_test_top.dma_e.dma_agt.dma_drv [DRV] WRITE : addr=408 wdata=799749d0
+# UVM_INFO dma_monitor.sv(33) @ 275: uvm_test_top.dma_e.dma_agt.dma_mon [MON] MON : addr=408 wdata=799749d0 rdata = 10014 wr_en = 1 rd_en = 0
+# UVM_INFO dma_reg_sequence.sv(300) @ 275: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.io_addr_seq [SEQ] Write -> Des: 799749d0 Mir: 799749d0
+# UVM_INFO dma_driver.sv(48) @ 295: uvm_test_top.dma_e.dma_agt.dma_drv [DRV] READ : addr=408 rdata=799749d0
+# UVM_INFO dma_monitor.sv(33) @ 295: uvm_test_top.dma_e.dma_agt.dma_mon [MON] MON : addr=408 wdata=0 rdata = 799749d0 wr_en = 0 rd_en = 1
+# UVM_INFO dma_reg_sequence.sv(307) @ 295: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.io_addr_seq [IO_ADDR_SEQ] read  -> Des:799749d0 Mir:799749d0 
+# 
+# ============== mem_addr reg seq check ==============
+# UVM_INFO dma_driver.sv(29) @ 295: uvm_test_top.dma_e.dma_agt.dma_drv [DRV] WRITE : addr=40c wdata=c5114bc2
+# UVM_INFO dma_monitor.sv(33) @ 315: uvm_test_top.dma_e.dma_agt.dma_mon [MON] MON : addr=40c wdata=c5114bc2 rdata = 799749d0 wr_en = 1 rd_en = 0
+# UVM_INFO dma_reg_sequence.sv(334) @ 315: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.mem_addr_seq [mem SEQ] Write -> Des: c5114bc2 Mir: c5114bc2
+# UVM_INFO dma_driver.sv(48) @ 335: uvm_test_top.dma_e.dma_agt.dma_drv [DRV] READ : addr=40c rdata=c5114bc2
+# UVM_INFO dma_monitor.sv(33) @ 335: uvm_test_top.dma_e.dma_agt.dma_mon [MON] MON : addr=40c wdata=0 rdata = c5114bc2 wr_en = 0 rd_en = 1
+# UVM_INFO dma_reg_sequence.sv(341) @ 335: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.mem_addr_seq [mem SEQ] read -> Des: c5114bc2 Mir: c5114bc2
+# 
+# ============== extra_info reg seq check ==============
+# UVM_INFO dma_driver.sv(29) @ 335: uvm_test_top.dma_e.dma_agt.dma_drv [DRV] WRITE : addr=410 wdata=e4a0a1de
+# UVM_INFO dma_monitor.sv(33) @ 355: uvm_test_top.dma_e.dma_agt.dma_mon [MON] MON : addr=410 wdata=e4a0a1de rdata = c5114bc2 wr_en = 1 rd_en = 0
+# UVM_INFO dma_reg_sequence.sv(368) @ 355: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.extra_info_seq [SEQ] Write -> Des: e4a0a1de Mir: e4a0a1de
+# UVM_INFO dma_driver.sv(48) @ 375: uvm_test_top.dma_e.dma_agt.dma_drv [DRV] READ : addr=410 rdata=e4a0a1de
+# UVM_INFO dma_monitor.sv(33) @ 375: uvm_test_top.dma_e.dma_agt.dma_mon [MON] MON : addr=410 wdata=0 rdata = e4a0a1de wr_en = 0 rd_en = 1
+# UVM_INFO dma_reg_sequence.sv(373) @ 375: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.extra_info_seq [IO_ADDR_SEQ] read  -> Des:e4a0a1de Mir:e4a0a1de 
+# 
+# ============== DESCRIPTOR_addr reg seq check ==============
+# UVM_INFO dma_driver.sv(29) @ 375: uvm_test_top.dma_e.dma_agt.dma_drv [DRV] WRITE : addr=41c wdata=1c4e9d1a
+# UVM_INFO dma_monitor.sv(33) @ 395: uvm_test_top.dma_e.dma_agt.dma_mon [MON] MON : addr=41c wdata=1c4e9d1a rdata = e4a0a1de wr_en = 1 rd_en = 0
+# UVM_INFO dma_reg_sequence.sv(470) @ 395: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.descriptor_addr_seq [mem SEQ] Write -> Des: 1c4e9d1a Mir: 1c4e9d1a
+# UVM_INFO dma_driver.sv(48) @ 415: uvm_test_top.dma_e.dma_agt.dma_drv [DRV] READ : addr=41c rdata=1c4e9d1a
+# UVM_INFO dma_monitor.sv(33) @ 415: uvm_test_top.dma_e.dma_agt.dma_mon [MON] MON : addr=41c wdata=0 rdata = 1c4e9d1a wr_en = 0 rd_en = 1
+# UVM_INFO dma_reg_sequence.sv(477) @ 415: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.descriptor_addr_seq [mem SEQ] read -> Des: 1c4e9d1a Mir: 1c4e9d1a
+# 
+# ============== error_status reg seq check ==============
+# UVM_INFO dma_driver.sv(29) @ 415: uvm_test_top.dma_e.dma_agt.dma_drv [DRV] WRITE : addr=420 wdata=1
+# UVM_INFO dma_monitor.sv(33) @ 435: uvm_test_top.dma_e.dma_agt.dma_mon [MON] MON : addr=420 wdata=1 rdata = 1c4e9d1a wr_en = 1 rd_en = 0
+# UVM_INFO dma_reg_sequence.sv(502) @ 435: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.error_status_seq [SEQ] Write -> Des: 0 Mir: 0
+# UVM_INFO dma_driver.sv(48) @ 455: uvm_test_top.dma_e.dma_agt.dma_drv [DRV] READ : addr=420 rdata=0
+# UVM_INFO dma_monitor.sv(33) @ 455: uvm_test_top.dma_e.dma_agt.dma_mon [MON] MON : addr=420 wdata=0 rdata = 0 wr_en = 0 rd_en = 1
+# UVM_INFO dma_reg_sequence.sv(507) @ 455: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.error_status_seq [ERROR_SEQ] read  -> Des:0 Mir:0 
+# UVM_INFO dma_reg_sequence.sv(512) @ 455: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.error_status_seq [error_status_reg_seq] ERROR_STATUS register verified
+# 
+# 
+# ============== cOnfig reg seq check ==============
+# UVM_INFO dma_driver.sv(29) @ 455: uvm_test_top.dma_e.dma_agt.dma_drv [DRV] WRITE : addr=424 wdata=82
+# UVM_INFO dma_monitor.sv(33) @ 475: uvm_test_top.dma_e.dma_agt.dma_mon [MON] MON : addr=424 wdata=82 rdata = 0 wr_en = 1 rd_en = 0
+# UVM_INFO dma_reg_sequence.sv(535) @ 475: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.config_seq [SEQ] Write -> Des: 82 Mir: 82
+# UVM_INFO dma_driver.sv(48) @ 495: uvm_test_top.dma_e.dma_agt.dma_drv [DRV] READ : addr=424 rdata=82
+# UVM_INFO dma_monitor.sv(33) @ 495: uvm_test_top.dma_e.dma_agt.dma_mon [MON] MON : addr=424 wdata=0 rdata = 82 wr_en = 0 rd_en = 1
+# UVM_INFO dma_reg_sequence.sv(540) @ 495: uvm_test_top.dma_e.dma_agt.seqr@@regression_seq.config_seq [CONFIG_SEQ] read  -> Des:82 Mir:82 
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 495: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO dma_subscriber.sv(54) @ 495: uvm_test_top.dma_e.dma_subscrb [dma_subscriber] [INPUT] Coverage ------> 91.67%,
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :  105
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [CONFIG_SEQ]     1
+# [CTRL_SEQ]     5
+# [DRV]    25
+# [ERROR_SEQ]     1
+# [IO_ADDR_SEQ]     2
+# [MON]    25
+# [Questa UVM]     2
+# [RNTST]     1
+# [SEQ]    25
+# [TEST_DONE]     1
+# [dma_regression_seq]     1
+# [dma_subscriber]     1
+# [error_status_reg_seq]     1
+# [mem SEQ]     4
+# [rst_check_seq]    10
+# ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 495 ns  Iteration: 67  Instance: /top
+# Saving coverage database on exit...
+# End time: 15:35:14 on Jan 21,2026, Elapsed time: 0:00:04
+# Errors: 0, Warnings: 10

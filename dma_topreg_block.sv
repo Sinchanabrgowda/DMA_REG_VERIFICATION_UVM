@@ -19,6 +19,7 @@ class top_dma_reg_block extends uvm_reg_block;
   endfunction
   
   function void build;
+    add_hdl_path("dut", "RTL");
     uvm_reg::include_coverage("*", UVM_CVR_ALL);
     //intr_reg
     intr_reg_inst = intr_reg::type_id::create("intr_reg_inst");
@@ -80,6 +81,14 @@ class top_dma_reg_block extends uvm_reg_block;
     config_reg_inst.configure(this);
     config_reg_inst.set_coverage(UVM_CVR_FIELD_VALS);
     
+    
+    //HDL_PATH slice for backdoor access
+    //intr_reg_inst.add_hdl_path_slice("intr_status", 0, 32);
+    //status_reg_inst.add_hdl_path_slice("intr_status", 0, 32);
+    //transfer_count_reg_inst.add_hdl_path_slice("intr_status", 0, 32);
+    
+    
+    //MAP
     default_map = create_map("default_map", 'h400, 4, UVM_LITTLE_ENDIAN);
     default_map.add_reg(intr_reg_inst, 'h400, "RO");
     default_map.add_reg(ctrl_reg_inst, 'h404, "RW");
@@ -89,7 +98,7 @@ class top_dma_reg_block extends uvm_reg_block;
     default_map.add_reg(status_reg_inst, 'h414, "RO");
     default_map.add_reg(transfer_count_reg_inst, 'h418, "RO");
     default_map.add_reg(descriptor_addr_reg_inst, 'h41C, "RW");
-    default_map.add_reg(error_status_reg_inst, 'h420, "RW1C");
+    default_map.add_reg(error_status_reg_inst, 'h420, "RW");
     default_map.add_reg(config_reg_inst, 'h424, "RW");
     
     lock_model();

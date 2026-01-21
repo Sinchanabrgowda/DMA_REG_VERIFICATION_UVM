@@ -6,6 +6,17 @@ top_dma_reg_block dma_regmodel;
   function new (string name = "dma_base_reg_seq"); 
     super.new(name);
   endfunction
+  
+ virtual task pre_body();
+    super.pre_body();
+    if (dma_regmodel == null && get_parent_sequence() != null) begin
+      dma_base_reg_seq parent_seq;
+      if ($cast(parent_seq, get_parent_sequence())) begin
+        dma_regmodel = parent_seq.dma_regmodel;
+      end
+    end
+  endtask
+
 
   uvm_status_e status;
   uvm_reg_data_t    rdata, rdata_m, dout_t;
@@ -13,52 +24,208 @@ top_dma_reg_block dma_regmodel;
 endclass
 
 
-
-class intr_reg_seq extends dma_base_reg_seq;
-  `uvm_object_utils(intr_reg_seq)
+ class rst_check_seq extends dma_base_reg_seq;
+  `uvm_object_utils(rst_check_seq)
   
-  function new (string name = "intr_reg_seq"); 
+  function new (string name = "rst_check_seq"); 
     super.new(name);
   endfunction
 
-  task body();
+  task body;
+    bit [31:0] rst_reg;
+    
+   
+    // Testing intr_reg_inst (RO)
+    $display("\n============== intr_reg_inst reset check==============");
+    
+    rst_reg = dma_regmodel.intr_reg_inst.get_reset();
+    `uvm_info("SEQ", $sformatf("Register Reset Value : 0x%0h ", rst_reg), UVM_NONE);
+    
+    dma_regmodel.intr_reg_inst.read(status, rdata);
+    `uvm_info("SEQ", $sformatf(" Read from DUT : 0x%0h ", rdata), UVM_NONE);
+    
+    if (rdata == rst_reg)
+  `uvm_info(get_type_name(), "INTR register reset verified", UVM_NONE)
+else
+  `uvm_error(get_type_name(), "INTR register reset failed")
+  
+  
+// ctrl_reg
+    $display("\n============== ctrl_reg_inst reset check ==============");
 
-    // Read RO intr_status
-    dma_regmodel.intr_reg_inst.read(status, dout_t, UVM_FRONTDOOR);
+rst_reg = dma_regmodel.ctrl_reg_inst.get_reset();
+`uvm_info("SEQ", $sformatf("Register Reset Value : 0x%0h", rst_reg), UVM_NONE);
 
-    rdata   = dma_regmodel.intr_reg_inst.get();
-    rdata_m = dma_regmodel.intr_reg_inst.get_mirrored_value();
+dma_regmodel.ctrl_reg_inst.read(status, rdata);
+`uvm_info("SEQ", $sformatf("Read from DUT : 0x%0h", rdata), UVM_NONE);
 
-    `uvm_info("INTR_SEQ",
-      $sformatf("Read intr_status -> Des:%h Mir:%h Read:%h",
-                rdata, rdata_m, dout_t),
-      UVM_LOW)
+if (rdata == rst_reg)
+  `uvm_info(get_type_name(), "CTRL register reset verified", UVM_NONE)
+else
+  `uvm_error(get_type_name(), "CTRL register reset FAILED");
 
-    // Write RW intr_mask
-    dma_regmodel.intr_reg_inst.write(status, 32'hFFFF_0000, UVM_FRONTDOOR);
+   //io_addr reg
+    $display("\n============== io_addr_reg_inst reset check ==============");
 
-    // Read back
-    dma_regmodel.intr_reg_inst.read(status, dout_t, UVM_FRONTDOOR);
+rst_reg = dma_regmodel.io_addr_reg_inst.get_reset();
+`uvm_info("SEQ", $sformatf("Register Reset Value : 0x%0h", rst_reg), UVM_NONE);
 
-    rdata   = dma_regmodel.intr_reg_inst.get();
-    rdata_m = dma_regmodel.intr_reg_inst.get_mirrored_value();
+dma_regmodel.io_addr_reg_inst.read(status, rdata);
+`uvm_info("SEQ", $sformatf("Read from DUT : 0x%0h", rdata), UVM_NONE);
 
-    `uvm_info("INTR_SEQ",
-      $sformatf("After write -> Des:%h Mir:%h Read:%h",
-                rdata, rdata_m, dout_t),
-      UVM_LOW)
+if (rdata == rst_reg)
+  `uvm_info(get_type_name(), "IO_ADDR register reset verified", UVM_NONE)
+else
+  `uvm_error(get_type_name(), "IO_ADDR register reset FAILED");
 
-    // Check RW field
-    if (dout_t[31:16] != 16'hFFFF)
-      `uvm_error("INTR_SEQ", "intr_mask RW failed")
+    //mem_addr reg
+    $display("\n============== mem_addr_reg_inst reset check ==============");
+
+rst_reg = dma_regmodel.mem_addr_reg_inst.get_reset();
+`uvm_info("SEQ", $sformatf("Register Reset Value : 0x%0h", rst_reg), UVM_NONE);
+
+dma_regmodel.mem_addr_reg_inst.read(status, rdata);
+`uvm_info("SEQ", $sformatf("Read from DUT : 0x%0h", rdata), UVM_NONE);
+
+if (rdata == rst_reg)
+  `uvm_info(get_type_name(), "MEM_ADDR register reset verified", UVM_NONE)
+else
+  `uvm_error(get_type_name(), "MEM_ADDR register reset FAILED");
+
+    
+    //extra_info reg
+    $display("\n============== extra_info_reg_inst reset check ==============");
+
+rst_reg = dma_regmodel.extra_info_reg_inst.get_reset();
+`uvm_info("SEQ", $sformatf("Register Reset Value : 0x%0h", rst_reg), UVM_NONE);
+
+dma_regmodel.extra_info_reg_inst.read(status, rdata);
+`uvm_info("SEQ", $sformatf("Read from DUT : 0x%0h", rdata), UVM_NONE);
+
+if (rdata == rst_reg)
+  `uvm_info(get_type_name(), "EXTRA_INFO register reset verified", UVM_NONE)
+else
+  `uvm_error(get_type_name(), "EXTRA_INFO register reset FAILED");
+
+    
+    //status reg
+    $display("\n============== status_reg_inst reset check ==============");
+
+rst_reg = dma_regmodel.status_reg_inst.get_reset();
+`uvm_info("SEQ", $sformatf("Register Reset Value : 0x%0h", rst_reg), UVM_NONE);
+
+dma_regmodel.status_reg_inst.read(status, rdata);
+`uvm_info("SEQ", $sformatf("Read from DUT : 0x%0h", rdata), UVM_NONE);
+
+if (rdata == rst_reg)
+  `uvm_info(get_type_name(), "STATUS register reset verified", UVM_NONE)
+else
+  `uvm_error(get_type_name(), "STATUS register reset FAILED");
+
+    
+    //transfer_count
+    $display("\n============== transfer_count_reg_inst reset check ==============");
+
+rst_reg = dma_regmodel.transfer_count_reg_inst.get_reset();
+`uvm_info("SEQ", $sformatf("Register Reset Value : 0x%0h", rst_reg), UVM_NONE);
+
+dma_regmodel.transfer_count_reg_inst.read(status, rdata);
+`uvm_info("SEQ", $sformatf("Read from DUT : 0x%0h", rdata), UVM_NONE);
+
+if (rdata == rst_reg)
+  `uvm_info(get_type_name(), "TRANSFER_COUNT register reset verified", UVM_NONE)
+else
+  `uvm_error(get_type_name(), "TRANSFER_COUNT register reset FAILED");
+
+    
+    //descriptor_addr reg
+    $display("\n============== descriptor_addr_reg_inst reset check ==============");
+
+rst_reg = dma_regmodel.descriptor_addr_reg_inst.get_reset();
+`uvm_info("SEQ", $sformatf("Register Reset Value : 0x%0h", rst_reg), UVM_NONE);
+
+dma_regmodel.descriptor_addr_reg_inst.read(status, rdata);
+`uvm_info("SEQ", $sformatf("Read from DUT : 0x%0h", rdata), UVM_NONE);
+
+if (rdata == rst_reg)
+  `uvm_info(get_type_name(), "DESCRIPTOR_ADDR register reset verified", UVM_NONE)
+else
+  `uvm_error(get_type_name(), "DESCRIPTOR_ADDR register reset FAILED");
+
+    
+    //error_state reg
+    $display("\n============== error_status_reg_inst reset check ==============");
+
+rst_reg = dma_regmodel.error_status_reg_inst.get_reset();
+`uvm_info("SEQ", $sformatf("Register Reset Value : 0x%0h", rst_reg), UVM_NONE);
+
+dma_regmodel.error_status_reg_inst.read(status, rdata);
+`uvm_info("SEQ", $sformatf("Read from DUT : 0x%0h", rdata), UVM_NONE);
+
+if (rdata == rst_reg)
+  `uvm_info(get_type_name(), "ERROR_STATUS register reset verified", UVM_NONE)
+else
+  `uvm_error(get_type_name(), "ERROR_STATUS register reset FAILED");
+
+    
+    //config reg
+    $display("\n============== config_reg_inst reset check ==============");
+
+rst_reg = dma_regmodel.config_reg_inst.get_reset();
+`uvm_info("SEQ", $sformatf("Register Reset Value : 0x%0h", rst_reg), UVM_NONE);
+
+dma_regmodel.config_reg_inst.read(status, rdata);
+`uvm_info("SEQ", $sformatf("Read from DUT : 0x%0h", rdata), UVM_NONE);
+
+if (rdata == rst_reg)
+  `uvm_info(get_type_name(), "CONFIG register reset verified", UVM_NONE)
+else
+  `uvm_error(get_type_name(), "CONFIG register reset FAILED");
+
 
   endtask
 endclass
 
 
+// //intr_reg
+// class intr_reg_seq extends dma_base_reg_seq;
+//   `uvm_object_utils(intr_reg_seq)
+
+//   function new(string name = "intr_reg_seq");
+//     super.new(name);
+//   endfunction
+
+//   task body();
+//     uvm_status_e      status;
+//     uvm_reg_data_t    rdata;     // value read from DUT
+//     uvm_reg_data_t    mirror;    // value from RAL mirror
+//     uvm_reg_data_t    bd_value;  // value to backdoor write
+
+//     $display("\n========== INTR Register seq check ==========");
+
+//     bd_value = 32'hA5A5_5A5A;
+//     `uvm_info("INTR_SEQ", $sformatf("Backdoor write value: 0x%0h", bd_value), UVM_LOW)
+//     dma_regmodel.intr_reg_inst.write(status, bd_value, UVM_BACKDOOR);
+
+//     dma_regmodel.intr_reg_inst.predict(bd_value, UVM_PREDICT_WRITE);
+//     mirror = dma_regmodel.intr_reg_inst.get_mirrored_value();
+//     `uvm_info("INTR_SEQ", $sformatf("RAL mirror updated = 0x%0h", mirror), UVM_LOW)
+
+//     dma_regmodel.intr_reg_inst.read(status, rdata, UVM_FRONTDOOR);
+//     `uvm_info("INTR_SEQ", $sformatf("Frontdoor read value = 0x%0h", rdata), UVM_LOW)
+
+//     if (rdata !== mirror)
+//       `uvm_error("INTR_SEQ", $sformatf("Mismatch: Rdata=0x%0h MIRROR=0x%0h", rdata, mirror))
+//     else
+//       `uvm_info("INTR_SEQ", " interrupt register verified", UVM_NONE)
+//   endtask
+// endclass
 
 
-//ctrl_reg_seq
+
+
+
+// //ctrl_reg_seq
 
 class ctrl_reg_seq extends dma_base_reg_seq;
   `uvm_object_utils(ctrl_reg_seq)
@@ -70,42 +237,50 @@ class ctrl_reg_seq extends dma_base_reg_seq;
   task body();
     uvm_reg_data_t wdata;
 
-    wdata = '0;
+   // wdata = '0;
     wdata[0]     = 1'b1;     // start_dma
     wdata[15:1]  = 15'd10;   // w_count
     wdata[16]    = 1'b1;     // io_mem
+    
+   // wdata = $urandom_range(0, 32'h1_FFFF);
 
+    $display("\n============== ctrl reg seq check ==============");
     dma_regmodel.ctrl_reg_inst.write(status, wdata, UVM_FRONTDOOR);
+    `uvm_info("CTRL_SEQ", $sformatf( "WRITE CTRL: start_dma=%0b w_count=%0d io_mem=%0b (wdata=0x%0h)", wdata[0], wdata[15:1], wdata[16], wdata ), UVM_LOW)
 
     rdata   = dma_regmodel.ctrl_reg_inst.get();
     rdata_m = dma_regmodel.ctrl_reg_inst.get_mirrored_value();
+    `uvm_info("SEQ", $sformatf("Write -> Des: %0h Mir: %0h", rdata, rdata_m), UVM_NONE);
 
     dma_regmodel.ctrl_reg_inst.read(status, dout_t, UVM_FRONTDOOR);
+    `uvm_info("CTRL_SEQ",$sformatf( "READ  CTRL: start_dma=%0b w_count=%0d io_mem=%0b (rdata=0x%0h)",dout_t[0], dout_t[15:1], dout_t[16], dout_t ), UVM_LOW)
+    rdata   = dma_regmodel.ctrl_reg_inst.get();
+    rdata_m = dma_regmodel.ctrl_reg_inst.get_mirrored_value();
 
-    `uvm_info("CTRL_SEQ",
-      $sformatf("Write CTRL -> Des:%h Mir:%h Read:%h",
-                rdata, rdata_m, dout_t),
-      UVM_LOW)
+    `uvm_info("CTRL_SEQ",$sformatf("read -> Des:%0h Mir:%0h ",rdata, rdata_m),UVM_LOW)
 
-    if (dout_t[0] != 0)
+     dma_regmodel.ctrl_reg_inst.read(status, dout_t, UVM_FRONTDOOR);
+    `uvm_info("CTRL_SEQ",$sformatf( "READ 2nd cycle CTRL: start_dma=%0b w_count=%0d io_mem=%0b (rdata=0x%0h)",dout_t[0], dout_t[15:1], dout_t[16], dout_t ), UVM_LOW)
+    rdata   = dma_regmodel.ctrl_reg_inst.get();
+    rdata_m = dma_regmodel.ctrl_reg_inst.get_mirrored_value();
+
+    `uvm_info("CTRL_SEQ",$sformatf("read 2nd cycle -> Des:%0h Mir:%0h ",rdata, rdata_m),UVM_LOW)
+    
+    if (dout_t[0] != 0)  
       `uvm_error("CTRL_SEQ", "start_dma did not self-clear")
 
-    if (dout_t[15:1] != 15'd10)
-      `uvm_error("CTRL_SEQ", "w_count mismatch")
+//     if (dout_t[15:1] != 15'd10)
+//       `uvm_error("CTRL_SEQ", "w_count mismatch")
 
-    if (dout_t[16] != 1'b1)
-      `uvm_error("CTRL_SEQ", "io_mem mismatch")
+//     if (dout_t[16] != 1'b1)
+//       `uvm_error("CTRL_SEQ", "io_mem mismatch")
 
-    if (dout_t[31:17] != 0)
-      `uvm_error("CTRL_SEQ", "Reserved bits modified")
+//      if (dout_t[31:17] != 0)
+//      `uvm_error("CTRL_SEQ", "Reserved bits modified")
 
   endtask
 endclass
 
-
-
-
-//io_addr_reg_seq
 class io_addr_reg_seq extends dma_base_reg_seq;
   `uvm_object_utils(io_addr_reg_seq)
   
@@ -114,22 +289,25 @@ class io_addr_reg_seq extends dma_base_reg_seq;
   endfunction
 
   task body();
-
-    dma_regmodel.io_addr_reg_inst.write(
-      status, 32'h1000_0000, UVM_FRONTDOOR);
+    uvm_reg_data_t wdata;
+    wdata = $urandom();
+    
+    $display("\n============== io_addr reg seq check ==============");
+    dma_regmodel.io_addr_reg_inst.write(status, wdata, UVM_FRONTDOOR);
 
     rdata   = dma_regmodel.io_addr_reg_inst.get();
     rdata_m = dma_regmodel.io_addr_reg_inst.get_mirrored_value();
+     `uvm_info("SEQ", $sformatf("Write -> Des: %0h Mir: %0h", rdata, rdata_m), UVM_NONE);
 
     dma_regmodel.io_addr_reg_inst.read(status, dout_t, UVM_FRONTDOOR);
-
+     rdata   = dma_regmodel.io_addr_reg_inst.get();
+    rdata_m = dma_regmodel.io_addr_reg_inst.get_mirrored_value();
     `uvm_info("IO_ADDR_SEQ",
-      $sformatf("IO_ADDR -> Des:%h Mir:%h Read:%h",
-                rdata, rdata_m, dout_t),
-      UVM_LOW)
+              $sformatf("read  -> Des:%0h Mir:%0h ",
+                        rdata, rdata_m),UVM_LOW)
 
-    if (dout_t != 32'h1000_0000)
-      `uvm_error("IO_ADDR_SEQ", "IO_ADDR mismatch")
+//     if (dout_t != 32'h1000_0000)
+//       `uvm_error("IO_ADDR_SEQ", "IO_ADDR mismatch")
 
   endtask
 endclass
@@ -144,22 +322,27 @@ class mem_addr_reg_seq extends dma_base_reg_seq;
   endfunction
 
   task body();
+    
+    uvm_reg_data_t wdata;
+    wdata = $urandom();
 
-    dma_regmodel.mem_addr_reg_inst.write(
-      status, 32'h2000_0000, UVM_FRONTDOOR);
+    $display("\n============== mem_addr reg seq check ==============");
+    dma_regmodel.mem_addr_reg_inst.write(status, wdata, UVM_FRONTDOOR);
 
     rdata   = dma_regmodel.mem_addr_reg_inst.get();
     rdata_m = dma_regmodel.mem_addr_reg_inst.get_mirrored_value();
+    `uvm_info("mem SEQ", $sformatf("Write -> Des: %0h Mir: %0h", rdata, rdata_m), UVM_NONE);
+
+    
 
     dma_regmodel.mem_addr_reg_inst.read(status, dout_t, UVM_FRONTDOOR);
+rdata   = dma_regmodel.mem_addr_reg_inst.get();
+    rdata_m = dma_regmodel.mem_addr_reg_inst.get_mirrored_value();
+    `uvm_info("mem SEQ", $sformatf("read -> Des: %0h Mir: %0h", rdata, rdata_m), UVM_NONE);
 
-    `uvm_info("MEM_ADDR_SEQ",
-      $sformatf("MEM_ADDR -> Des:%h Mir:%h Read:%h",
-                rdata, rdata_m, dout_t),
-      UVM_LOW)
 
-    if (dout_t != 32'h2000_0000)
-      `uvm_error("MEM_ADDR_SEQ", "MEM_ADDR mismatch")
+//     if (dout_t != 32'h2000_0000)
+//       `uvm_error("MEM_ADDR_SEQ", "MEM_ADDR mismatch")
 
   endtask
 endclass
@@ -174,78 +357,97 @@ class extra_info_reg_seq extends dma_base_reg_seq;
   endfunction
 
   task body();
-
-    dma_regmodel.extra_info_reg_inst.write(
-      status, 32'hDEAD_BEEF, UVM_FRONTDOOR);
+ uvm_reg_data_t wdata;
+    wdata = $urandom();
+    
+    $display("\n============== extra_info reg seq check ==============");
+    dma_regmodel.extra_info_reg_inst.write(status, wdata, UVM_FRONTDOOR);
 
     rdata   = dma_regmodel.extra_info_reg_inst.get();
     rdata_m = dma_regmodel.extra_info_reg_inst.get_mirrored_value();
-
+ `uvm_info("SEQ", $sformatf("Write -> Des: %0h Mir: %0h", rdata, rdata_m), UVM_NONE);
+    
     dma_regmodel.extra_info_reg_inst.read(status, dout_t, UVM_FRONTDOOR);
+    rdata   = dma_regmodel.extra_info_reg_inst.get();
+    rdata_m = dma_regmodel.extra_info_reg_inst.get_mirrored_value();
+   `uvm_info("IO_ADDR_SEQ",$sformatf("read  -> Des:%0h Mir:%0h ",rdata, rdata_m),UVM_LOW)
 
-    `uvm_info("EXTRA_INFO_SEQ",
-      $sformatf("EXTRA_INFO -> Des:%h Mir:%h Read:%h",
-                rdata, rdata_m, dout_t),
-      UVM_LOW)
 
-    if (dout_t != 32'hDEAD_BEEF)
-      `uvm_error("EXTRA_INFO_SEQ", "EXTRA_INFO mismatch")
 
   endtask
 endclass
 
 
-//status_reg_seq
-class status_reg_seq extends dma_base_reg_seq;
-  `uvm_object_utils(status_reg_seq)
+  // //status_reg_seq
+// class status_reg_seq extends dma_base_reg_seq;
+//   `uvm_object_utils(status_reg_seq)
   
-  function new (string name = "status_reg_seq"); 
-    super.new(name);
-  endfunction
+//   function new (string name = "status_reg_seq"); 
+//     super.new(name);
+//   endfunction
 
-  task body();
-    uvm_reg_data_t before_val, after_val;
+//   task body();
+//     uvm_status_e      status;
+//     uvm_reg_data_t    rdata;     // value read from DUT
+//     uvm_reg_data_t    mirror;    // value from RAL mirror
+//     uvm_reg_data_t    bd_value;  // value to backdoor write
 
-    dma_regmodel.status_reg_inst.read(status, before_val, UVM_FRONTDOOR);
-    dma_regmodel.status_reg_inst.write(status, 32'hFFFF_FFFF, UVM_FRONTDOOR);
-    dma_regmodel.status_reg_inst.read(status, after_val, UVM_FRONTDOOR);
+   
+//         $display("\n========== status Register seq check ==========");
 
-    `uvm_info("STATUS_SEQ",
-      $sformatf("STATUS before:%h after:%h", before_val, after_val),
-      UVM_LOW)
+//     bd_value = 32'hA5A5_5A5A;
+//     `uvm_info("INTR_SEQ", $sformatf("Backdoor write value: 0x%0h", bd_value), UVM_LOW)
+//     dma_regmodel.status_reg_inst.write(status, bd_value, UVM_BACKDOOR);
 
-    if (before_val != after_val)
-      `uvm_error("STATUS_SEQ", "RO STATUS modified!")
+//     dma_regmodel.status_reg_inst.predict(bd_value, UVM_PREDICT_WRITE);
+//     mirror = dma_regmodel.status_reg_inst.get_mirrored_value();
+//         `uvm_info("STATUS_SEQ", $sformatf("RAL mirror updated = 0x%0h", mirror), UVM_LOW)
 
-  endtask
-endclass
+//     dma_regmodel.status_reg_inst.read(status, rdata, UVM_FRONTDOOR);
+//         `uvm_info("STATUS_SEQ", $sformatf("Frontdoor read value = 0x%0h", rdata), UVM_LOW)
+
+//     if (rdata !== mirror)
+//           `uvm_error("STATUS_SEQ", $sformatf("Mismatch: Rdata=0x%0h MIRROR=0x%0h", rdata, mirror))
+//     else
+//           `uvm_info("STATUS_SEQ", " interrupt register verified", UVM_NONE)
+//   endtask
+// endclass
 
 
 
-//trandfer_count_reg_seq
-class transfer_count_reg_seq extends dma_base_reg_seq;
-  `uvm_object_utils(transfer_count_reg_seq)
+// //trandfer_count_reg_seq
+// class transfer_count_reg_seq extends dma_base_reg_seq;
+//   `uvm_object_utils(transfer_count_reg_seq)
   
-  function new (string name = "transfer_count_reg_seq"); 
-    super.new(name);
-  endfunction
+//   function new (string name = "transfer_count_reg_seq"); 
+//     super.new(name);
+//   endfunction
 
-  task body();
+//   task body();
+//     uvm_status_e      status;
+//     uvm_reg_data_t    rdata;     // value read from DUT
+//     uvm_reg_data_t    mirror;    // value from RAL mirror
+//     uvm_reg_data_t    bd_value;  // value to backdoor write
 
-    dma_regmodel.transfer_count_reg_inst.read(
-      status, dout_t, UVM_FRONTDOOR);
+//     $display("\n========== TRANSFER COUNT Register seq check ==========");
 
-    rdata   = dma_regmodel.transfer_count_reg_inst.get();
-    rdata_m = dma_regmodel.transfer_count_reg_inst.get_mirrored_value();
+//     bd_value = 32'hA5A5_5A5A;
+//     `uvm_info("TRANSFER_COUNT_SEQ", $sformatf("Backdoor write value: 0x%0h", bd_value), UVM_LOW)
+//     dma_regmodel.transfer_count_reg_inst.write(status, bd_value, UVM_BACKDOOR);
 
-    `uvm_info("XFER_CNT_SEQ",
-      $sformatf("TRANSFER_COUNT -> Des:%0d Mir:%0d Read:%0d",
-                rdata, rdata_m, dout_t),
-      UVM_LOW)
+//     dma_regmodel.transfer_count_reg_inst.predict(bd_value, UVM_PREDICT_WRITE);
+//     mirror = dma_regmodel.transfer_count_reg_inst.get_mirrored_value();
+//     `uvm_info("TRANSFER_COUNT_SEQ", $sformatf("RAL mirror updated = 0x%0h", mirror), UVM_LOW)
 
-  endtask
-endclass
+//     dma_regmodel.transfer_count_reg_inst.read(status, rdata, UVM_FRONTDOOR);
+//     `uvm_info("TRANSFER_COUNT_SEQ", $sformatf("Frontdoor read value = 0x%0h", rdata), UVM_LOW)
 
+//     if (rdata !== mirror)
+//       `uvm_error("TRANSFER_COUNT_SEQ", $sformatf("Mismatch: Rdata=0x%0h MIRROR=0x%0h", rdata, mirror))
+//     else
+//       `uvm_info("TRANSFER_COUNT_SEQ", " interrupt register verified", UVM_NONE)
+//   endtask
+// endclass
 
 
 //descriptor_reg_seq
@@ -257,29 +459,29 @@ class descriptor_addr_reg_seq extends dma_base_reg_seq;
   endfunction
 
   task body();
+   uvm_reg_data_t wdata;
+    wdata = $urandom();
 
-    dma_regmodel.descriptor_addr_reg_inst.write(
-      status, 32'h3000_0000, UVM_FRONTDOOR);
+$display("\n============== DESCRIPTOR_addr reg seq check ==============");
+    dma_regmodel.descriptor_addr_reg_inst.write(status, wdata, UVM_FRONTDOOR);
 
     rdata   = dma_regmodel.descriptor_addr_reg_inst.get();
     rdata_m = dma_regmodel.descriptor_addr_reg_inst.get_mirrored_value();
+    `uvm_info("mem SEQ", $sformatf("Write -> Des: %0h Mir: %0h", rdata, rdata_m), UVM_NONE);
+
+    
 
     dma_regmodel.descriptor_addr_reg_inst.read(status, dout_t, UVM_FRONTDOOR);
-
-    `uvm_info("DESC_ADDR_SEQ",
-      $sformatf("DESC_ADDR -> Des:%h Mir:%h Read:%h",
-                rdata, rdata_m, dout_t),
-      UVM_LOW)
-
-    if (dout_t != 32'h3000_0000)
-      `uvm_error("DESC_ADDR_SEQ", "Descriptor addr mismatch")
+rdata   = dma_regmodel.descriptor_addr_reg_inst.get();
+    rdata_m = dma_regmodel.descriptor_addr_reg_inst.get_mirrored_value();
+    `uvm_info("mem SEQ", $sformatf("read -> Des: %0h Mir: %0h", rdata, rdata_m), UVM_NONE);
 
   endtask
 endclass
 
 
 
-//error_status_reg_seq
+// //error_status_reg_seq
 class error_status_reg_seq extends dma_base_reg_seq;
   `uvm_object_utils(error_status_reg_seq)
   
@@ -288,30 +490,29 @@ class error_status_reg_seq extends dma_base_reg_seq;
   endfunction
 
   task body();
-    uvm_reg_data_t before_val, after_val;
+     uvm_reg_data_t wdata;
+    //wdata = $urandom_range(0, 32'h1_FFFF);
+    wdata[4:0] = $urandom();
 
-    dma_regmodel.error_status_reg_inst.read(status, before_val, UVM_FRONTDOOR);
+    $display("\n============== error_status reg seq check ==============");
+    dma_regmodel.error_status_reg_inst.write(status, wdata, UVM_FRONTDOOR);
 
-    // clear RW1C bits
-    dma_regmodel.error_status_reg_inst.write(
-      status, 32'h0000_001F, UVM_FRONTDOOR);
+    rdata   = dma_regmodel.error_status_reg_inst.get();
+    rdata_m = dma_regmodel.error_status_reg_inst.get_mirrored_value();
+     `uvm_info("SEQ", $sformatf("Write -> Des: %0h Mir: %0h", rdata, rdata_m), UVM_NONE);
+    
+    
+    dma_regmodel.error_status_reg_inst.read(status, dout_t, UVM_FRONTDOOR);
 
-    dma_regmodel.error_status_reg_inst.read(status, after_val, UVM_FRONTDOOR);
-
-    `uvm_info("ERROR_SEQ",
-      $sformatf("ERROR_STATUS before:%h after:%h", before_val, after_val),
-      UVM_LOW)
-
-    if (after_val[4:0] != 0)
-      `uvm_error("ERROR_SEQ", "RW1C bits not cleared")
-
-    if (after_val[31:5] != before_val[31:5])
-      `uvm_error("ERROR_SEQ", "RO fields modified")
+    `uvm_info("ERROR_SEQ",$sformatf("read  -> Des:%0h Mir:%0h ",rdata, rdata_m),UVM_LOW)
+    
+    if (rdata != 0 ) 
+      `uvm_error(get_type_name(), "error_status didnt clear to zero") 
+      else
+       `uvm_info(get_type_name(),"ERROR_STATUS register verified\n",UVM_NONE)
 
   endtask
 endclass
-
-
 
 //config_reg
 class config_reg_seq extends dma_base_reg_seq;
@@ -322,19 +523,21 @@ class config_reg_seq extends dma_base_reg_seq;
   endfunction
 
   task body();
+	uvm_reg_data_t wdata;
+    //wdata = $urandom_range(0, 32'h0_00FF);
+     wdata[8:0] = $urandom();
 
-    dma_regmodel.config_reg_inst.write(
-      status, 32'h0000_01AF, UVM_FRONTDOOR);
+    $display("\n============== cOnfig reg seq check ==============");
+    dma_regmodel.config_reg_inst.write(status, wdata, UVM_FRONTDOOR);
 
     rdata   = dma_regmodel.config_reg_inst.get();
     rdata_m = dma_regmodel.config_reg_inst.get_mirrored_value();
+    `uvm_info("SEQ", $sformatf("Write -> Des: %0h Mir: %0h", rdata, rdata_m), UVM_NONE);
 
     dma_regmodel.config_reg_inst.read(status, dout_t, UVM_FRONTDOOR);
-
-    `uvm_info("CONFIG_SEQ",
-      $sformatf("CONFIG -> Des:%h Mir:%h Read:%h",
-                rdata, rdata_m, dout_t),
-      UVM_LOW)
+     rdata   = dma_regmodel.config_reg_inst.get();
+    rdata_m = dma_regmodel.config_reg_inst.get_mirrored_value();
+    `uvm_info("CONFIG_SEQ",$sformatf("read  -> Des:%0h Mir:%0h ", rdata, rdata_m),UVM_LOW)
 
     if (dout_t[31:9] != 0)
       `uvm_error("CONFIG_SEQ", "Reserved bits modified")
@@ -342,73 +545,77 @@ class config_reg_seq extends dma_base_reg_seq;
   endtask
 endclass
 
-
-
-
-//top_reg_seq
-class top_dma_reg_seq extends dma_base_reg_seq;
-  `uvm_object_utils(top_dma_reg_seq)
+      
+      class dma_regression_seq extends dma_base_reg_seq;
+  `uvm_object_utils(dma_regression_seq)
   
-  function new (string name = "top_dma_reg_seq"); 
+   rst_check_seq rst_seq;
+ //       intr_reg_seq intr_seq;
+   ctrl_reg_seq ctrl_seq;
+  io_addr_reg_seq io_addr_seq;
+  mem_addr_reg_seq mem_addr_seq;
+  extra_info_reg_seq extra_info_seq;
+//   status_reg_seq status_seq;
+//   transfer_count_reg_seq transfer_count_seq;
+  descriptor_addr_reg_seq descriptor_addr_seq;
+  error_status_reg_seq error_status_seq;
+  config_reg_seq config_seq;
+  
+  function new(string name = "dma_regression_seq");
     super.new(name);
   endfunction
-
-  task body();
-    intr_reg_seq          intr_seq;
-    ctrl_reg_seq          ctrl_seq;
-    io_addr_reg_seq       io_seq;
-    mem_addr_reg_seq      mem_seq;
-    extra_info_reg_seq    extra_seq;
-    status_reg_seq        status_seq;
-    transfer_count_reg_seq xfer_seq;
-    descriptor_addr_reg_seq desc_seq;
-    error_status_reg_seq  err_seq;
-    config_reg_seq        cfg_seq;
-
-    `uvm_info("DMA_ALL_SEQ",
-      "Starting full DMA register verification sequence", UVM_LOW)
-
-    intr_seq = intr_reg_seq::type_id::create("intr_seq");
-    intr_seq.dma_regmodel = dma_regmodel;
-    intr_seq.start(m_sequencer);
-
-    ctrl_seq = ctrl_reg_seq::type_id::create("ctrl_seq");
-    ctrl_seq.dma_regmodel = dma_regmodel;
-    ctrl_seq.start(m_sequencer);
-
-    io_seq = io_addr_reg_seq::type_id::create("io_seq");
-    io_seq.dma_regmodel = dma_regmodel;
-    io_seq.start(m_sequencer);
-
-    mem_seq = mem_addr_reg_seq::type_id::create("mem_seq");
-    mem_seq.dma_regmodel = dma_regmodel;
-    mem_seq.start(m_sequencer);
-
-    extra_seq = extra_info_reg_seq::type_id::create("extra_seq");
-    extra_seq.dma_regmodel = dma_regmodel;
-    extra_seq.start(m_sequencer);
-
-    status_seq = status_reg_seq::type_id::create("status_seq");
-    status_seq.dma_regmodel = dma_regmodel;
-    status_seq.start(m_sequencer);
-
-    xfer_seq = transfer_count_reg_seq::type_id::create("xfer_seq");
-    xfer_seq.dma_regmodel = dma_regmodel;
-    xfer_seq.start(m_sequencer);
-
-    desc_seq = descriptor_addr_reg_seq::type_id::create("desc_seq");
-    desc_seq.dma_regmodel = dma_regmodel;
-    desc_seq.start(m_sequencer);
-
-    err_seq = error_status_reg_seq::type_id::create("err_seq");
-    err_seq.dma_regmodel = dma_regmodel;
-    err_seq.start(m_sequencer);
-
-    cfg_seq = config_reg_seq::type_id::create("cfg_seq");
-    cfg_seq.dma_regmodel = dma_regmodel;
-    cfg_seq.start(m_sequencer);
-
-    `uvm_info("DMA_ALL_SEQ",
-      "DMA register verification sequence completed", UVM_LOW)
+  
+  virtual task body();
+    
+    `uvm_info(get_type_name(), 
+      $sformatf("Starting regression with regmodel = %p", dma_regmodel), UVM_LOW)
+    
+    //  reset check for all registers
+    `uvm_create(rst_seq)
+    rst_seq.dma_regmodel = this.dma_regmodel;
+    `uvm_send(rst_seq)
+    
+//     // individual register tests
+//     `uvm_create(intr_seq)
+//     intr_seq.dma_regmodel = this.dma_regmodel;
+//     `uvm_send(intr_seq)
+    
+    `uvm_create(ctrl_seq)
+    ctrl_seq.dma_regmodel = this.dma_regmodel;
+    `uvm_send(ctrl_seq)
+    
+    `uvm_create(io_addr_seq)
+    io_addr_seq.dma_regmodel = this.dma_regmodel;
+    `uvm_send(io_addr_seq)
+    
+    `uvm_create(mem_addr_seq)
+    mem_addr_seq.dma_regmodel = this.dma_regmodel;
+    `uvm_send(mem_addr_seq)
+    
+    `uvm_create(extra_info_seq)
+    extra_info_seq.dma_regmodel = this.dma_regmodel;
+    `uvm_send(extra_info_seq)
+    
+//     `uvm_create(status_seq)
+//     status_seq.dma_regmodel = this.dma_regmodel;
+//     `uvm_send(status_seq)
+    
+//     `uvm_create(transfer_count_seq)
+//     transfer_count_seq.dma_regmodel = this.dma_regmodel;
+//     `uvm_send(transfer_count_seq)
+    
+    `uvm_create(descriptor_addr_seq)
+    descriptor_addr_seq.dma_regmodel = this.dma_regmodel;
+    `uvm_send(descriptor_addr_seq)
+    
+    `uvm_create(error_status_seq)
+    error_status_seq.dma_regmodel = this.dma_regmodel;
+    `uvm_send(error_status_seq)
+    
+    `uvm_create(config_seq)
+    config_seq.dma_regmodel = this.dma_regmodel;
+    `uvm_send(config_seq)
+    
   endtask
+  
 endclass

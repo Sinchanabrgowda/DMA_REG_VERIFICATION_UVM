@@ -5,7 +5,7 @@ class dma_env extends uvm_env;
   top_dma_reg_block dma_regmodel;
   top_dma_adapter dma_adapter;
   uvm_reg_predictor #(dma_seq_item) dma_predictor_inst;
- // dma_scoreboard dma_scb;
+  dma_subscriber dma_subscrb;
   
   function new(string name = "dma_env", uvm_component parent);
     super.new(name, parent);
@@ -15,7 +15,7 @@ class dma_env extends uvm_env;
     super.build_phase(phase);
     dma_predictor_inst = uvm_reg_predictor#(dma_seq_item)::type_id::create("dma_predictor_inst", this);
     dma_agt = dma_agent::type_id::create("dma_agt", this);
- //   dma_scb = dma_scoreboard::type_id::create("dma_scb", this);
+    dma_subscrb = dma_subscriber::type_id::create("dma_subscrb", this);
     dma_regmodel = top_dma_reg_block::type_id::create("dma_regmodel", this);
     dma_regmodel.build();
     dma_adapter = top_dma_adapter::type_id::create("dma_adapter", this);
@@ -24,7 +24,7 @@ class dma_env extends uvm_env;
   function void connect_phase(uvm_phase phase);
     super.connect_phase(phase);
     
-   // dma_agt.dma_mon.mon_port.connect(dma_scb.scb_port);
+    dma_agt.dma_mon.mon_port.connect(dma_subscrb.subscrb_port);
     
     dma_regmodel.default_map.set_sequencer(.sequencer(dma_agt.seqr),.adapter(dma_adapter));
     dma_regmodel.default_map.set_base_addr(0);

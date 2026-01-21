@@ -1,9 +1,10 @@
 `include "uvm_macros.svh"
 `include "dma_pkg.sv"
 `include "dma_interface.sv"
+`include "design.sv"
 module top;
   bit clk =0;
-  logic rst = 0;
+  logic rst_n = 0;
   
   always #5 clk =~clk;
   
@@ -11,20 +12,21 @@ module top;
   import uvm_pkg::*;
   
   initial begin
-    rst = 1'b1;
-    #20 rst = 1'b0;
+    rst_n = 1'b0;
+    #20 rst_n = 1'b1;
   end
   
   dma_interface vif(clk);
   
-//   dma rtl_dma_inst(
-//     .clk(clk),
-//     .rst(rst),
-//     .wdata(vif.wdata),
-//     .rdata(vif.rdata),
-//     .addr(vif.addr),
-//     .wr_en(vif.wr_en)
-//   );
+  dma_design_ dut(
+    .clk(clk),
+      .rst_n(rst_n),
+    .wdata(vif.wdata),
+    .rdata(vif.rdata),
+    .addr(vif.addr),
+    .wr_en(vif.wr_en),
+  	   .rd_en(vif.rd_en)
+  );
 
   
   initial begin
@@ -33,7 +35,8 @@ module top;
   end
   
   initial begin
-    run_test("dma_test");
+    run_test("dma_regression_test");
     #100 $finish;
   end
 endmodule
+  
