@@ -9,6 +9,7 @@ dma_pkg.sv
 dma_reg_class.sv
 dma_reg_sequence.sv
 dma_sequence_item.sv
+dma_sequencer.sv
 dma_subscriber.sv
 dma_test.sv
 dma_topreg_block.sv

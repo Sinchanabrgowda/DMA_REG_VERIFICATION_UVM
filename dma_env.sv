@@ -17,7 +17,8 @@ class dma_env extends uvm_env;
     dma_agt = dma_agent::type_id::create("dma_agt", this);
     dma_subscrb = dma_subscriber::type_id::create("dma_subscrb", this);
     dma_regmodel = top_dma_reg_block::type_id::create("dma_regmodel", this);
-    dma_regmodel.build();
+dma_regmodel.set_hdl_path_root("top.dut");   
+ dma_regmodel.build();
     dma_adapter = top_dma_adapter::type_id::create("dma_adapter", this);
   endfunction
   

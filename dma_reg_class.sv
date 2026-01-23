@@ -2,7 +2,7 @@
 class intr_reg extends uvm_reg;
   `uvm_object_utils(intr_reg)
 
-  uvm_reg_field intr_status;
+  rand uvm_reg_field intr_status;
   rand uvm_reg_field intr_mask;
 
   //coverage
@@ -10,7 +10,7 @@ class intr_reg extends uvm_reg;
     option.per_instance = 1;
     coverpoint intr_status.value[15:0]
     {
-      bins intr_status_bin = {[16'h0:16'h15]};
+      bins intr_status_bin = {[16'h0000 : 16'hFFFF]};
     }
   endgroup
 
@@ -18,7 +18,7 @@ class intr_reg extends uvm_reg;
     option.per_instance = 1;
     coverpoint intr_mask.value[31:16]
     {
-      bins intr_mask_bin = {[16'h16:16'h31]};
+      bins intr_mask_bin = {[16'h0000 : 16'hFFFF]};
     }
   endgroup
 
@@ -52,7 +52,7 @@ class intr_reg extends uvm_reg;
   //build func
   function void build;
     intr_status = uvm_reg_field::type_id::create("intr_status");
-    intr_status.configure(this, 16, 0, "RO", 0, 16'h0, 1, 1, 1);
+    intr_status.configure(this, 16, 0, "RO", 0, 16'h0, 1, 0, 1);
     intr_mask = uvm_reg_field::type_id::create("intr_mask");
     intr_mask.configure(this, 16, 16, "RW", 0, 16'h0, 1, 1, 1);
   endfunction
@@ -74,8 +74,7 @@ covergroup start_dma_cov;
     option.per_instance = 1;
    coverpoint start_dma.value[0]
    {
-      bins idle  = {0};
-      bins start = {1};
+     bins start_dma  = {0, 1};
     }
   endgroup
 
@@ -83,7 +82,7 @@ covergroup start_dma_cov;
 covergroup w_count_cov;
     option.per_instance = 1;
    coverpoint w_count.value[15:1] {
-      bins low = {[1:16]};
+     bins low = {[0:16]};
       bins med = {[17:32]};
       bins high = {[33:32767]}; 
     }
@@ -92,15 +91,7 @@ covergroup w_count_cov;
   covergroup io_mem_cov;
     option.per_instance = 1;
     coverpoint io_mem.value[16] {
-      bins io_to_mem = {0};
-      bins mem_to_io = {1};
-    }
-  endgroup
-
-  covergroup reserved_cov;
-    option.per_instance = 1;
-    coverpoint reserved.value[31:17] {
-      bins always0 = {0};
+      bins io_to_mem = {0, 1};
     }
   endgroup
 
@@ -113,7 +104,6 @@ covergroup w_count_cov;
       start_dma_cov = new();
       w_count_cov   = new();
       io_mem_cov    = new();
-      reserved_cov  = new();
     end
   endfunction
 
@@ -128,7 +118,6 @@ covergroup w_count_cov;
     start_dma_cov.sample();
     w_count_cov.sample();
     io_mem_cov.sample();
-    reserved_cov.sample();
   endfunction
 
   virtual function void sample_values();
@@ -136,7 +125,6 @@ covergroup w_count_cov;
     start_dma_cov.sample();
     w_count_cov.sample();
     io_mem_cov.sample();
-    reserved_cov.sample();
   endfunction
 
 
@@ -148,7 +136,7 @@ covergroup w_count_cov;
     io_mem = uvm_reg_field::type_id::create("io_mem");
     io_mem.configure(this, 1, 16, "RW", 0, 1'h0, 1, 1, 1);
     reserved = uvm_reg_field::type_id::create("reserved");
-    reserved.configure(this, 15, 17, "RO", 0, 16'h0, 1, 1, 1);
+    reserved.configure(this, 15, 17, "RO", 0, 16'h0, 1, 0, 1);
   endfunction
 
 endclass
@@ -298,70 +286,59 @@ endclass
 class status_reg extends uvm_reg;
   `uvm_object_utils(status_reg)
 
-  uvm_reg_field busy;
-  uvm_reg_field done;
-  uvm_reg_field error;
-  uvm_reg_field paused;
-  uvm_reg_field current_state;
-  uvm_reg_field fifo_level;
+  rand uvm_reg_field busy;
+  rand uvm_reg_field done;
+ rand uvm_reg_field error;
+  rand uvm_reg_field paused;
+  rand uvm_reg_field current_state;
+  rand uvm_reg_field fifo_level;
   uvm_reg_field reserved;
 
   ///covergroup
   covergroup busy_cov;
     option.per_instance = 1;
     coverpoint busy.value[0] {
-      bins idle = {0};
-      bins active = {1};
+      bins busy_bin = {0, 1};
     }
   endgroup
 
   covergroup done_cov;
     option.per_instance = 1;
     coverpoint done.value[1] {
-      bins not_done = {0};
-      bins done = {1};
+      bins done_bin = {0, 1};
     }
   endgroup
 
   covergroup error_cov;
     option.per_instance = 1;
     coverpoint error.value[2] {
-      bins no_error = {0};
-      bins error = {1};
+      bins error_bin = {0, 1};
     }
   endgroup
 
   covergroup paused_cov;
     option.per_instance = 1;
     coverpoint paused.value[3] {
-      bins running = {0};
-      bins paused = {1};
+      bins paused_bin = {0, 1};
     }
   endgroup
 
   covergroup current_state_cov;
     option.per_instance = 1;
     coverpoint current_state.value[7:4] {
-      bins all_states[] = {[0:15]}; // 4-bit FSM encoding
+      bins all_states = {0, 1, 2, 3};
     }
   endgroup
 
   covergroup fifo_level_cov;
     option.per_instance = 1;
     coverpoint fifo_level.value[15:8]{
-      bins empty  = {0};
-      bins low    = {[1:63]};
+      bins low    = {[0:63]};
       bins mid    = {[64:127]};
       bins high   = {[128:255]};
     }
   endgroup
 
-  covergroup reserved_cov;
-    option.per_instance = 1;
-    coverpoint reserved.value[31:16] {
-      bins always_zero = {0};
-    }
-  endgroup
 
 
   function new(string name = "status_reg");
@@ -373,7 +350,6 @@ class status_reg extends uvm_reg;
       paused_cov        = new();
       current_state_cov = new();
       fifo_level_cov    = new();
-      reserved_cov      = new();
     end
   endfunction
 
@@ -390,7 +366,6 @@ class status_reg extends uvm_reg;
     paused_cov.sample();
     current_state_cov.sample();
     fifo_level_cov.sample();
-    reserved_cov.sample();
 
   endfunction
 
@@ -402,25 +377,24 @@ class status_reg extends uvm_reg;
     paused_cov.sample();
     current_state_cov.sample();
     fifo_level_cov.sample();
-    reserved_cov.sample();
   endfunction   
 
 
   function void build;
     busy = uvm_reg_field::type_id::create("busy");
-    busy.configure(this, 1, 0, "RO", 0, 1'h0, 1, 1, 1);
+    busy.configure(this, 1, 0, "RO", 0, 1'h0, 1, 0, 1);
     done = uvm_reg_field::type_id::create("done");
-    done.configure(this, 1, 1, "RO", 0, 1'h0, 1, 1, 1);
+    done.configure(this, 1, 1, "RO", 0, 1'h0, 1, 0, 1);
     error = uvm_reg_field::type_id::create("error");
-    error.configure(this, 1, 2, "RO", 0, 1'h0, 1, 1, 1);
+    error.configure(this, 1, 2, "RO", 0, 1'h0, 1, 0, 1);
     paused = uvm_reg_field::type_id::create("paused");
-    paused.configure(this, 1, 3, "RO", 0, 1'h0, 1, 1, 1);
+    paused.configure(this, 1, 3, "RO", 0, 1'h0, 1, 0, 1);
     current_state = uvm_reg_field::type_id::create("current_state");
-    current_state.configure(this, 4, 4, "RO", 0, 4'h0, 1, 1, 1);
+    current_state.configure(this, 4, 4, "RO", 0, 4'h0, 1, 0, 1);
     fifo_level = uvm_reg_field::type_id::create("fifo_level");
-    fifo_level.configure(this, 8, 8, "RO", 0, 8'h0, 1, 1, 1);
+    fifo_level.configure(this, 8, 8, "RO", 0, 8'h0, 1, 0, 1);
     reserved = uvm_reg_field::type_id::create("reserved");
-    reserved.configure(this, 16, 16, "RO", 0, 16'h0, 1, 1, 1);
+    reserved.configure(this, 16, 16, "RO", 0, 16'h0, 1, 0, 1);
   endfunction
 
 endclass
@@ -431,14 +405,13 @@ endclass
 class transfer_count_reg extends uvm_reg;
   `uvm_object_utils(transfer_count_reg)
 
-  uvm_reg_field transfer_count;
+  rand uvm_reg_field transfer_count;
 
   //covergroup
   covergroup transfer_count_cov;
     option.per_instance = 1;
     coverpoint transfer_count.value[31:0] {
-      bins zero      = {32'd0};
-      bins low     = {[32'd1 : 32'd15]};
+      bins low     = {[32'd0 : 32'd15]};
       bins med    = {[32'd16 : 32'd255]};
       bins high     = {[32'd256 : 32'hFFFF_FFFF]};
     }
@@ -532,42 +505,36 @@ class error_status_reg extends uvm_reg;
   rand uvm_reg_field overflow_error;
   rand uvm_reg_field underflow_error;
   uvm_reg_field reserved;
-  uvm_reg_field error_code;
-  uvm_reg_field error_addr_offset;
+  rand uvm_reg_field error_code;
+  rand uvm_reg_field error_addr_offset;
 
 
   //covergroup
   covergroup error_flag_cov;
     option.per_instance = 1;
-    coverpoint bus_error.value[0]       { bins hit = {1}; }
-    coverpoint timeout_error.value[1]   { bins hit = {1}; }
-    coverpoint alignment_error.value[2]  { bins hit = {1}; }
-    coverpoint overflow_error.value[3]   { bins hit = {1}; }
-    coverpoint underflow_error.value[4]  { bins hit = {1}; }
+    coverpoint bus_error.value[0]       { bins hit = {0,1}; }
+    coverpoint timeout_error.value[1]   { bins hit = {0,1}; }
+    coverpoint alignment_error.value[2]  { bins hit = {0,1}; }
+    coverpoint overflow_error.value[3]   { bins hit = {0,1}; }
+    coverpoint underflow_error.value[4]  { bins hit = {0,1}; }
   endgroup
 
   covergroup error_code_cov;
     option.per_instance = 1;
-    coverpoint error_code.value[7:0] {
+    coverpoint error_code.value[15:8] {
       bins all_codes[] = {[0:255]};
     }
   endgroup
 
   covergroup error_addr_cov;
     option.per_instance = 1;
-    coverpoint error_addr_offset.value[15:0] {
+    coverpoint error_addr_offset.value[31:16] {
       bins low    = {[16'h0000 : 16'h00FF]};
       bins mid    = {[16'h0100 : 16'h0FFF]};
       bins high   = {[16'h1000 : 16'hFFFF]};
     }
   endgroup
 
-  covergroup reserved_cov;
-    option.per_instance = 1;
-    coverpoint reserved.value[2:0] {
-      bins always_zero = {0};
-    }
-  endgroup
 
   function new(string name = "error_status_reg");
     super.new(name, 32, UVM_CVR_FIELD_VALS);
@@ -576,7 +543,6 @@ class error_status_reg extends uvm_reg;
       error_flag_cov = new();
       error_code_cov = new();
       error_addr_cov = new();
-      reserved_cov   = new();
     end
   endfunction
 
@@ -590,7 +556,7 @@ class error_status_reg extends uvm_reg;
     error_flag_cov.sample();
     error_code_cov.sample();
     error_addr_cov.sample();
-    reserved_cov.sample();
+   
   endfunction
 
   virtual function void sample_values();
@@ -598,7 +564,7 @@ class error_status_reg extends uvm_reg;
    error_flag_cov.sample();
     error_code_cov.sample();
     error_addr_cov.sample();
-    reserved_cov.sample();
+  
   endfunction 
 
   function void build;
@@ -613,11 +579,11 @@ class error_status_reg extends uvm_reg;
     underflow_error = uvm_reg_field::type_id::create("underflow_error");
     underflow_error.configure(this, 1, 4, "W1C", 0, 1'h0, 1, 1, 1);
     reserved = uvm_reg_field::type_id::create("reserved");
-    reserved.configure(this, 3, 5, "RO", 0, 3'h0, 1, 1, 1);
+    reserved.configure(this, 3, 5, "RO", 0, 3'h0, 1, 0, 1);
     error_code = uvm_reg_field::type_id::create("error_code");
-    error_code.configure(this, 8, 8, "RO", 0, 8'h0, 1, 1, 1);
+    error_code.configure(this, 8, 8, "RO", 0, 8'h0, 1, 0, 1);
     error_addr_offset = uvm_reg_field::type_id::create("error_addr_offset");
-    error_addr_offset.configure(this, 16, 16, "RO", 0, 16'h0, 1, 1, 1);
+    error_addr_offset.configure(this, 16, 16, "RO", 0, 16'h0, 1, 0, 1);
   endfunction
 
 endclass
@@ -639,60 +605,46 @@ class config_reg extends uvm_reg;
   covergroup priority_cov;
     option.per_instance = 1;
     coverpoint priority1.value[1:0] {
-      bins all_prio[] = {[0:3]};
+      bins all_prio = {0,1,2,3};
     }
   endgroup
 
   covergroup auto_restart_cov;
     option.per_instance = 1;
     coverpoint auto_restart.value[2] {
-      bins disabled = {0};
-      bins enabled  = {1};
+      bins autostart = {0, 1};
     }
   endgroup
 
   covergroup interrupt_enable_cov;
     option.per_instance = 1;
     coverpoint interrupt_enable.value[3] {
-      bins disabled = {0};
-      bins enabled  = {1};
+      bins interrupt = {0, 1};
     }
   endgroup
 
   covergroup burst_size_cov;
     option.per_instance = 1;
     coverpoint burst_size.value[5:4] {
-      bins burst_1   = {0};
-      bins burst_4   = {1};
-      bins burst_8   = {2};
-      bins burst_16  = {3};
+      bins burst   = {0, 1, 2, 3};
     }
   endgroup
 
   covergroup data_width_cov;
     option.per_instance = 1;
     coverpoint data_width.value[7:6] {
-      bins width_8   = {0};
-      bins width_16  = {1};
-      bins width_32  = {2};
-      bins width_64  = {3};
+      bins width  = {0,1,2,3};
     }
   endgroup
 
   covergroup descriptor_mode_cov;
     option.per_instance = 1;
     coverpoint descriptor_mode.value[8] {
-      bins disabled = {0};
-      bins enabled  = {1};
+      bins discriptor = {0,1};
     }
   endgroup
 
-  covergroup reserved_cov;
-    option.per_instance = 1;
-    coverpoint reserved.value[31:9] {
-      bins always_zero = {0};
-    }
-  endgroup
+ 
 
   function new(string name = "config_reg");
     super.new(name, 32, UVM_CVR_FIELD_VALS);
@@ -704,7 +656,7 @@ class config_reg extends uvm_reg;
       burst_size_cov       = new();
       data_width_cov       = new();
       descriptor_mode_cov  = new();
-      reserved_cov         = new();
+  
     end
   endfunction
 
@@ -722,7 +674,7 @@ class config_reg extends uvm_reg;
     burst_size_cov.sample();
     data_width_cov.sample();
     descriptor_mode_cov.sample();
-    reserved_cov.sample();
+   
   endfunction
 
   virtual function void sample_values();
@@ -733,7 +685,7 @@ class config_reg extends uvm_reg;
     burst_size_cov.sample();
     data_width_cov.sample();
     descriptor_mode_cov.sample();
-    reserved_cov.sample();
+
   endfunction
 
   function void build;
@@ -750,7 +702,14 @@ class config_reg extends uvm_reg;
     descriptor_mode = uvm_reg_field::type_id::create("descriptor_mode");
     descriptor_mode.configure(this, 1, 8, "RW", 0, 1'h0, 1, 1, 1);
     reserved = uvm_reg_field::type_id::create("reserved");
-    reserved.configure(this, 23, 9, "RO", 0, 23'h0, 1, 1, 1);
+    reserved.configure(this, 23, 9, "RO", 0, 23'h0, 1, 0, 1);
   endfunction
 
 endclass
+
+
+
+
+
+
+ 

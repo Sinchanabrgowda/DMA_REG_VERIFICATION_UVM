@@ -23,30 +23,6 @@ c115:[{dummy:0}
 ,{n:'4',z:'status_done_1',h1:'0',t:'c',c1:'ctrl_start_dma'}
 ]}
 ],
-c1617:[{dummy:0}
-,{anchor:'cvg1621',cr:'m',items:[{s:'3',x:'FC',z:'((this.dma_regmodel == null) && (this.get_parent_sequence() != null))',c:'R',p:'0.00',d:'0',F:'1'}
-,{}
-,{z:'(this.dma_regmodel == null)',c:'r',r:'\'_1\' not hit',i:'Hit \'_1\''}
-,{z:'(this.get_parent_sequence() != null)',c:'r',r:'No hits',i:'Hit \'_0\' and \'_1\''}
-,{}
-,{n:'1',z:'(this.dma_regmodel == null)_0',h1:'1',t:'c',c1:'-'}
-,{n:'2',z:'(this.dma_regmodel == null)_1',h1:'0',t:'c',c1:'(this.get_parent_sequence() != null)'}
-,{n:'3',z:'(this.get_parent_sequence() != null)_0',h1:'0',t:'c',c1:'(this.dma_regmodel == null)'}
-,{n:'4',z:'(this.get_parent_sequence() != null)_1',h1:'0',t:'c',c1:'(this.dma_regmodel == null)'}
-]}
-],
-c2456:[{dummy:0}
-,{anchor:'cvg2460',cr:'m',items:[{s:'3',x:'FC',z:'((this.dma_regmodel == null) && (this.get_parent_sequence() != null))',c:'R',p:'0.00',d:'0',F:'1'}
-,{}
-,{z:'(this.dma_regmodel == null)',c:'r',r:'\'_1\' not hit',i:'Hit \'_1\''}
-,{z:'(this.get_parent_sequence() != null)',c:'r',r:'No hits',i:'Hit \'_0\' and \'_1\''}
-,{}
-,{n:'1',z:'(this.dma_regmodel == null)_0',h1:'1',t:'c',c1:'-'}
-,{n:'2',z:'(this.dma_regmodel == null)_1',h1:'0',t:'c',c1:'(this.get_parent_sequence() != null)'}
-,{n:'3',z:'(this.get_parent_sequence() != null)_0',h1:'0',t:'c',c1:'(this.dma_regmodel == null)'}
-,{n:'4',z:'(this.get_parent_sequence() != null)_1',h1:'0',t:'c',c1:'(this.dma_regmodel == null)'}
-]}
-],
 dummyEnd:0
 };
 processCondExprData(g_data);

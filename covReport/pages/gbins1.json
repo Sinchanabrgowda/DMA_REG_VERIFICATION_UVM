@@ -1,53 +1,47 @@
 var g_data = {
-c1305:[4,'#coverpoint__0#',[],,'1304',1,1,'intr_status_cov','1291','/dma_pkg/intr_reg',[[],[0,'1','1',,'intr_status_bin']],[]],
-c1307:[4,'#coverpoint__0#',[],,'1306',2,1,'\\/dma_pkg::intr_reg::intr_status_cov ','1291','/dma_pkg/intr_reg',[[],[0,'1','1',,'intr_status_bin']],[]],
-c1309:[4,'#coverpoint__0#',[],,'1308',1,1,'intr_mask_cov','1291','/dma_pkg/intr_reg',[[],[0,'1','0',1,'intr_mask_bin']],[]],
-c1311:[4,'#coverpoint__0#',[],,'1310',2,1,'\\/dma_pkg::intr_reg::intr_mask_cov ','1291','/dma_pkg/intr_reg',[[],[0,'1','0',1,'intr_mask_bin']],[]],
-c1329:[4,'#coverpoint__0#',[],,'1328',1,1,'start_dma_cov','1315','/dma_pkg/ctrl_reg',[[],[0,'1','1',,'idle'],[0,'1','3',,'start']],[]],
-c1331:[4,'#coverpoint__0#',[],,'1330',2,1,'\\/dma_pkg::ctrl_reg::start_dma_cov ','1315','/dma_pkg/ctrl_reg',[[],[0,'1','1',,'idle'],[0,'1','3',,'start']],[]],
-c1333:[4,'#coverpoint__0#',[],,'1332',1,1,'w_count_cov','1315','/dma_pkg/ctrl_reg',[[],[0,'1','3',,'low'],[0,'1','0',1,'med'],[0,'1','0',1,'high']],[]],
-c1335:[4,'#coverpoint__0#',[],,'1334',2,1,'\\/dma_pkg::ctrl_reg::w_count_cov ','1315','/dma_pkg/ctrl_reg',[[],[0,'1','3',,'low'],[0,'1','0',1,'med'],[0,'1','0',1,'high']],[]],
-c1337:[4,'#coverpoint__0#',[],,'1336',1,1,'io_mem_cov','1315','/dma_pkg/ctrl_reg',[[],[0,'1','4',,'io_to_mem'],[0,'1','0',1,'mem_to_io']],[]],
-c1339:[4,'#coverpoint__0#',[],,'1338',2,1,'\\/dma_pkg::ctrl_reg::io_mem_cov ','1315','/dma_pkg/ctrl_reg',[[],[0,'1','4',,'io_to_mem'],[0,'1','0',1,'mem_to_io']],[]],
-c1341:[4,'#coverpoint__0#',[],,'1340',1,1,'reserved_cov','1315','/dma_pkg/ctrl_reg',[[],[0,'1','4',,'always0']],[]],
-c1343:[4,'#coverpoint__0#',[],,'1342',2,1,'\\/dma_pkg::ctrl_reg::reserved_cov ','1315','/dma_pkg/ctrl_reg',[[],[0,'1','4',,'always0']],[]],
-c1361:[4,'#coverpoint__0#',[],,'1360',1,1,'io_addr_cov','1347','/dma_pkg/io_addr_reg',[[],[0,'1','1',,'low'],[0,'1','2',,'med'],[0,'1','0',1,'high']],[]],
-c1363:[4,'#coverpoint__0#',[],,'1362',2,1,'\\/dma_pkg::io_addr_reg::io_addr_cov ','1347','/dma_pkg/io_addr_reg',[[],[0,'1','1',,'low'],[0,'1','2',,'med'],[0,'1','0',1,'high']],[]],
-c1381:[4,'#coverpoint__0#',[],,'1380',1,1,'mem_addr_cov','1367','/dma_pkg/mem_addr_reg',[[],[0,'1','1',,'low'],[0,'1','0',1,'med'],[0,'1','2',,'high']],[]],
-c1383:[4,'#coverpoint__0#',[],,'1382',2,1,'\\/dma_pkg::mem_addr_reg::mem_addr_cov ','1367','/dma_pkg/mem_addr_reg',[[],[0,'1','1',,'low'],[0,'1','0',1,'med'],[0,'1','2',,'high']],[]],
-c1401:[4,'#coverpoint__0#',[],,'1400',1,1,'extra_info_cov','1387','/dma_pkg/extra_info_reg',[[],[0,'1','1',,'low'],[0,'1','0',1,'med'],[0,'1','2',,'high']],[]],
-c1403:[4,'#coverpoint__0#',[],,'1402',2,1,'\\/dma_pkg::extra_info_reg::extra_info_cov ','1387','/dma_pkg/extra_info_reg',[[],[0,'1','1',,'low'],[0,'1','0',1,'med'],[0,'1','2',,'high']],[]],
-c1421:[4,'#coverpoint__0#',[],,'1420',1,1,'busy_cov','1407','/dma_pkg/status_reg',[[],[0,'1','1',,'idle'],[0,'1','0',1,'active']],[]],
-c1423:[4,'#coverpoint__0#',[],,'1422',2,1,'\\/dma_pkg::status_reg::busy_cov ','1407','/dma_pkg/status_reg',[[],[0,'1','1',,'idle'],[0,'1','0',1,'active']],[]],
-c1425:[4,'#coverpoint__0#',[],,'1424',1,1,'done_cov','1407','/dma_pkg/status_reg',[[],[0,'1','1',,'not_done'],[0,'1','0',1,'done']],[]],
-c1427:[4,'#coverpoint__0#',[],,'1426',2,1,'\\/dma_pkg::status_reg::done_cov ','1407','/dma_pkg/status_reg',[[],[0,'1','1',,'not_done'],[0,'1','0',1,'done']],[]],
-c1429:[4,'#coverpoint__0#',[],,'1428',1,1,'error_cov','1407','/dma_pkg/status_reg',[[],[0,'1','1',,'no_error'],[0,'1','0',1,'error']],[]],
-c1431:[4,'#coverpoint__0#',[],,'1430',2,1,'\\/dma_pkg::status_reg::error_cov ','1407','/dma_pkg/status_reg',[[],[0,'1','1',,'no_error'],[0,'1','0',1,'error']],[]],
-c1433:[4,'#coverpoint__0#',[],,'1432',1,1,'paused_cov','1407','/dma_pkg/status_reg',[[],[0,'1','1',,'running'],[0,'1','0',1,'paused']],[]],
-c1435:[4,'#coverpoint__0#',[],,'1434',2,1,'\\/dma_pkg::status_reg::paused_cov ','1407','/dma_pkg/status_reg',[[],[0,'1','1',,'running'],[0,'1','0',1,'paused']],[]],
-c1437:[4,'#coverpoint__0#',[],,'1436',1,1,'current_state_cov','1407','/dma_pkg/status_reg',[[],[0,'1','1',,'all_states[0]'],[0,'1','0',1,'all_states[1]'],[0,'1','0',1,'all_states[2]'],[0,'1','0',1,'all_states[3]'],[0,'1','0',1,'all_states[4]'],[0,'1','0',1,'all_states[5]'],[0,'1','0',1,'all_states[6]'],[0,'1','0',1,'all_states[7]'],[0,'1','0',1,'all_states[8]'],[0,'1','0',1,'all_states[9]']
-,[0,'1','0',1,'all_states[10]'],[0,'1','0',1,'all_states[11]'],[0,'1','0',1,'all_states[12]'],[0,'1','0',1,'all_states[13]'],[0,'1','0',1,'all_states[14]'],[0,'1','0',1,'all_states[15]']],[]],
-c1439:[4,'#coverpoint__0#',[],,'1438',2,1,'\\/dma_pkg::status_reg::current_state_cov ','1407','/dma_pkg/status_reg',[[],[0,'1','1',,'all_states[0]'],[0,'1','0',1,'all_states[1]'],[0,'1','0',1,'all_states[2]'],[0,'1','0',1,'all_states[3]'],[0,'1','0',1,'all_states[4]'],[0,'1','0',1,'all_states[5]'],[0,'1','0',1,'all_states[6]'],[0,'1','0',1,'all_states[7]'],[0,'1','0',1,'all_states[8]'],[0,'1','0',1,'all_states[9]']
-,[0,'1','0',1,'all_states[10]'],[0,'1','0',1,'all_states[11]'],[0,'1','0',1,'all_states[12]'],[0,'1','0',1,'all_states[13]'],[0,'1','0',1,'all_states[14]'],[0,'1','0',1,'all_states[15]']],[]],
-c1441:[4,'#coverpoint__0#',[],,'1440',1,1,'fifo_level_cov','1407','/dma_pkg/status_reg',[[],[0,'1','1',,'empty'],[0,'1','0',1,'low'],[0,'1','0',1,'mid'],[0,'1','0',1,'high']],[]],
-c1443:[4,'#coverpoint__0#',[],,'1442',2,1,'\\/dma_pkg::status_reg::fifo_level_cov ','1407','/dma_pkg/status_reg',[[],[0,'1','1',,'empty'],[0,'1','0',1,'low'],[0,'1','0',1,'mid'],[0,'1','0',1,'high']],[]],
-c1445:[4,'#coverpoint__0#',[],,'1444',1,1,'reserved_cov','1407','/dma_pkg/status_reg',[[],[0,'1','1',,'always_zero']],[]],
-c1447:[4,'#coverpoint__0#',[],,'1446',2,1,'\\/dma_pkg::status_reg::reserved_cov ','1407','/dma_pkg/status_reg',[[],[0,'1','1',,'always_zero']],[]],
-c1465:[4,'#coverpoint__0#',[],,'1464',1,1,'transfer_count_cov','1451','/dma_pkg/transfer_count_reg',[[],[0,'1','1',,'zero'],[0,'1','0',1,'low'],[0,'1','0',1,'med'],[0,'1','0',1,'high']],[]],
-c1467:[4,'#coverpoint__0#',[],,'1466',2,1,'\\/dma_pkg::transfer_count_reg::transfer_count_cov ','1451','/dma_pkg/transfer_count_reg',[[],[0,'1','1',,'zero'],[0,'1','0',1,'low'],[0,'1','0',1,'med'],[0,'1','0',1,'high']],[]],
-c1485:[4,'#coverpoint__0#',[],,'1484',1,1,'descriptor_addr_cov','1471','/dma_pkg/descriptor_addr_reg',[[],[0,'1','1',,'low'],[0,'1','2',,'med'],[0,'1','0',1,'high']],[]],
-c1487:[4,'#coverpoint__0#',[],,'1486',2,1,'\\/dma_pkg::descriptor_addr_reg::descriptor_addr_cov ','1471','/dma_pkg/descriptor_addr_reg',[[],[0,'1','1',,'low'],[0,'1','2',,'med'],[0,'1','0',1,'high']],[]],
-c1505:[4,'#coverpoint__0#',[],,'1504',1,1,'error_flag_cov','1491','/dma_pkg/error_status_reg',[[],[0,'1','0',1,'hit']],[]],
-c1506:[4,'#coverpoint__1#',[],,'1504',1,1,'error_flag_cov','1491','/dma_pkg/error_status_reg',[[],[0,'1','0',1,'hit']],[]],
-c1507:[4,'#coverpoint__2#',[],,'1504',1,1,'error_flag_cov','1491','/dma_pkg/error_status_reg',[[],[0,'1','0',1,'hit']],[]],
-c1508:[4,'#coverpoint__3#',[],,'1504',1,1,'error_flag_cov','1491','/dma_pkg/error_status_reg',[[],[0,'1','0',1,'hit']],[]],
-c1509:[4,'#coverpoint__4#',[],,'1504',1,1,'error_flag_cov','1491','/dma_pkg/error_status_reg',[[],[0,'1','0',1,'hit']],[]],
-c1511:[4,'#coverpoint__0#',[],,'1510',2,1,'\\/dma_pkg::error_status_reg::error_flag_cov ','1491','/dma_pkg/error_status_reg',[[],[0,'1','0',1,'hit']],[]],
-c1512:[4,'#coverpoint__1#',[],,'1510',2,1,'\\/dma_pkg::error_status_reg::error_flag_cov ','1491','/dma_pkg/error_status_reg',[[],[0,'1','0',1,'hit']],[]],
-c1513:[4,'#coverpoint__2#',[],,'1510',2,1,'\\/dma_pkg::error_status_reg::error_flag_cov ','1491','/dma_pkg/error_status_reg',[[],[0,'1','0',1,'hit']],[]],
-c1514:[4,'#coverpoint__3#',[],,'1510',2,1,'\\/dma_pkg::error_status_reg::error_flag_cov ','1491','/dma_pkg/error_status_reg',[[],[0,'1','0',1,'hit']],[]],
-c1515:[4,'#coverpoint__4#',[],,'1510',2,1,'\\/dma_pkg::error_status_reg::error_flag_cov ','1491','/dma_pkg/error_status_reg',[[],[0,'1','0',1,'hit']],[]],
-c1517:[4,'#coverpoint__0#',[],,'1516',1,1,'error_code_cov','1491','/dma_pkg/error_status_reg',[[],[0,'1','3',,'all_codes[0]'],[0,'1','0',1,'all_codes[1]'],[0,'1','0',1,'all_codes[2]'],[0,'1','0',1,'all_codes[3]'],[0,'1','0',1,'all_codes[4]'],[0,'1','0',1,'all_codes[5]'],[0,'1','0',1,'all_codes[6]'],[0,'1','0',1,'all_codes[7]'],[0,'1','0',1,'all_codes[8]'],[0,'1','0',1,'all_codes[9]']
+c1310:[4,'#coverpoint__0#',[],,'1309',1,1,'intr_status_cov','1296','/dma_pkg/intr_reg',[[],[0,'1','201',,'intr_status_bin']],[]],
+c1312:[4,'#coverpoint__0#',[],,'1311',2,1,'\\/dma_pkg::intr_reg::intr_status_cov ','1296','/dma_pkg/intr_reg',[[],[0,'1','201',,'intr_status_bin']],[]],
+c1314:[4,'#coverpoint__0#',[],,'1313',1,1,'intr_mask_cov','1296','/dma_pkg/intr_reg',[[],[0,'1','201',,'intr_mask_bin']],[]],
+c1316:[4,'#coverpoint__0#',[],,'1315',2,1,'\\/dma_pkg::intr_reg::intr_mask_cov ','1296','/dma_pkg/intr_reg',[[],[0,'1','201',,'intr_mask_bin']],[]],
+c1334:[4,'#coverpoint__0#',[],,'1333',1,1,'start_dma_cov','1320','/dma_pkg/ctrl_reg',[[],[0,'1','601',,'start_dma']],[]],
+c1336:[4,'#coverpoint__0#',[],,'1335',2,1,'\\/dma_pkg::ctrl_reg::start_dma_cov ','1320','/dma_pkg/ctrl_reg',[[],[0,'1','601',,'start_dma']],[]],
+c1338:[4,'#coverpoint__0#',[],,'1337',1,1,'w_count_cov','1320','/dma_pkg/ctrl_reg',[[],[0,'1','1',,'low'],[0,'1','0',1,'med'],[0,'1','600',,'high']],[]],
+c1340:[4,'#coverpoint__0#',[],,'1339',2,1,'\\/dma_pkg::ctrl_reg::w_count_cov ','1320','/dma_pkg/ctrl_reg',[[],[0,'1','1',,'low'],[0,'1','0',1,'med'],[0,'1','600',,'high']],[]],
+c1342:[4,'#coverpoint__0#',[],,'1341',1,1,'io_mem_cov','1320','/dma_pkg/ctrl_reg',[[],[0,'1','601',,'io_to_mem']],[]],
+c1344:[4,'#coverpoint__0#',[],,'1343',2,1,'\\/dma_pkg::ctrl_reg::io_mem_cov ','1320','/dma_pkg/ctrl_reg',[[],[0,'1','601',,'io_to_mem']],[]],
+c1362:[4,'#coverpoint__0#',[],,'1361',1,1,'io_addr_cov','1348','/dma_pkg/io_addr_reg',[[],[0,'1','29',,'low'],[0,'1','184',,'med'],[0,'1','188',,'high']],[]],
+c1364:[4,'#coverpoint__0#',[],,'1363',2,1,'\\/dma_pkg::io_addr_reg::io_addr_cov ','1348','/dma_pkg/io_addr_reg',[[],[0,'1','29',,'low'],[0,'1','184',,'med'],[0,'1','188',,'high']],[]],
+c1382:[4,'#coverpoint__0#',[],,'1381',1,1,'mem_addr_cov','1368','/dma_pkg/mem_addr_reg',[[],[0,'1','21',,'low'],[0,'1','174',,'med'],[0,'1','206',,'high']],[]],
+c1384:[4,'#coverpoint__0#',[],,'1383',2,1,'\\/dma_pkg::mem_addr_reg::mem_addr_cov ','1368','/dma_pkg/mem_addr_reg',[[],[0,'1','21',,'low'],[0,'1','174',,'med'],[0,'1','206',,'high']],[]],
+c1402:[4,'#coverpoint__0#',[],,'1401',1,1,'extra_info_cov','1388','/dma_pkg/extra_info_reg',[[],[0,'1','19',,'low'],[0,'1','176',,'med'],[0,'1','206',,'high']],[]],
+c1404:[4,'#coverpoint__0#',[],,'1403',2,1,'\\/dma_pkg::extra_info_reg::extra_info_cov ','1388','/dma_pkg/extra_info_reg',[[],[0,'1','19',,'low'],[0,'1','176',,'med'],[0,'1','206',,'high']],[]],
+c1422:[4,'#coverpoint__0#',[],,'1421',1,1,'busy_cov','1408','/dma_pkg/status_reg',[[],[0,'1','201',,'busy_bin']],[]],
+c1424:[4,'#coverpoint__0#',[],,'1423',2,1,'\\/dma_pkg::status_reg::busy_cov ','1408','/dma_pkg/status_reg',[[],[0,'1','201',,'busy_bin']],[]],
+c1426:[4,'#coverpoint__0#',[],,'1425',1,1,'done_cov','1408','/dma_pkg/status_reg',[[],[0,'1','201',,'done_bin']],[]],
+c1428:[4,'#coverpoint__0#',[],,'1427',2,1,'\\/dma_pkg::status_reg::done_cov ','1408','/dma_pkg/status_reg',[[],[0,'1','201',,'done_bin']],[]],
+c1430:[4,'#coverpoint__0#',[],,'1429',1,1,'error_cov','1408','/dma_pkg/status_reg',[[],[0,'1','201',,'error_bin']],[]],
+c1432:[4,'#coverpoint__0#',[],,'1431',2,1,'\\/dma_pkg::status_reg::error_cov ','1408','/dma_pkg/status_reg',[[],[0,'1','201',,'error_bin']],[]],
+c1434:[4,'#coverpoint__0#',[],,'1433',1,1,'paused_cov','1408','/dma_pkg/status_reg',[[],[0,'1','201',,'paused_bin']],[]],
+c1436:[4,'#coverpoint__0#',[],,'1435',2,1,'\\/dma_pkg::status_reg::paused_cov ','1408','/dma_pkg/status_reg',[[],[0,'1','201',,'paused_bin']],[]],
+c1438:[4,'#coverpoint__0#',[],,'1437',1,1,'current_state_cov','1408','/dma_pkg/status_reg',[[],[0,'1','201',,'all_states']],[]],
+c1440:[4,'#coverpoint__0#',[],,'1439',2,1,'\\/dma_pkg::status_reg::current_state_cov ','1408','/dma_pkg/status_reg',[[],[0,'1','201',,'all_states']],[]],
+c1442:[4,'#coverpoint__0#',[],,'1441',1,1,'fifo_level_cov','1408','/dma_pkg/status_reg',[[],[0,'1','201',,'low'],[0,'1','0',1,'mid'],[0,'1','0',1,'high']],[]],
+c1444:[4,'#coverpoint__0#',[],,'1443',2,1,'\\/dma_pkg::status_reg::fifo_level_cov ','1408','/dma_pkg/status_reg',[[],[0,'1','201',,'low'],[0,'1','0',1,'mid'],[0,'1','0',1,'high']],[]],
+c1462:[4,'#coverpoint__0#',[],,'1461',1,1,'transfer_count_cov','1448','/dma_pkg/transfer_count_reg',[[],[0,'1','6',,'low'],[0,'1','195',,'med'],[0,'1','0',1,'high']],[]],
+c1464:[4,'#coverpoint__0#',[],,'1463',2,1,'\\/dma_pkg::transfer_count_reg::transfer_count_cov ','1448','/dma_pkg/transfer_count_reg',[[],[0,'1','6',,'low'],[0,'1','195',,'med'],[0,'1','0',1,'high']],[]],
+c1482:[4,'#coverpoint__0#',[],,'1481',1,1,'descriptor_addr_cov','1468','/dma_pkg/descriptor_addr_reg',[[],[0,'1','23',,'low'],[0,'1','182',,'med'],[0,'1','196',,'high']],[]],
+c1484:[4,'#coverpoint__0#',[],,'1483',2,1,'\\/dma_pkg::descriptor_addr_reg::descriptor_addr_cov ','1468','/dma_pkg/descriptor_addr_reg',[[],[0,'1','23',,'low'],[0,'1','182',,'med'],[0,'1','196',,'high']],[]],
+c1502:[4,'#coverpoint__0#',[],,'1501',1,1,'error_flag_cov','1488','/dma_pkg/error_status_reg',[[],[0,'1','401',,'hit']],[]],
+c1503:[4,'#coverpoint__1#',[],,'1501',1,1,'error_flag_cov','1488','/dma_pkg/error_status_reg',[[],[0,'1','401',,'hit']],[]],
+c1504:[4,'#coverpoint__2#',[],,'1501',1,1,'error_flag_cov','1488','/dma_pkg/error_status_reg',[[],[0,'1','401',,'hit']],[]],
+c1505:[4,'#coverpoint__3#',[],,'1501',1,1,'error_flag_cov','1488','/dma_pkg/error_status_reg',[[],[0,'1','401',,'hit']],[]],
+c1506:[4,'#coverpoint__4#',[],,'1501',1,1,'error_flag_cov','1488','/dma_pkg/error_status_reg',[[],[0,'1','401',,'hit']],[]],
+c1508:[4,'#coverpoint__0#',[],,'1507',2,1,'\\/dma_pkg::error_status_reg::error_flag_cov ','1488','/dma_pkg/error_status_reg',[[],[0,'1','401',,'hit']],[]],
+c1509:[4,'#coverpoint__1#',[],,'1507',2,1,'\\/dma_pkg::error_status_reg::error_flag_cov ','1488','/dma_pkg/error_status_reg',[[],[0,'1','401',,'hit']],[]],
+c1510:[4,'#coverpoint__2#',[],,'1507',2,1,'\\/dma_pkg::error_status_reg::error_flag_cov ','1488','/dma_pkg/error_status_reg',[[],[0,'1','401',,'hit']],[]],
+c1511:[4,'#coverpoint__3#',[],,'1507',2,1,'\\/dma_pkg::error_status_reg::error_flag_cov ','1488','/dma_pkg/error_status_reg',[[],[0,'1','401',,'hit']],[]],
+c1512:[4,'#coverpoint__4#',[],,'1507',2,1,'\\/dma_pkg::error_status_reg::error_flag_cov ','1488','/dma_pkg/error_status_reg',[[],[0,'1','401',,'hit']],[]],
+c1514:[4,'#coverpoint__0#',[],,'1513',1,1,'error_code_cov','1488','/dma_pkg/error_status_reg',[[],[0,'1','401',,'all_codes[0]'],[0,'1','0',1,'all_codes[1]'],[0,'1','0',1,'all_codes[2]'],[0,'1','0',1,'all_codes[3]'],[0,'1','0',1,'all_codes[4]'],[0,'1','0',1,'all_codes[5]'],[0,'1','0',1,'all_codes[6]'],[0,'1','0',1,'all_codes[7]'],[0,'1','0',1,'all_codes[8]'],[0,'1','0',1,'all_codes[9]']
 ,[0,'1','0',1,'all_codes[10]'],[0,'1','0',1,'all_codes[11]'],[0,'1','0',1,'all_codes[12]'],[0,'1','0',1,'all_codes[13]'],[0,'1','0',1,'all_codes[14]'],[0,'1','0',1,'all_codes[15]'],[0,'1','0',1,'all_codes[16]'],[0,'1','0',1,'all_codes[17]'],[0,'1','0',1,'all_codes[18]'],[0,'1','0',1,'all_codes[19]']
 ,[0,'1','0',1,'all_codes[20]'],[0,'1','0',1,'all_codes[21]'],[0,'1','0',1,'all_codes[22]'],[0,'1','0',1,'all_codes[23]'],[0,'1','0',1,'all_codes[24]'],[0,'1','0',1,'all_codes[25]'],[0,'1','0',1,'all_codes[26]'],[0,'1','0',1,'all_codes[27]'],[0,'1','0',1,'all_codes[28]'],[0,'1','0',1,'all_codes[29]']
 ,[0,'1','0',1,'all_codes[30]'],[0,'1','0',1,'all_codes[31]'],[0,'1','0',1,'all_codes[32]'],[0,'1','0',1,'all_codes[33]'],[0,'1','0',1,'all_codes[34]'],[0,'1','0',1,'all_codes[35]'],[0,'1','0',1,'all_codes[36]'],[0,'1','0',1,'all_codes[37]'],[0,'1','0',1,'all_codes[38]'],[0,'1','0',1,'all_codes[39]']
@@ -73,7 +67,7 @@ c1517:[4,'#coverpoint__0#',[],,'1516',1,1,'error_code_cov','1491','/dma_pkg/erro
 ,[0,'1','0',1,'all_codes[230]'],[0,'1','0',1,'all_codes[231]'],[0,'1','0',1,'all_codes[232]'],[0,'1','0',1,'all_codes[233]'],[0,'1','0',1,'all_codes[234]'],[0,'1','0',1,'all_codes[235]'],[0,'1','0',1,'all_codes[236]'],[0,'1','0',1,'all_codes[237]'],[0,'1','0',1,'all_codes[238]'],[0,'1','0',1,'all_codes[239]']
 ,[0,'1','0',1,'all_codes[240]'],[0,'1','0',1,'all_codes[241]'],[0,'1','0',1,'all_codes[242]'],[0,'1','0',1,'all_codes[243]'],[0,'1','0',1,'all_codes[244]'],[0,'1','0',1,'all_codes[245]'],[0,'1','0',1,'all_codes[246]'],[0,'1','0',1,'all_codes[247]'],[0,'1','0',1,'all_codes[248]'],[0,'1','0',1,'all_codes[249]']
 ,[0,'1','0',1,'all_codes[250]'],[0,'1','0',1,'all_codes[251]'],[0,'1','0',1,'all_codes[252]'],[0,'1','0',1,'all_codes[253]'],[0,'1','0',1,'all_codes[254]'],[0,'1','0',1,'all_codes[255]']],[]],
-c1519:[4,'#coverpoint__0#',[],,'1518',2,1,'\\/dma_pkg::error_status_reg::error_code_cov ','1491','/dma_pkg/error_status_reg',[[],[0,'1','3',,'all_codes[0]'],[0,'1','0',1,'all_codes[1]'],[0,'1','0',1,'all_codes[2]'],[0,'1','0',1,'all_codes[3]'],[0,'1','0',1,'all_codes[4]'],[0,'1','0',1,'all_codes[5]'],[0,'1','0',1,'all_codes[6]'],[0,'1','0',1,'all_codes[7]'],[0,'1','0',1,'all_codes[8]'],[0,'1','0',1,'all_codes[9]']
+c1516:[4,'#coverpoint__0#',[],,'1515',2,1,'\\/dma_pkg::error_status_reg::error_code_cov ','1488','/dma_pkg/error_status_reg',[[],[0,'1','401',,'all_codes[0]'],[0,'1','0',1,'all_codes[1]'],[0,'1','0',1,'all_codes[2]'],[0,'1','0',1,'all_codes[3]'],[0,'1','0',1,'all_codes[4]'],[0,'1','0',1,'all_codes[5]'],[0,'1','0',1,'all_codes[6]'],[0,'1','0',1,'all_codes[7]'],[0,'1','0',1,'all_codes[8]'],[0,'1','0',1,'all_codes[9]']
 ,[0,'1','0',1,'all_codes[10]'],[0,'1','0',1,'all_codes[11]'],[0,'1','0',1,'all_codes[12]'],[0,'1','0',1,'all_codes[13]'],[0,'1','0',1,'all_codes[14]'],[0,'1','0',1,'all_codes[15]'],[0,'1','0',1,'all_codes[16]'],[0,'1','0',1,'all_codes[17]'],[0,'1','0',1,'all_codes[18]'],[0,'1','0',1,'all_codes[19]']
 ,[0,'1','0',1,'all_codes[20]'],[0,'1','0',1,'all_codes[21]'],[0,'1','0',1,'all_codes[22]'],[0,'1','0',1,'all_codes[23]'],[0,'1','0',1,'all_codes[24]'],[0,'1','0',1,'all_codes[25]'],[0,'1','0',1,'all_codes[26]'],[0,'1','0',1,'all_codes[27]'],[0,'1','0',1,'all_codes[28]'],[0,'1','0',1,'all_codes[29]']
 ,[0,'1','0',1,'all_codes[30]'],[0,'1','0',1,'all_codes[31]'],[0,'1','0',1,'all_codes[32]'],[0,'1','0',1,'all_codes[33]'],[0,'1','0',1,'all_codes[34]'],[0,'1','0',1,'all_codes[35]'],[0,'1','0',1,'all_codes[36]'],[0,'1','0',1,'all_codes[37]'],[0,'1','0',1,'all_codes[38]'],[0,'1','0',1,'all_codes[39]']
@@ -99,30 +93,26 @@ c1519:[4,'#coverpoint__0#',[],,'1518',2,1,'\\/dma_pkg::error_status_reg::error_c
 ,[0,'1','0',1,'all_codes[230]'],[0,'1','0',1,'all_codes[231]'],[0,'1','0',1,'all_codes[232]'],[0,'1','0',1,'all_codes[233]'],[0,'1','0',1,'all_codes[234]'],[0,'1','0',1,'all_codes[235]'],[0,'1','0',1,'all_codes[236]'],[0,'1','0',1,'all_codes[237]'],[0,'1','0',1,'all_codes[238]'],[0,'1','0',1,'all_codes[239]']
 ,[0,'1','0',1,'all_codes[240]'],[0,'1','0',1,'all_codes[241]'],[0,'1','0',1,'all_codes[242]'],[0,'1','0',1,'all_codes[243]'],[0,'1','0',1,'all_codes[244]'],[0,'1','0',1,'all_codes[245]'],[0,'1','0',1,'all_codes[246]'],[0,'1','0',1,'all_codes[247]'],[0,'1','0',1,'all_codes[248]'],[0,'1','0',1,'all_codes[249]']
 ,[0,'1','0',1,'all_codes[250]'],[0,'1','0',1,'all_codes[251]'],[0,'1','0',1,'all_codes[252]'],[0,'1','0',1,'all_codes[253]'],[0,'1','0',1,'all_codes[254]'],[0,'1','0',1,'all_codes[255]']],[]],
-c1521:[4,'#coverpoint__0#',[],,'1520',1,1,'error_addr_cov','1491','/dma_pkg/error_status_reg',[[],[0,'1','3',,'low'],[0,'1','0',1,'mid'],[0,'1','0',1,'high']],[]],
-c1523:[4,'#coverpoint__0#',[],,'1522',2,1,'\\/dma_pkg::error_status_reg::error_addr_cov ','1491','/dma_pkg/error_status_reg',[[],[0,'1','3',,'low'],[0,'1','0',1,'mid'],[0,'1','0',1,'high']],[]],
-c1525:[4,'#coverpoint__0#',[],,'1524',1,1,'reserved_cov','1491','/dma_pkg/error_status_reg',[[],[0,'1','3',,'always_zero']],[]],
-c1527:[4,'#coverpoint__0#',[],,'1526',2,1,'\\/dma_pkg::error_status_reg::reserved_cov ','1491','/dma_pkg/error_status_reg',[[],[0,'1','3',,'always_zero']],[]],
-c1545:[4,'#coverpoint__0#',[],,'1544',1,1,'priority_cov','1531','/dma_pkg/config_reg',[[],[0,'1','1',,'all_prio[0]'],[0,'1','0',1,'all_prio[1]'],[0,'1','2',,'all_prio[2]'],[0,'1','0',1,'all_prio[3]']],[]],
-c1547:[4,'#coverpoint__0#',[],,'1546',2,1,'\\/dma_pkg::config_reg::priority_cov ','1531','/dma_pkg/config_reg',[[],[0,'1','1',,'all_prio[0]'],[0,'1','0',1,'all_prio[1]'],[0,'1','2',,'all_prio[2]'],[0,'1','0',1,'all_prio[3]']],[]],
-c1549:[4,'#coverpoint__0#',[],,'1548',1,1,'auto_restart_cov','1531','/dma_pkg/config_reg',[[],[0,'1','3',,'disabled'],[0,'1','0',1,'enabled']],[]],
-c1551:[4,'#coverpoint__0#',[],,'1550',2,1,'\\/dma_pkg::config_reg::auto_restart_cov ','1531','/dma_pkg/config_reg',[[],[0,'1','3',,'disabled'],[0,'1','0',1,'enabled']],[]],
-c1553:[4,'#coverpoint__0#',[],,'1552',1,1,'interrupt_enable_cov','1531','/dma_pkg/config_reg',[[],[0,'1','3',,'disabled'],[0,'1','0',1,'enabled']],[]],
-c1555:[4,'#coverpoint__0#',[],,'1554',2,1,'\\/dma_pkg::config_reg::interrupt_enable_cov ','1531','/dma_pkg/config_reg',[[],[0,'1','3',,'disabled'],[0,'1','0',1,'enabled']],[]],
-c1557:[4,'#coverpoint__0#',[],,'1556',1,1,'burst_size_cov','1531','/dma_pkg/config_reg',[[],[0,'1','3',,'burst_1'],[0,'1','0',1,'burst_4'],[0,'1','0',1,'burst_8'],[0,'1','0',1,'burst_16']],[]],
-c1559:[4,'#coverpoint__0#',[],,'1558',2,1,'\\/dma_pkg::config_reg::burst_size_cov ','1531','/dma_pkg/config_reg',[[],[0,'1','3',,'burst_1'],[0,'1','0',1,'burst_4'],[0,'1','0',1,'burst_8'],[0,'1','0',1,'burst_16']],[]],
-c1561:[4,'#coverpoint__0#',[],,'1560',1,1,'data_width_cov','1531','/dma_pkg/config_reg',[[],[0,'1','3',,'width_8'],[0,'1','0',1,'width_16'],[0,'1','0',1,'width_32'],[0,'1','0',1,'width_64']],[]],
-c1563:[4,'#coverpoint__0#',[],,'1562',2,1,'\\/dma_pkg::config_reg::data_width_cov ','1531','/dma_pkg/config_reg',[[],[0,'1','3',,'width_8'],[0,'1','0',1,'width_16'],[0,'1','0',1,'width_32'],[0,'1','0',1,'width_64']],[]],
-c1565:[4,'#coverpoint__0#',[],,'1564',1,1,'descriptor_mode_cov','1531','/dma_pkg/config_reg',[[],[0,'1','3',,'disabled'],[0,'1','0',1,'enabled']],[]],
-c1567:[4,'#coverpoint__0#',[],,'1566',2,1,'\\/dma_pkg::config_reg::descriptor_mode_cov ','1531','/dma_pkg/config_reg',[[],[0,'1','3',,'disabled'],[0,'1','0',1,'enabled']],[]],
-c1569:[4,'#coverpoint__0#',[],,'1568',1,1,'reserved_cov','1531','/dma_pkg/config_reg',[[],[0,'1','3',,'always_zero']],[]],
-c1571:[4,'#coverpoint__0#',[],,'1570',2,1,'\\/dma_pkg::config_reg::reserved_cov ','1531','/dma_pkg/config_reg',[[],[0,'1','3',,'always_zero']],[]],
-c1852:[4,'rst_cp',[],,'1851',1,1,'cg','1846','/dma_pkg/dma_subscriber',[[],[0,'1','0',1,'rst_bin[0]'],[0,'1','25',,'rst_bin[1]']],[]],
-c1853:[4,'wr_en_cp',[],,'1851',1,1,'cg','1846','/dma_pkg/dma_subscriber',[[],[0,'1','18',,'wr_en_bin[0]'],[0,'1','7',,'wr_en_bin[1]']],[]],
-c1854:[4,'rd_en_cp',[],,'1851',1,1,'cg','1846','/dma_pkg/dma_subscriber',[[],[0,'1','7',,'rd_en_bin[0]'],[0,'1','18',,'rd_en_bin[1]']],[]],
-c1855:[4,'wdata_cp',[],,'1851',1,1,'cg','1846','/dma_pkg/dma_subscriber',[[],[0,'1','25',,'wdata_bin']],[]],
-c1856:[4,'rdata_cp',[],,'1851',1,1,'cg','1846','/dma_pkg/dma_subscriber',[[],[0,'1','25',,'rdata_bin']],[]],
-c1857:[4,'addr_cp',[],,'1851',1,1,'cg','1846','/dma_pkg/dma_subscriber',[[],[3,'--','0',,'other_addr[0]'],[3,'--','0',,'other_addr[1]'],[3,'--','0',,'other_addr[2]'],[3,'--','0',,'other_addr[3]'],[3,'--','0',,'other_addr[4]'],[3,'--','0',,'other_addr[5]'],[3,'--','0',,'other_addr[6]'],[3,'--','0',,'other_addr[7]'],[3,'--','0',,'other_addr[8]'],[3,'--','0',,'other_addr[9]']
+c1518:[4,'#coverpoint__0#',[],,'1517',1,1,'error_addr_cov','1488','/dma_pkg/error_status_reg',[[],[0,'1','401',,'low'],[0,'1','0',1,'mid'],[0,'1','0',1,'high']],[]],
+c1520:[4,'#coverpoint__0#',[],,'1519',2,1,'\\/dma_pkg::error_status_reg::error_addr_cov ','1488','/dma_pkg/error_status_reg',[[],[0,'1','401',,'low'],[0,'1','0',1,'mid'],[0,'1','0',1,'high']],[]],
+c1538:[4,'#coverpoint__0#',[],,'1537',1,1,'priority_cov','1524','/dma_pkg/config_reg',[[],[0,'1','401',,'all_prio']],[]],
+c1540:[4,'#coverpoint__0#',[],,'1539',2,1,'\\/dma_pkg::config_reg::priority_cov ','1524','/dma_pkg/config_reg',[[],[0,'1','401',,'all_prio']],[]],
+c1542:[4,'#coverpoint__0#',[],,'1541',1,1,'auto_restart_cov','1524','/dma_pkg/config_reg',[[],[0,'1','401',,'autostart']],[]],
+c1544:[4,'#coverpoint__0#',[],,'1543',2,1,'\\/dma_pkg::config_reg::auto_restart_cov ','1524','/dma_pkg/config_reg',[[],[0,'1','401',,'autostart']],[]],
+c1546:[4,'#coverpoint__0#',[],,'1545',1,1,'interrupt_enable_cov','1524','/dma_pkg/config_reg',[[],[0,'1','401',,'interrupt']],[]],
+c1548:[4,'#coverpoint__0#',[],,'1547',2,1,'\\/dma_pkg::config_reg::interrupt_enable_cov ','1524','/dma_pkg/config_reg',[[],[0,'1','401',,'interrupt']],[]],
+c1550:[4,'#coverpoint__0#',[],,'1549',1,1,'burst_size_cov','1524','/dma_pkg/config_reg',[[],[0,'1','401',,'burst']],[]],
+c1552:[4,'#coverpoint__0#',[],,'1551',2,1,'\\/dma_pkg::config_reg::burst_size_cov ','1524','/dma_pkg/config_reg',[[],[0,'1','401',,'burst']],[]],
+c1554:[4,'#coverpoint__0#',[],,'1553',1,1,'data_width_cov','1524','/dma_pkg/config_reg',[[],[0,'1','401',,'width']],[]],
+c1556:[4,'#coverpoint__0#',[],,'1555',2,1,'\\/dma_pkg::config_reg::data_width_cov ','1524','/dma_pkg/config_reg',[[],[0,'1','401',,'width']],[]],
+c1558:[4,'#coverpoint__0#',[],,'1557',1,1,'descriptor_mode_cov','1524','/dma_pkg/config_reg',[[],[0,'1','401',,'discriptor']],[]],
+c1560:[4,'#coverpoint__0#',[],,'1559',2,1,'\\/dma_pkg::config_reg::descriptor_mode_cov ','1524','/dma_pkg/config_reg',[[],[0,'1','401',,'discriptor']],[]],
+c1901:[4,'rst_cp',[],,'1900',1,1,'cg','1895','/dma_pkg/dma_subscriber',[[],[0,'1','0',1,'rst_bin[0]'],[0,'1','3610',,'rst_bin[1]']],[]],
+c1902:[4,'wr_en_cp',[],,'1900',1,1,'cg','1895','/dma_pkg/dma_subscriber',[[],[0,'1','1610',,'wr_en_bin[0]'],[0,'1','2000',,'wr_en_bin[1]']],[]],
+c1903:[4,'rd_en_cp',[],,'1900',1,1,'cg','1895','/dma_pkg/dma_subscriber',[[],[0,'1','2000',,'rd_en_bin[0]'],[0,'1','1610',,'rd_en_bin[1]']],[]],
+c1904:[4,'wdata_cp',[],,'1900',1,1,'cg','1895','/dma_pkg/dma_subscriber',[[],[0,'1','3610',,'wdata_bin']],[]],
+c1905:[4,'rdata_cp',[],,'1900',1,1,'cg','1895','/dma_pkg/dma_subscriber',[[],[0,'1','3610',,'rdata_bin']],[]],
+c1906:[4,'addr_cp',[],,'1900',1,1,'cg','1895','/dma_pkg/dma_subscriber',[[],[3,'--','0',,'other_addr[0]'],[3,'--','0',,'other_addr[1]'],[3,'--','0',,'other_addr[2]'],[3,'--','0',,'other_addr[3]'],[3,'--','0',,'other_addr[4]'],[3,'--','0',,'other_addr[5]'],[3,'--','0',,'other_addr[6]'],[3,'--','0',,'other_addr[7]'],[3,'--','0',,'other_addr[8]'],[3,'--','0',,'other_addr[9]']
 ,[3,'--','0',,'other_addr[10]'],[3,'--','0',,'other_addr[11]'],[3,'--','0',,'other_addr[12]'],[3,'--','0',,'other_addr[13]'],[3,'--','0',,'other_addr[14]'],[3,'--','0',,'other_addr[15]'],[3,'--','0',,'other_addr[16]'],[3,'--','0',,'other_addr[17]'],[3,'--','0',,'other_addr[18]'],[3,'--','0',,'other_addr[19]']
 ,[3,'--','0',,'other_addr[20]'],[3,'--','0',,'other_addr[21]'],[3,'--','0',,'other_addr[22]'],[3,'--','0',,'other_addr[23]'],[3,'--','0',,'other_addr[24]'],[3,'--','0',,'other_addr[25]'],[3,'--','0',,'other_addr[26]'],[3,'--','0',,'other_addr[27]'],[3,'--','0',,'other_addr[28]'],[3,'--','0',,'other_addr[29]']
 ,[3,'--','0',,'other_addr[30]'],[3,'--','0',,'other_addr[31]'],[3,'--','0',,'other_addr[32]'],[3,'--','0',,'other_addr[33]'],[3,'--','0',,'other_addr[34]'],[3,'--','0',,'other_addr[35]'],[3,'--','0',,'other_addr[36]'],[3,'--','0',,'other_addr[37]'],[3,'--','0',,'other_addr[38]'],[3,'--','0',,'other_addr[39]']
@@ -224,14 +214,14 @@ c1857:[4,'addr_cp',[],,'1851',1,1,'cg','1846','/dma_pkg/dma_subscriber',[[],[3,'
 ,[3,'--','0',,'other_addr[990]'],[3,'--','0',,'other_addr[991]'],[3,'--','0',,'other_addr[992]'],[3,'--','0',,'other_addr[993]'],[3,'--','0',,'other_addr[994]'],[3,'--','0',,'other_addr[995]'],[3,'--','0',,'other_addr[996]'],[3,'--','0',,'other_addr[997]'],[3,'--','0',,'other_addr[998]'],[3,'--','0',,'other_addr[999]']
 ,[3,'--','0',,'other_addr[1000]'],[3,'--','0',,'other_addr[1001]'],[3,'--','0',,'other_addr[1002]'],[3,'--','0',,'other_addr[1003]'],[3,'--','0',,'other_addr[1004]'],[3,'--','0',,'other_addr[1005]'],[3,'--','0',,'other_addr[1006]'],[3,'--','0',,'other_addr[1007]'],[3,'--','0',,'other_addr[1008]'],[3,'--','0',,'other_addr[1009]']
 ,[3,'--','0',,'other_addr[1010]'],[3,'--','0',,'other_addr[1011]'],[3,'--','0',,'other_addr[1012]'],[3,'--','0',,'other_addr[1013]'],[3,'--','0',,'other_addr[1014]'],[3,'--','0',,'other_addr[1015]'],[3,'--','0',,'other_addr[1016]'],[3,'--','0',,'other_addr[1017]'],[3,'--','0',,'other_addr[1018]'],[3,'--','0',,'other_addr[1019]']
-,[3,'--','0',,'other_addr[1020]'],[3,'--','0',,'other_addr[1021]'],[3,'--','0',,'other_addr[1022]'],[3,'--','0',,'other_addr[1023]'],[0,'1','1',,'intr_addr'],[0,'1','4',,'ctrl_addr'],[0,'1','3',,'io_addr'],[0,'1','3',,'mem_addr'],[0,'1','3',,'extra_info_addr'],[0,'1','1',,'status_addr']
-,[0,'1','1',,'transfer_count_addr'],[0,'1','3',,'descriptor_addr'],[0,'1','3',,'error_status_addr'],[0,'1','3',,'configure_addr']],[]],
-c1859:[4,'rst_cp',[],,'1858',2,1,'\\/dma_pkg::dma_subscriber::cg ','1846','/dma_pkg/dma_subscriber',[[],[0,'1','0',1,'rst_bin[0]'],[0,'1','25',,'rst_bin[1]']],[]],
-c1860:[4,'wr_en_cp',[],,'1858',2,1,'\\/dma_pkg::dma_subscriber::cg ','1846','/dma_pkg/dma_subscriber',[[],[0,'1','18',,'wr_en_bin[0]'],[0,'1','7',,'wr_en_bin[1]']],[]],
-c1861:[4,'rd_en_cp',[],,'1858',2,1,'\\/dma_pkg::dma_subscriber::cg ','1846','/dma_pkg/dma_subscriber',[[],[0,'1','7',,'rd_en_bin[0]'],[0,'1','18',,'rd_en_bin[1]']],[]],
-c1862:[4,'wdata_cp',[],,'1858',2,1,'\\/dma_pkg::dma_subscriber::cg ','1846','/dma_pkg/dma_subscriber',[[],[0,'1','25',,'wdata_bin']],[]],
-c1863:[4,'rdata_cp',[],,'1858',2,1,'\\/dma_pkg::dma_subscriber::cg ','1846','/dma_pkg/dma_subscriber',[[],[0,'1','25',,'rdata_bin']],[]],
-c1864:[4,'addr_cp',[],,'1858',2,1,'\\/dma_pkg::dma_subscriber::cg ','1846','/dma_pkg/dma_subscriber',[[],[3,'--','0',,'other_addr[0]'],[3,'--','0',,'other_addr[1]'],[3,'--','0',,'other_addr[2]'],[3,'--','0',,'other_addr[3]'],[3,'--','0',,'other_addr[4]'],[3,'--','0',,'other_addr[5]'],[3,'--','0',,'other_addr[6]'],[3,'--','0',,'other_addr[7]'],[3,'--','0',,'other_addr[8]'],[3,'--','0',,'other_addr[9]']
+,[3,'--','0',,'other_addr[1020]'],[3,'--','0',,'other_addr[1021]'],[3,'--','0',,'other_addr[1022]'],[3,'--','0',,'other_addr[1023]'],[0,'1','201',,'intr_addr'],[0,'1','601',,'ctrl_addr'],[0,'1','401',,'io_addr'],[0,'1','401',,'mem_addr'],[0,'1','401',,'extra_info_addr'],[0,'1','201',,'status_addr']
+,[0,'1','201',,'transfer_count_addr'],[0,'1','401',,'descriptor_addr'],[0,'1','401',,'error_status_addr'],[0,'1','401',,'configure_addr']],[]],
+c1908:[4,'rst_cp',[],,'1907',2,1,'\\/dma_pkg::dma_subscriber::cg ','1895','/dma_pkg/dma_subscriber',[[],[0,'1','0',1,'rst_bin[0]'],[0,'1','3610',,'rst_bin[1]']],[]],
+c1909:[4,'wr_en_cp',[],,'1907',2,1,'\\/dma_pkg::dma_subscriber::cg ','1895','/dma_pkg/dma_subscriber',[[],[0,'1','1610',,'wr_en_bin[0]'],[0,'1','2000',,'wr_en_bin[1]']],[]],
+c1910:[4,'rd_en_cp',[],,'1907',2,1,'\\/dma_pkg::dma_subscriber::cg ','1895','/dma_pkg/dma_subscriber',[[],[0,'1','2000',,'rd_en_bin[0]'],[0,'1','1610',,'rd_en_bin[1]']],[]],
+c1911:[4,'wdata_cp',[],,'1907',2,1,'\\/dma_pkg::dma_subscriber::cg ','1895','/dma_pkg/dma_subscriber',[[],[0,'1','3610',,'wdata_bin']],[]],
+c1912:[4,'rdata_cp',[],,'1907',2,1,'\\/dma_pkg::dma_subscriber::cg ','1895','/dma_pkg/dma_subscriber',[[],[0,'1','3610',,'rdata_bin']],[]],
+c1913:[4,'addr_cp',[],,'1907',2,1,'\\/dma_pkg::dma_subscriber::cg ','1895','/dma_pkg/dma_subscriber',[[],[3,'--','0',,'other_addr[0]'],[3,'--','0',,'other_addr[1]'],[3,'--','0',,'other_addr[2]'],[3,'--','0',,'other_addr[3]'],[3,'--','0',,'other_addr[4]'],[3,'--','0',,'other_addr[5]'],[3,'--','0',,'other_addr[6]'],[3,'--','0',,'other_addr[7]'],[3,'--','0',,'other_addr[8]'],[3,'--','0',,'other_addr[9]']
 ,[3,'--','0',,'other_addr[10]'],[3,'--','0',,'other_addr[11]'],[3,'--','0',,'other_addr[12]'],[3,'--','0',,'other_addr[13]'],[3,'--','0',,'other_addr[14]'],[3,'--','0',,'other_addr[15]'],[3,'--','0',,'other_addr[16]'],[3,'--','0',,'other_addr[17]'],[3,'--','0',,'other_addr[18]'],[3,'--','0',,'other_addr[19]']
 ,[3,'--','0',,'other_addr[20]'],[3,'--','0',,'other_addr[21]'],[3,'--','0',,'other_addr[22]'],[3,'--','0',,'other_addr[23]'],[3,'--','0',,'other_addr[24]'],[3,'--','0',,'other_addr[25]'],[3,'--','0',,'other_addr[26]'],[3,'--','0',,'other_addr[27]'],[3,'--','0',,'other_addr[28]'],[3,'--','0',,'other_addr[29]']
 ,[3,'--','0',,'other_addr[30]'],[3,'--','0',,'other_addr[31]'],[3,'--','0',,'other_addr[32]'],[3,'--','0',,'other_addr[33]'],[3,'--','0',,'other_addr[34]'],[3,'--','0',,'other_addr[35]'],[3,'--','0',,'other_addr[36]'],[3,'--','0',,'other_addr[37]'],[3,'--','0',,'other_addr[38]'],[3,'--','0',,'other_addr[39]']
@@ -333,57 +323,51 @@ c1864:[4,'addr_cp',[],,'1858',2,1,'\\/dma_pkg::dma_subscriber::cg ','1846','/dma
 ,[3,'--','0',,'other_addr[990]'],[3,'--','0',,'other_addr[991]'],[3,'--','0',,'other_addr[992]'],[3,'--','0',,'other_addr[993]'],[3,'--','0',,'other_addr[994]'],[3,'--','0',,'other_addr[995]'],[3,'--','0',,'other_addr[996]'],[3,'--','0',,'other_addr[997]'],[3,'--','0',,'other_addr[998]'],[3,'--','0',,'other_addr[999]']
 ,[3,'--','0',,'other_addr[1000]'],[3,'--','0',,'other_addr[1001]'],[3,'--','0',,'other_addr[1002]'],[3,'--','0',,'other_addr[1003]'],[3,'--','0',,'other_addr[1004]'],[3,'--','0',,'other_addr[1005]'],[3,'--','0',,'other_addr[1006]'],[3,'--','0',,'other_addr[1007]'],[3,'--','0',,'other_addr[1008]'],[3,'--','0',,'other_addr[1009]']
 ,[3,'--','0',,'other_addr[1010]'],[3,'--','0',,'other_addr[1011]'],[3,'--','0',,'other_addr[1012]'],[3,'--','0',,'other_addr[1013]'],[3,'--','0',,'other_addr[1014]'],[3,'--','0',,'other_addr[1015]'],[3,'--','0',,'other_addr[1016]'],[3,'--','0',,'other_addr[1017]'],[3,'--','0',,'other_addr[1018]'],[3,'--','0',,'other_addr[1019]']
-,[3,'--','0',,'other_addr[1020]'],[3,'--','0',,'other_addr[1021]'],[3,'--','0',,'other_addr[1022]'],[3,'--','0',,'other_addr[1023]'],[0,'1','1',,'intr_addr'],[0,'1','4',,'ctrl_addr'],[0,'1','3',,'io_addr'],[0,'1','3',,'mem_addr'],[0,'1','3',,'extra_info_addr'],[0,'1','1',,'status_addr']
-,[0,'1','1',,'transfer_count_addr'],[0,'1','3',,'descriptor_addr'],[0,'1','3',,'error_status_addr'],[0,'1','3',,'configure_addr']],[]],
-c2144:[4,'#coverpoint__0#',[],,'2143',1,1,'intr_status_cov','2130','work.dma_pkg::intr_reg',[[],[0,'1','1',,'intr_status_bin']],[]],
-c2146:[4,'#coverpoint__0#',[],,'2145',2,1,'\\/dma_pkg::intr_reg::intr_status_cov ','2130','work.dma_pkg::intr_reg',[[],[0,'1','1',,'intr_status_bin']],[]],
-c2148:[4,'#coverpoint__0#',[],,'2147',1,1,'intr_mask_cov','2130','work.dma_pkg::intr_reg',[[],[0,'1','0',1,'intr_mask_bin']],[]],
-c2150:[4,'#coverpoint__0#',[],,'2149',2,1,'\\/dma_pkg::intr_reg::intr_mask_cov ','2130','work.dma_pkg::intr_reg',[[],[0,'1','0',1,'intr_mask_bin']],[]],
-c2168:[4,'#coverpoint__0#',[],,'2167',1,1,'start_dma_cov','2154','work.dma_pkg::ctrl_reg',[[],[0,'1','1',,'idle'],[0,'1','3',,'start']],[]],
-c2170:[4,'#coverpoint__0#',[],,'2169',2,1,'\\/dma_pkg::ctrl_reg::start_dma_cov ','2154','work.dma_pkg::ctrl_reg',[[],[0,'1','1',,'idle'],[0,'1','3',,'start']],[]],
-c2172:[4,'#coverpoint__0#',[],,'2171',1,1,'w_count_cov','2154','work.dma_pkg::ctrl_reg',[[],[0,'1','3',,'low'],[0,'1','0',1,'med'],[0,'1','0',1,'high']],[]],
-c2174:[4,'#coverpoint__0#',[],,'2173',2,1,'\\/dma_pkg::ctrl_reg::w_count_cov ','2154','work.dma_pkg::ctrl_reg',[[],[0,'1','3',,'low'],[0,'1','0',1,'med'],[0,'1','0',1,'high']],[]],
-c2176:[4,'#coverpoint__0#',[],,'2175',1,1,'io_mem_cov','2154','work.dma_pkg::ctrl_reg',[[],[0,'1','4',,'io_to_mem'],[0,'1','0',1,'mem_to_io']],[]],
-c2178:[4,'#coverpoint__0#',[],,'2177',2,1,'\\/dma_pkg::ctrl_reg::io_mem_cov ','2154','work.dma_pkg::ctrl_reg',[[],[0,'1','4',,'io_to_mem'],[0,'1','0',1,'mem_to_io']],[]],
-c2180:[4,'#coverpoint__0#',[],,'2179',1,1,'reserved_cov','2154','work.dma_pkg::ctrl_reg',[[],[0,'1','4',,'always0']],[]],
-c2182:[4,'#coverpoint__0#',[],,'2181',2,1,'\\/dma_pkg::ctrl_reg::reserved_cov ','2154','work.dma_pkg::ctrl_reg',[[],[0,'1','4',,'always0']],[]],
-c2200:[4,'#coverpoint__0#',[],,'2199',1,1,'io_addr_cov','2186','work.dma_pkg::io_addr_reg',[[],[0,'1','1',,'low'],[0,'1','2',,'med'],[0,'1','0',1,'high']],[]],
-c2202:[4,'#coverpoint__0#',[],,'2201',2,1,'\\/dma_pkg::io_addr_reg::io_addr_cov ','2186','work.dma_pkg::io_addr_reg',[[],[0,'1','1',,'low'],[0,'1','2',,'med'],[0,'1','0',1,'high']],[]],
-c2220:[4,'#coverpoint__0#',[],,'2219',1,1,'mem_addr_cov','2206','work.dma_pkg::mem_addr_reg',[[],[0,'1','1',,'low'],[0,'1','0',1,'med'],[0,'1','2',,'high']],[]],
-c2222:[4,'#coverpoint__0#',[],,'2221',2,1,'\\/dma_pkg::mem_addr_reg::mem_addr_cov ','2206','work.dma_pkg::mem_addr_reg',[[],[0,'1','1',,'low'],[0,'1','0',1,'med'],[0,'1','2',,'high']],[]],
-c2240:[4,'#coverpoint__0#',[],,'2239',1,1,'extra_info_cov','2226','work.dma_pkg::extra_info_reg',[[],[0,'1','1',,'low'],[0,'1','0',1,'med'],[0,'1','2',,'high']],[]],
-c2242:[4,'#coverpoint__0#',[],,'2241',2,1,'\\/dma_pkg::extra_info_reg::extra_info_cov ','2226','work.dma_pkg::extra_info_reg',[[],[0,'1','1',,'low'],[0,'1','0',1,'med'],[0,'1','2',,'high']],[]],
-c2260:[4,'#coverpoint__0#',[],,'2259',1,1,'busy_cov','2246','work.dma_pkg::status_reg',[[],[0,'1','1',,'idle'],[0,'1','0',1,'active']],[]],
-c2262:[4,'#coverpoint__0#',[],,'2261',2,1,'\\/dma_pkg::status_reg::busy_cov ','2246','work.dma_pkg::status_reg',[[],[0,'1','1',,'idle'],[0,'1','0',1,'active']],[]],
-c2264:[4,'#coverpoint__0#',[],,'2263',1,1,'done_cov','2246','work.dma_pkg::status_reg',[[],[0,'1','1',,'not_done'],[0,'1','0',1,'done']],[]],
-c2266:[4,'#coverpoint__0#',[],,'2265',2,1,'\\/dma_pkg::status_reg::done_cov ','2246','work.dma_pkg::status_reg',[[],[0,'1','1',,'not_done'],[0,'1','0',1,'done']],[]],
-c2268:[4,'#coverpoint__0#',[],,'2267',1,1,'error_cov','2246','work.dma_pkg::status_reg',[[],[0,'1','1',,'no_error'],[0,'1','0',1,'error']],[]],
-c2270:[4,'#coverpoint__0#',[],,'2269',2,1,'\\/dma_pkg::status_reg::error_cov ','2246','work.dma_pkg::status_reg',[[],[0,'1','1',,'no_error'],[0,'1','0',1,'error']],[]],
-c2272:[4,'#coverpoint__0#',[],,'2271',1,1,'paused_cov','2246','work.dma_pkg::status_reg',[[],[0,'1','1',,'running'],[0,'1','0',1,'paused']],[]],
-c2274:[4,'#coverpoint__0#',[],,'2273',2,1,'\\/dma_pkg::status_reg::paused_cov ','2246','work.dma_pkg::status_reg',[[],[0,'1','1',,'running'],[0,'1','0',1,'paused']],[]],
-c2276:[4,'#coverpoint__0#',[],,'2275',1,1,'current_state_cov','2246','work.dma_pkg::status_reg',[[],[0,'1','1',,'all_states[0]'],[0,'1','0',1,'all_states[1]'],[0,'1','0',1,'all_states[2]'],[0,'1','0',1,'all_states[3]'],[0,'1','0',1,'all_states[4]'],[0,'1','0',1,'all_states[5]'],[0,'1','0',1,'all_states[6]'],[0,'1','0',1,'all_states[7]'],[0,'1','0',1,'all_states[8]'],[0,'1','0',1,'all_states[9]']
-,[0,'1','0',1,'all_states[10]'],[0,'1','0',1,'all_states[11]'],[0,'1','0',1,'all_states[12]'],[0,'1','0',1,'all_states[13]'],[0,'1','0',1,'all_states[14]'],[0,'1','0',1,'all_states[15]']],[]],
-c2278:[4,'#coverpoint__0#',[],,'2277',2,1,'\\/dma_pkg::status_reg::current_state_cov ','2246','work.dma_pkg::status_reg',[[],[0,'1','1',,'all_states[0]'],[0,'1','0',1,'all_states[1]'],[0,'1','0',1,'all_states[2]'],[0,'1','0',1,'all_states[3]'],[0,'1','0',1,'all_states[4]'],[0,'1','0',1,'all_states[5]'],[0,'1','0',1,'all_states[6]'],[0,'1','0',1,'all_states[7]'],[0,'1','0',1,'all_states[8]'],[0,'1','0',1,'all_states[9]']
-,[0,'1','0',1,'all_states[10]'],[0,'1','0',1,'all_states[11]'],[0,'1','0',1,'all_states[12]'],[0,'1','0',1,'all_states[13]'],[0,'1','0',1,'all_states[14]'],[0,'1','0',1,'all_states[15]']],[]],
-c2280:[4,'#coverpoint__0#',[],,'2279',1,1,'fifo_level_cov','2246','work.dma_pkg::status_reg',[[],[0,'1','1',,'empty'],[0,'1','0',1,'low'],[0,'1','0',1,'mid'],[0,'1','0',1,'high']],[]],
-c2282:[4,'#coverpoint__0#',[],,'2281',2,1,'\\/dma_pkg::status_reg::fifo_level_cov ','2246','work.dma_pkg::status_reg',[[],[0,'1','1',,'empty'],[0,'1','0',1,'low'],[0,'1','0',1,'mid'],[0,'1','0',1,'high']],[]],
-c2284:[4,'#coverpoint__0#',[],,'2283',1,1,'reserved_cov','2246','work.dma_pkg::status_reg',[[],[0,'1','1',,'always_zero']],[]],
-c2286:[4,'#coverpoint__0#',[],,'2285',2,1,'\\/dma_pkg::status_reg::reserved_cov ','2246','work.dma_pkg::status_reg',[[],[0,'1','1',,'always_zero']],[]],
-c2304:[4,'#coverpoint__0#',[],,'2303',1,1,'transfer_count_cov','2290','work.dma_pkg::transfer_count_reg',[[],[0,'1','1',,'zero'],[0,'1','0',1,'low'],[0,'1','0',1,'med'],[0,'1','0',1,'high']],[]],
-c2306:[4,'#coverpoint__0#',[],,'2305',2,1,'\\/dma_pkg::transfer_count_reg::transfer_count_cov ','2290','work.dma_pkg::transfer_count_reg',[[],[0,'1','1',,'zero'],[0,'1','0',1,'low'],[0,'1','0',1,'med'],[0,'1','0',1,'high']],[]],
-c2324:[4,'#coverpoint__0#',[],,'2323',1,1,'descriptor_addr_cov','2310','work.dma_pkg::descriptor_addr_reg',[[],[0,'1','1',,'low'],[0,'1','2',,'med'],[0,'1','0',1,'high']],[]],
-c2326:[4,'#coverpoint__0#',[],,'2325',2,1,'\\/dma_pkg::descriptor_addr_reg::descriptor_addr_cov ','2310','work.dma_pkg::descriptor_addr_reg',[[],[0,'1','1',,'low'],[0,'1','2',,'med'],[0,'1','0',1,'high']],[]],
-c2344:[4,'#coverpoint__0#',[],,'2343',1,1,'error_flag_cov','2330','work.dma_pkg::error_status_reg',[[],[0,'1','0',1,'hit']],[]],
-c2345:[4,'#coverpoint__1#',[],,'2343',1,1,'error_flag_cov','2330','work.dma_pkg::error_status_reg',[[],[0,'1','0',1,'hit']],[]],
-c2346:[4,'#coverpoint__2#',[],,'2343',1,1,'error_flag_cov','2330','work.dma_pkg::error_status_reg',[[],[0,'1','0',1,'hit']],[]],
-c2347:[4,'#coverpoint__3#',[],,'2343',1,1,'error_flag_cov','2330','work.dma_pkg::error_status_reg',[[],[0,'1','0',1,'hit']],[]],
-c2348:[4,'#coverpoint__4#',[],,'2343',1,1,'error_flag_cov','2330','work.dma_pkg::error_status_reg',[[],[0,'1','0',1,'hit']],[]],
-c2350:[4,'#coverpoint__0#',[],,'2349',2,1,'\\/dma_pkg::error_status_reg::error_flag_cov ','2330','work.dma_pkg::error_status_reg',[[],[0,'1','0',1,'hit']],[]],
-c2351:[4,'#coverpoint__1#',[],,'2349',2,1,'\\/dma_pkg::error_status_reg::error_flag_cov ','2330','work.dma_pkg::error_status_reg',[[],[0,'1','0',1,'hit']],[]],
-c2352:[4,'#coverpoint__2#',[],,'2349',2,1,'\\/dma_pkg::error_status_reg::error_flag_cov ','2330','work.dma_pkg::error_status_reg',[[],[0,'1','0',1,'hit']],[]],
-c2353:[4,'#coverpoint__3#',[],,'2349',2,1,'\\/dma_pkg::error_status_reg::error_flag_cov ','2330','work.dma_pkg::error_status_reg',[[],[0,'1','0',1,'hit']],[]],
-c2354:[4,'#coverpoint__4#',[],,'2349',2,1,'\\/dma_pkg::error_status_reg::error_flag_cov ','2330','work.dma_pkg::error_status_reg',[[],[0,'1','0',1,'hit']],[]],
-c2356:[4,'#coverpoint__0#',[],,'2355',1,1,'error_code_cov','2330','work.dma_pkg::error_status_reg',[[],[0,'1','3',,'all_codes[0]'],[0,'1','0',1,'all_codes[1]'],[0,'1','0',1,'all_codes[2]'],[0,'1','0',1,'all_codes[3]'],[0,'1','0',1,'all_codes[4]'],[0,'1','0',1,'all_codes[5]'],[0,'1','0',1,'all_codes[6]'],[0,'1','0',1,'all_codes[7]'],[0,'1','0',1,'all_codes[8]'],[0,'1','0',1,'all_codes[9]']
+,[3,'--','0',,'other_addr[1020]'],[3,'--','0',,'other_addr[1021]'],[3,'--','0',,'other_addr[1022]'],[3,'--','0',,'other_addr[1023]'],[0,'1','201',,'intr_addr'],[0,'1','601',,'ctrl_addr'],[0,'1','401',,'io_addr'],[0,'1','401',,'mem_addr'],[0,'1','401',,'extra_info_addr'],[0,'1','201',,'status_addr']
+,[0,'1','201',,'transfer_count_addr'],[0,'1','401',,'descriptor_addr'],[0,'1','401',,'error_status_addr'],[0,'1','401',,'configure_addr']],[]],
+c2200:[4,'#coverpoint__0#',[],,'2199',1,1,'intr_status_cov','2186','work.dma_pkg::intr_reg',[[],[0,'1','201',,'intr_status_bin']],[]],
+c2202:[4,'#coverpoint__0#',[],,'2201',2,1,'\\/dma_pkg::intr_reg::intr_status_cov ','2186','work.dma_pkg::intr_reg',[[],[0,'1','201',,'intr_status_bin']],[]],
+c2204:[4,'#coverpoint__0#',[],,'2203',1,1,'intr_mask_cov','2186','work.dma_pkg::intr_reg',[[],[0,'1','201',,'intr_mask_bin']],[]],
+c2206:[4,'#coverpoint__0#',[],,'2205',2,1,'\\/dma_pkg::intr_reg::intr_mask_cov ','2186','work.dma_pkg::intr_reg',[[],[0,'1','201',,'intr_mask_bin']],[]],
+c2224:[4,'#coverpoint__0#',[],,'2223',1,1,'start_dma_cov','2210','work.dma_pkg::ctrl_reg',[[],[0,'1','601',,'start_dma']],[]],
+c2226:[4,'#coverpoint__0#',[],,'2225',2,1,'\\/dma_pkg::ctrl_reg::start_dma_cov ','2210','work.dma_pkg::ctrl_reg',[[],[0,'1','601',,'start_dma']],[]],
+c2228:[4,'#coverpoint__0#',[],,'2227',1,1,'w_count_cov','2210','work.dma_pkg::ctrl_reg',[[],[0,'1','1',,'low'],[0,'1','0',1,'med'],[0,'1','600',,'high']],[]],
+c2230:[4,'#coverpoint__0#',[],,'2229',2,1,'\\/dma_pkg::ctrl_reg::w_count_cov ','2210','work.dma_pkg::ctrl_reg',[[],[0,'1','1',,'low'],[0,'1','0',1,'med'],[0,'1','600',,'high']],[]],
+c2232:[4,'#coverpoint__0#',[],,'2231',1,1,'io_mem_cov','2210','work.dma_pkg::ctrl_reg',[[],[0,'1','601',,'io_to_mem']],[]],
+c2234:[4,'#coverpoint__0#',[],,'2233',2,1,'\\/dma_pkg::ctrl_reg::io_mem_cov ','2210','work.dma_pkg::ctrl_reg',[[],[0,'1','601',,'io_to_mem']],[]],
+c2252:[4,'#coverpoint__0#',[],,'2251',1,1,'io_addr_cov','2238','work.dma_pkg::io_addr_reg',[[],[0,'1','29',,'low'],[0,'1','184',,'med'],[0,'1','188',,'high']],[]],
+c2254:[4,'#coverpoint__0#',[],,'2253',2,1,'\\/dma_pkg::io_addr_reg::io_addr_cov ','2238','work.dma_pkg::io_addr_reg',[[],[0,'1','29',,'low'],[0,'1','184',,'med'],[0,'1','188',,'high']],[]],
+c2272:[4,'#coverpoint__0#',[],,'2271',1,1,'mem_addr_cov','2258','work.dma_pkg::mem_addr_reg',[[],[0,'1','21',,'low'],[0,'1','174',,'med'],[0,'1','206',,'high']],[]],
+c2274:[4,'#coverpoint__0#',[],,'2273',2,1,'\\/dma_pkg::mem_addr_reg::mem_addr_cov ','2258','work.dma_pkg::mem_addr_reg',[[],[0,'1','21',,'low'],[0,'1','174',,'med'],[0,'1','206',,'high']],[]],
+c2292:[4,'#coverpoint__0#',[],,'2291',1,1,'extra_info_cov','2278','work.dma_pkg::extra_info_reg',[[],[0,'1','19',,'low'],[0,'1','176',,'med'],[0,'1','206',,'high']],[]],
+c2294:[4,'#coverpoint__0#',[],,'2293',2,1,'\\/dma_pkg::extra_info_reg::extra_info_cov ','2278','work.dma_pkg::extra_info_reg',[[],[0,'1','19',,'low'],[0,'1','176',,'med'],[0,'1','206',,'high']],[]],
+c2312:[4,'#coverpoint__0#',[],,'2311',1,1,'busy_cov','2298','work.dma_pkg::status_reg',[[],[0,'1','201',,'busy_bin']],[]],
+c2314:[4,'#coverpoint__0#',[],,'2313',2,1,'\\/dma_pkg::status_reg::busy_cov ','2298','work.dma_pkg::status_reg',[[],[0,'1','201',,'busy_bin']],[]],
+c2316:[4,'#coverpoint__0#',[],,'2315',1,1,'done_cov','2298','work.dma_pkg::status_reg',[[],[0,'1','201',,'done_bin']],[]],
+c2318:[4,'#coverpoint__0#',[],,'2317',2,1,'\\/dma_pkg::status_reg::done_cov ','2298','work.dma_pkg::status_reg',[[],[0,'1','201',,'done_bin']],[]],
+c2320:[4,'#coverpoint__0#',[],,'2319',1,1,'error_cov','2298','work.dma_pkg::status_reg',[[],[0,'1','201',,'error_bin']],[]],
+c2322:[4,'#coverpoint__0#',[],,'2321',2,1,'\\/dma_pkg::status_reg::error_cov ','2298','work.dma_pkg::status_reg',[[],[0,'1','201',,'error_bin']],[]],
+c2324:[4,'#coverpoint__0#',[],,'2323',1,1,'paused_cov','2298','work.dma_pkg::status_reg',[[],[0,'1','201',,'paused_bin']],[]],
+c2326:[4,'#coverpoint__0#',[],,'2325',2,1,'\\/dma_pkg::status_reg::paused_cov ','2298','work.dma_pkg::status_reg',[[],[0,'1','201',,'paused_bin']],[]],
+c2328:[4,'#coverpoint__0#',[],,'2327',1,1,'current_state_cov','2298','work.dma_pkg::status_reg',[[],[0,'1','201',,'all_states']],[]],
+c2330:[4,'#coverpoint__0#',[],,'2329',2,1,'\\/dma_pkg::status_reg::current_state_cov ','2298','work.dma_pkg::status_reg',[[],[0,'1','201',,'all_states']],[]],
+c2332:[4,'#coverpoint__0#',[],,'2331',1,1,'fifo_level_cov','2298','work.dma_pkg::status_reg',[[],[0,'1','201',,'low'],[0,'1','0',1,'mid'],[0,'1','0',1,'high']],[]],
+c2334:[4,'#coverpoint__0#',[],,'2333',2,1,'\\/dma_pkg::status_reg::fifo_level_cov ','2298','work.dma_pkg::status_reg',[[],[0,'1','201',,'low'],[0,'1','0',1,'mid'],[0,'1','0',1,'high']],[]],
+c2352:[4,'#coverpoint__0#',[],,'2351',1,1,'transfer_count_cov','2338','work.dma_pkg::transfer_count_reg',[[],[0,'1','6',,'low'],[0,'1','195',,'med'],[0,'1','0',1,'high']],[]],
+c2354:[4,'#coverpoint__0#',[],,'2353',2,1,'\\/dma_pkg::transfer_count_reg::transfer_count_cov ','2338','work.dma_pkg::transfer_count_reg',[[],[0,'1','6',,'low'],[0,'1','195',,'med'],[0,'1','0',1,'high']],[]],
+c2372:[4,'#coverpoint__0#',[],,'2371',1,1,'descriptor_addr_cov','2358','work.dma_pkg::descriptor_addr_reg',[[],[0,'1','23',,'low'],[0,'1','182',,'med'],[0,'1','196',,'high']],[]],
+c2374:[4,'#coverpoint__0#',[],,'2373',2,1,'\\/dma_pkg::descriptor_addr_reg::descriptor_addr_cov ','2358','work.dma_pkg::descriptor_addr_reg',[[],[0,'1','23',,'low'],[0,'1','182',,'med'],[0,'1','196',,'high']],[]],
+c2392:[4,'#coverpoint__0#',[],,'2391',1,1,'error_flag_cov','2378','work.dma_pkg::error_status_reg',[[],[0,'1','401',,'hit']],[]],
+c2393:[4,'#coverpoint__1#',[],,'2391',1,1,'error_flag_cov','2378','work.dma_pkg::error_status_reg',[[],[0,'1','401',,'hit']],[]],
+c2394:[4,'#coverpoint__2#',[],,'2391',1,1,'error_flag_cov','2378','work.dma_pkg::error_status_reg',[[],[0,'1','401',,'hit']],[]],
+c2395:[4,'#coverpoint__3#',[],,'2391',1,1,'error_flag_cov','2378','work.dma_pkg::error_status_reg',[[],[0,'1','401',,'hit']],[]],
+c2396:[4,'#coverpoint__4#',[],,'2391',1,1,'error_flag_cov','2378','work.dma_pkg::error_status_reg',[[],[0,'1','401',,'hit']],[]],
+c2398:[4,'#coverpoint__0#',[],,'2397',2,1,'\\/dma_pkg::error_status_reg::error_flag_cov ','2378','work.dma_pkg::error_status_reg',[[],[0,'1','401',,'hit']],[]],
+c2399:[4,'#coverpoint__1#',[],,'2397',2,1,'\\/dma_pkg::error_status_reg::error_flag_cov ','2378','work.dma_pkg::error_status_reg',[[],[0,'1','401',,'hit']],[]],
+c2400:[4,'#coverpoint__2#',[],,'2397',2,1,'\\/dma_pkg::error_status_reg::error_flag_cov ','2378','work.dma_pkg::error_status_reg',[[],[0,'1','401',,'hit']],[]],
+c2401:[4,'#coverpoint__3#',[],,'2397',2,1,'\\/dma_pkg::error_status_reg::error_flag_cov ','2378','work.dma_pkg::error_status_reg',[[],[0,'1','401',,'hit']],[]],
+c2402:[4,'#coverpoint__4#',[],,'2397',2,1,'\\/dma_pkg::error_status_reg::error_flag_cov ','2378','work.dma_pkg::error_status_reg',[[],[0,'1','401',,'hit']],[]],
+c2404:[4,'#coverpoint__0#',[],,'2403',1,1,'error_code_cov','2378','work.dma_pkg::error_status_reg',[[],[0,'1','401',,'all_codes[0]'],[0,'1','0',1,'all_codes[1]'],[0,'1','0',1,'all_codes[2]'],[0,'1','0',1,'all_codes[3]'],[0,'1','0',1,'all_codes[4]'],[0,'1','0',1,'all_codes[5]'],[0,'1','0',1,'all_codes[6]'],[0,'1','0',1,'all_codes[7]'],[0,'1','0',1,'all_codes[8]'],[0,'1','0',1,'all_codes[9]']
 ,[0,'1','0',1,'all_codes[10]'],[0,'1','0',1,'all_codes[11]'],[0,'1','0',1,'all_codes[12]'],[0,'1','0',1,'all_codes[13]'],[0,'1','0',1,'all_codes[14]'],[0,'1','0',1,'all_codes[15]'],[0,'1','0',1,'all_codes[16]'],[0,'1','0',1,'all_codes[17]'],[0,'1','0',1,'all_codes[18]'],[0,'1','0',1,'all_codes[19]']
 ,[0,'1','0',1,'all_codes[20]'],[0,'1','0',1,'all_codes[21]'],[0,'1','0',1,'all_codes[22]'],[0,'1','0',1,'all_codes[23]'],[0,'1','0',1,'all_codes[24]'],[0,'1','0',1,'all_codes[25]'],[0,'1','0',1,'all_codes[26]'],[0,'1','0',1,'all_codes[27]'],[0,'1','0',1,'all_codes[28]'],[0,'1','0',1,'all_codes[29]']
 ,[0,'1','0',1,'all_codes[30]'],[0,'1','0',1,'all_codes[31]'],[0,'1','0',1,'all_codes[32]'],[0,'1','0',1,'all_codes[33]'],[0,'1','0',1,'all_codes[34]'],[0,'1','0',1,'all_codes[35]'],[0,'1','0',1,'all_codes[36]'],[0,'1','0',1,'all_codes[37]'],[0,'1','0',1,'all_codes[38]'],[0,'1','0',1,'all_codes[39]']
@@ -409,7 +393,7 @@ c2356:[4,'#coverpoint__0#',[],,'2355',1,1,'error_code_cov','2330','work.dma_pkg:
 ,[0,'1','0',1,'all_codes[230]'],[0,'1','0',1,'all_codes[231]'],[0,'1','0',1,'all_codes[232]'],[0,'1','0',1,'all_codes[233]'],[0,'1','0',1,'all_codes[234]'],[0,'1','0',1,'all_codes[235]'],[0,'1','0',1,'all_codes[236]'],[0,'1','0',1,'all_codes[237]'],[0,'1','0',1,'all_codes[238]'],[0,'1','0',1,'all_codes[239]']
 ,[0,'1','0',1,'all_codes[240]'],[0,'1','0',1,'all_codes[241]'],[0,'1','0',1,'all_codes[242]'],[0,'1','0',1,'all_codes[243]'],[0,'1','0',1,'all_codes[244]'],[0,'1','0',1,'all_codes[245]'],[0,'1','0',1,'all_codes[246]'],[0,'1','0',1,'all_codes[247]'],[0,'1','0',1,'all_codes[248]'],[0,'1','0',1,'all_codes[249]']
 ,[0,'1','0',1,'all_codes[250]'],[0,'1','0',1,'all_codes[251]'],[0,'1','0',1,'all_codes[252]'],[0,'1','0',1,'all_codes[253]'],[0,'1','0',1,'all_codes[254]'],[0,'1','0',1,'all_codes[255]']],[]],
-c2358:[4,'#coverpoint__0#',[],,'2357',2,1,'\\/dma_pkg::error_status_reg::error_code_cov ','2330','work.dma_pkg::error_status_reg',[[],[0,'1','3',,'all_codes[0]'],[0,'1','0',1,'all_codes[1]'],[0,'1','0',1,'all_codes[2]'],[0,'1','0',1,'all_codes[3]'],[0,'1','0',1,'all_codes[4]'],[0,'1','0',1,'all_codes[5]'],[0,'1','0',1,'all_codes[6]'],[0,'1','0',1,'all_codes[7]'],[0,'1','0',1,'all_codes[8]'],[0,'1','0',1,'all_codes[9]']
+c2406:[4,'#coverpoint__0#',[],,'2405',2,1,'\\/dma_pkg::error_status_reg::error_code_cov ','2378','work.dma_pkg::error_status_reg',[[],[0,'1','401',,'all_codes[0]'],[0,'1','0',1,'all_codes[1]'],[0,'1','0',1,'all_codes[2]'],[0,'1','0',1,'all_codes[3]'],[0,'1','0',1,'all_codes[4]'],[0,'1','0',1,'all_codes[5]'],[0,'1','0',1,'all_codes[6]'],[0,'1','0',1,'all_codes[7]'],[0,'1','0',1,'all_codes[8]'],[0,'1','0',1,'all_codes[9]']
 ,[0,'1','0',1,'all_codes[10]'],[0,'1','0',1,'all_codes[11]'],[0,'1','0',1,'all_codes[12]'],[0,'1','0',1,'all_codes[13]'],[0,'1','0',1,'all_codes[14]'],[0,'1','0',1,'all_codes[15]'],[0,'1','0',1,'all_codes[16]'],[0,'1','0',1,'all_codes[17]'],[0,'1','0',1,'all_codes[18]'],[0,'1','0',1,'all_codes[19]']
 ,[0,'1','0',1,'all_codes[20]'],[0,'1','0',1,'all_codes[21]'],[0,'1','0',1,'all_codes[22]'],[0,'1','0',1,'all_codes[23]'],[0,'1','0',1,'all_codes[24]'],[0,'1','0',1,'all_codes[25]'],[0,'1','0',1,'all_codes[26]'],[0,'1','0',1,'all_codes[27]'],[0,'1','0',1,'all_codes[28]'],[0,'1','0',1,'all_codes[29]']
 ,[0,'1','0',1,'all_codes[30]'],[0,'1','0',1,'all_codes[31]'],[0,'1','0',1,'all_codes[32]'],[0,'1','0',1,'all_codes[33]'],[0,'1','0',1,'all_codes[34]'],[0,'1','0',1,'all_codes[35]'],[0,'1','0',1,'all_codes[36]'],[0,'1','0',1,'all_codes[37]'],[0,'1','0',1,'all_codes[38]'],[0,'1','0',1,'all_codes[39]']
@@ -435,30 +419,26 @@ c2358:[4,'#coverpoint__0#',[],,'2357',2,1,'\\/dma_pkg::error_status_reg::error_c
 ,[0,'1','0',1,'all_codes[230]'],[0,'1','0',1,'all_codes[231]'],[0,'1','0',1,'all_codes[232]'],[0,'1','0',1,'all_codes[233]'],[0,'1','0',1,'all_codes[234]'],[0,'1','0',1,'all_codes[235]'],[0,'1','0',1,'all_codes[236]'],[0,'1','0',1,'all_codes[237]'],[0,'1','0',1,'all_codes[238]'],[0,'1','0',1,'all_codes[239]']
 ,[0,'1','0',1,'all_codes[240]'],[0,'1','0',1,'all_codes[241]'],[0,'1','0',1,'all_codes[242]'],[0,'1','0',1,'all_codes[243]'],[0,'1','0',1,'all_codes[244]'],[0,'1','0',1,'all_codes[245]'],[0,'1','0',1,'all_codes[246]'],[0,'1','0',1,'all_codes[247]'],[0,'1','0',1,'all_codes[248]'],[0,'1','0',1,'all_codes[249]']
 ,[0,'1','0',1,'all_codes[250]'],[0,'1','0',1,'all_codes[251]'],[0,'1','0',1,'all_codes[252]'],[0,'1','0',1,'all_codes[253]'],[0,'1','0',1,'all_codes[254]'],[0,'1','0',1,'all_codes[255]']],[]],
-c2360:[4,'#coverpoint__0#',[],,'2359',1,1,'error_addr_cov','2330','work.dma_pkg::error_status_reg',[[],[0,'1','3',,'low'],[0,'1','0',1,'mid'],[0,'1','0',1,'high']],[]],
-c2362:[4,'#coverpoint__0#',[],,'2361',2,1,'\\/dma_pkg::error_status_reg::error_addr_cov ','2330','work.dma_pkg::error_status_reg',[[],[0,'1','3',,'low'],[0,'1','0',1,'mid'],[0,'1','0',1,'high']],[]],
-c2364:[4,'#coverpoint__0#',[],,'2363',1,1,'reserved_cov','2330','work.dma_pkg::error_status_reg',[[],[0,'1','3',,'always_zero']],[]],
-c2366:[4,'#coverpoint__0#',[],,'2365',2,1,'\\/dma_pkg::error_status_reg::reserved_cov ','2330','work.dma_pkg::error_status_reg',[[],[0,'1','3',,'always_zero']],[]],
-c2384:[4,'#coverpoint__0#',[],,'2383',1,1,'priority_cov','2370','work.dma_pkg::config_reg',[[],[0,'1','1',,'all_prio[0]'],[0,'1','0',1,'all_prio[1]'],[0,'1','2',,'all_prio[2]'],[0,'1','0',1,'all_prio[3]']],[]],
-c2386:[4,'#coverpoint__0#',[],,'2385',2,1,'\\/dma_pkg::config_reg::priority_cov ','2370','work.dma_pkg::config_reg',[[],[0,'1','1',,'all_prio[0]'],[0,'1','0',1,'all_prio[1]'],[0,'1','2',,'all_prio[2]'],[0,'1','0',1,'all_prio[3]']],[]],
-c2388:[4,'#coverpoint__0#',[],,'2387',1,1,'auto_restart_cov','2370','work.dma_pkg::config_reg',[[],[0,'1','3',,'disabled'],[0,'1','0',1,'enabled']],[]],
-c2390:[4,'#coverpoint__0#',[],,'2389',2,1,'\\/dma_pkg::config_reg::auto_restart_cov ','2370','work.dma_pkg::config_reg',[[],[0,'1','3',,'disabled'],[0,'1','0',1,'enabled']],[]],
-c2392:[4,'#coverpoint__0#',[],,'2391',1,1,'interrupt_enable_cov','2370','work.dma_pkg::config_reg',[[],[0,'1','3',,'disabled'],[0,'1','0',1,'enabled']],[]],
-c2394:[4,'#coverpoint__0#',[],,'2393',2,1,'\\/dma_pkg::config_reg::interrupt_enable_cov ','2370','work.dma_pkg::config_reg',[[],[0,'1','3',,'disabled'],[0,'1','0',1,'enabled']],[]],
-c2396:[4,'#coverpoint__0#',[],,'2395',1,1,'burst_size_cov','2370','work.dma_pkg::config_reg',[[],[0,'1','3',,'burst_1'],[0,'1','0',1,'burst_4'],[0,'1','0',1,'burst_8'],[0,'1','0',1,'burst_16']],[]],
-c2398:[4,'#coverpoint__0#',[],,'2397',2,1,'\\/dma_pkg::config_reg::burst_size_cov ','2370','work.dma_pkg::config_reg',[[],[0,'1','3',,'burst_1'],[0,'1','0',1,'burst_4'],[0,'1','0',1,'burst_8'],[0,'1','0',1,'burst_16']],[]],
-c2400:[4,'#coverpoint__0#',[],,'2399',1,1,'data_width_cov','2370','work.dma_pkg::config_reg',[[],[0,'1','3',,'width_8'],[0,'1','0',1,'width_16'],[0,'1','0',1,'width_32'],[0,'1','0',1,'width_64']],[]],
-c2402:[4,'#coverpoint__0#',[],,'2401',2,1,'\\/dma_pkg::config_reg::data_width_cov ','2370','work.dma_pkg::config_reg',[[],[0,'1','3',,'width_8'],[0,'1','0',1,'width_16'],[0,'1','0',1,'width_32'],[0,'1','0',1,'width_64']],[]],
-c2404:[4,'#coverpoint__0#',[],,'2403',1,1,'descriptor_mode_cov','2370','work.dma_pkg::config_reg',[[],[0,'1','3',,'disabled'],[0,'1','0',1,'enabled']],[]],
-c2406:[4,'#coverpoint__0#',[],,'2405',2,1,'\\/dma_pkg::config_reg::descriptor_mode_cov ','2370','work.dma_pkg::config_reg',[[],[0,'1','3',,'disabled'],[0,'1','0',1,'enabled']],[]],
-c2408:[4,'#coverpoint__0#',[],,'2407',1,1,'reserved_cov','2370','work.dma_pkg::config_reg',[[],[0,'1','3',,'always_zero']],[]],
-c2410:[4,'#coverpoint__0#',[],,'2409',2,1,'\\/dma_pkg::config_reg::reserved_cov ','2370','work.dma_pkg::config_reg',[[],[0,'1','3',,'always_zero']],[]],
-c2691:[4,'rst_cp',[],,'2690',1,1,'cg','2685','work.dma_pkg::dma_subscriber',[[],[0,'1','0',1,'rst_bin[0]'],[0,'1','25',,'rst_bin[1]']],[]],
-c2692:[4,'wr_en_cp',[],,'2690',1,1,'cg','2685','work.dma_pkg::dma_subscriber',[[],[0,'1','18',,'wr_en_bin[0]'],[0,'1','7',,'wr_en_bin[1]']],[]],
-c2693:[4,'rd_en_cp',[],,'2690',1,1,'cg','2685','work.dma_pkg::dma_subscriber',[[],[0,'1','7',,'rd_en_bin[0]'],[0,'1','18',,'rd_en_bin[1]']],[]],
-c2694:[4,'wdata_cp',[],,'2690',1,1,'cg','2685','work.dma_pkg::dma_subscriber',[[],[0,'1','25',,'wdata_bin']],[]],
-c2695:[4,'rdata_cp',[],,'2690',1,1,'cg','2685','work.dma_pkg::dma_subscriber',[[],[0,'1','25',,'rdata_bin']],[]],
-c2696:[4,'addr_cp',[],,'2690',1,1,'cg','2685','work.dma_pkg::dma_subscriber',[[],[3,'--','0',,'other_addr[0]'],[3,'--','0',,'other_addr[1]'],[3,'--','0',,'other_addr[2]'],[3,'--','0',,'other_addr[3]'],[3,'--','0',,'other_addr[4]'],[3,'--','0',,'other_addr[5]'],[3,'--','0',,'other_addr[6]'],[3,'--','0',,'other_addr[7]'],[3,'--','0',,'other_addr[8]'],[3,'--','0',,'other_addr[9]']
+c2408:[4,'#coverpoint__0#',[],,'2407',1,1,'error_addr_cov','2378','work.dma_pkg::error_status_reg',[[],[0,'1','401',,'low'],[0,'1','0',1,'mid'],[0,'1','0',1,'high']],[]],
+c2410:[4,'#coverpoint__0#',[],,'2409',2,1,'\\/dma_pkg::error_status_reg::error_addr_cov ','2378','work.dma_pkg::error_status_reg',[[],[0,'1','401',,'low'],[0,'1','0',1,'mid'],[0,'1','0',1,'high']],[]],
+c2428:[4,'#coverpoint__0#',[],,'2427',1,1,'priority_cov','2414','work.dma_pkg::config_reg',[[],[0,'1','401',,'all_prio']],[]],
+c2430:[4,'#coverpoint__0#',[],,'2429',2,1,'\\/dma_pkg::config_reg::priority_cov ','2414','work.dma_pkg::config_reg',[[],[0,'1','401',,'all_prio']],[]],
+c2432:[4,'#coverpoint__0#',[],,'2431',1,1,'auto_restart_cov','2414','work.dma_pkg::config_reg',[[],[0,'1','401',,'autostart']],[]],
+c2434:[4,'#coverpoint__0#',[],,'2433',2,1,'\\/dma_pkg::config_reg::auto_restart_cov ','2414','work.dma_pkg::config_reg',[[],[0,'1','401',,'autostart']],[]],
+c2436:[4,'#coverpoint__0#',[],,'2435',1,1,'interrupt_enable_cov','2414','work.dma_pkg::config_reg',[[],[0,'1','401',,'interrupt']],[]],
+c2438:[4,'#coverpoint__0#',[],,'2437',2,1,'\\/dma_pkg::config_reg::interrupt_enable_cov ','2414','work.dma_pkg::config_reg',[[],[0,'1','401',,'interrupt']],[]],
+c2440:[4,'#coverpoint__0#',[],,'2439',1,1,'burst_size_cov','2414','work.dma_pkg::config_reg',[[],[0,'1','401',,'burst']],[]],
+c2442:[4,'#coverpoint__0#',[],,'2441',2,1,'\\/dma_pkg::config_reg::burst_size_cov ','2414','work.dma_pkg::config_reg',[[],[0,'1','401',,'burst']],[]],
+c2444:[4,'#coverpoint__0#',[],,'2443',1,1,'data_width_cov','2414','work.dma_pkg::config_reg',[[],[0,'1','401',,'width']],[]],
+c2446:[4,'#coverpoint__0#',[],,'2445',2,1,'\\/dma_pkg::config_reg::data_width_cov ','2414','work.dma_pkg::config_reg',[[],[0,'1','401',,'width']],[]],
+c2448:[4,'#coverpoint__0#',[],,'2447',1,1,'descriptor_mode_cov','2414','work.dma_pkg::config_reg',[[],[0,'1','401',,'discriptor']],[]],
+c2450:[4,'#coverpoint__0#',[],,'2449',2,1,'\\/dma_pkg::config_reg::descriptor_mode_cov ','2414','work.dma_pkg::config_reg',[[],[0,'1','401',,'discriptor']],[]],
+c2791:[4,'rst_cp',[],,'2790',1,1,'cg','2785','work.dma_pkg::dma_subscriber',[[],[0,'1','0',1,'rst_bin[0]'],[0,'1','3610',,'rst_bin[1]']],[]],
+c2792:[4,'wr_en_cp',[],,'2790',1,1,'cg','2785','work.dma_pkg::dma_subscriber',[[],[0,'1','1610',,'wr_en_bin[0]'],[0,'1','2000',,'wr_en_bin[1]']],[]],
+c2793:[4,'rd_en_cp',[],,'2790',1,1,'cg','2785','work.dma_pkg::dma_subscriber',[[],[0,'1','2000',,'rd_en_bin[0]'],[0,'1','1610',,'rd_en_bin[1]']],[]],
+c2794:[4,'wdata_cp',[],,'2790',1,1,'cg','2785','work.dma_pkg::dma_subscriber',[[],[0,'1','3610',,'wdata_bin']],[]],
+c2795:[4,'rdata_cp',[],,'2790',1,1,'cg','2785','work.dma_pkg::dma_subscriber',[[],[0,'1','3610',,'rdata_bin']],[]],
+c2796:[4,'addr_cp',[],,'2790',1,1,'cg','2785','work.dma_pkg::dma_subscriber',[[],[3,'--','0',,'other_addr[0]'],[3,'--','0',,'other_addr[1]'],[3,'--','0',,'other_addr[2]'],[3,'--','0',,'other_addr[3]'],[3,'--','0',,'other_addr[4]'],[3,'--','0',,'other_addr[5]'],[3,'--','0',,'other_addr[6]'],[3,'--','0',,'other_addr[7]'],[3,'--','0',,'other_addr[8]'],[3,'--','0',,'other_addr[9]']
 ,[3,'--','0',,'other_addr[10]'],[3,'--','0',,'other_addr[11]'],[3,'--','0',,'other_addr[12]'],[3,'--','0',,'other_addr[13]'],[3,'--','0',,'other_addr[14]'],[3,'--','0',,'other_addr[15]'],[3,'--','0',,'other_addr[16]'],[3,'--','0',,'other_addr[17]'],[3,'--','0',,'other_addr[18]'],[3,'--','0',,'other_addr[19]']
 ,[3,'--','0',,'other_addr[20]'],[3,'--','0',,'other_addr[21]'],[3,'--','0',,'other_addr[22]'],[3,'--','0',,'other_addr[23]'],[3,'--','0',,'other_addr[24]'],[3,'--','0',,'other_addr[25]'],[3,'--','0',,'other_addr[26]'],[3,'--','0',,'other_addr[27]'],[3,'--','0',,'other_addr[28]'],[3,'--','0',,'other_addr[29]']
 ,[3,'--','0',,'other_addr[30]'],[3,'--','0',,'other_addr[31]'],[3,'--','0',,'other_addr[32]'],[3,'--','0',,'other_addr[33]'],[3,'--','0',,'other_addr[34]'],[3,'--','0',,'other_addr[35]'],[3,'--','0',,'other_addr[36]'],[3,'--','0',,'other_addr[37]'],[3,'--','0',,'other_addr[38]'],[3,'--','0',,'other_addr[39]']
@@ -560,14 +540,14 @@ c2696:[4,'addr_cp',[],,'2690',1,1,'cg','2685','work.dma_pkg::dma_subscriber',[[]
 ,[3,'--','0',,'other_addr[990]'],[3,'--','0',,'other_addr[991]'],[3,'--','0',,'other_addr[992]'],[3,'--','0',,'other_addr[993]'],[3,'--','0',,'other_addr[994]'],[3,'--','0',,'other_addr[995]'],[3,'--','0',,'other_addr[996]'],[3,'--','0',,'other_addr[997]'],[3,'--','0',,'other_addr[998]'],[3,'--','0',,'other_addr[999]']
 ,[3,'--','0',,'other_addr[1000]'],[3,'--','0',,'other_addr[1001]'],[3,'--','0',,'other_addr[1002]'],[3,'--','0',,'other_addr[1003]'],[3,'--','0',,'other_addr[1004]'],[3,'--','0',,'other_addr[1005]'],[3,'--','0',,'other_addr[1006]'],[3,'--','0',,'other_addr[1007]'],[3,'--','0',,'other_addr[1008]'],[3,'--','0',,'other_addr[1009]']
 ,[3,'--','0',,'other_addr[1010]'],[3,'--','0',,'other_addr[1011]'],[3,'--','0',,'other_addr[1012]'],[3,'--','0',,'other_addr[1013]'],[3,'--','0',,'other_addr[1014]'],[3,'--','0',,'other_addr[1015]'],[3,'--','0',,'other_addr[1016]'],[3,'--','0',,'other_addr[1017]'],[3,'--','0',,'other_addr[1018]'],[3,'--','0',,'other_addr[1019]']
-,[3,'--','0',,'other_addr[1020]'],[3,'--','0',,'other_addr[1021]'],[3,'--','0',,'other_addr[1022]'],[3,'--','0',,'other_addr[1023]'],[0,'1','1',,'intr_addr'],[0,'1','4',,'ctrl_addr'],[0,'1','3',,'io_addr'],[0,'1','3',,'mem_addr'],[0,'1','3',,'extra_info_addr'],[0,'1','1',,'status_addr']
-,[0,'1','1',,'transfer_count_addr'],[0,'1','3',,'descriptor_addr'],[0,'1','3',,'error_status_addr'],[0,'1','3',,'configure_addr']],[]],
-c2698:[4,'rst_cp',[],,'2697',2,1,'\\/dma_pkg::dma_subscriber::cg ','2685','work.dma_pkg::dma_subscriber',[[],[0,'1','0',1,'rst_bin[0]'],[0,'1','25',,'rst_bin[1]']],[]],
-c2699:[4,'wr_en_cp',[],,'2697',2,1,'\\/dma_pkg::dma_subscriber::cg ','2685','work.dma_pkg::dma_subscriber',[[],[0,'1','18',,'wr_en_bin[0]'],[0,'1','7',,'wr_en_bin[1]']],[]],
-c2700:[4,'rd_en_cp',[],,'2697',2,1,'\\/dma_pkg::dma_subscriber::cg ','2685','work.dma_pkg::dma_subscriber',[[],[0,'1','7',,'rd_en_bin[0]'],[0,'1','18',,'rd_en_bin[1]']],[]],
-c2701:[4,'wdata_cp',[],,'2697',2,1,'\\/dma_pkg::dma_subscriber::cg ','2685','work.dma_pkg::dma_subscriber',[[],[0,'1','25',,'wdata_bin']],[]],
-c2702:[4,'rdata_cp',[],,'2697',2,1,'\\/dma_pkg::dma_subscriber::cg ','2685','work.dma_pkg::dma_subscriber',[[],[0,'1','25',,'rdata_bin']],[]],
-c2703:[4,'addr_cp',[],,'2697',2,1,'\\/dma_pkg::dma_subscriber::cg ','2685','work.dma_pkg::dma_subscriber',[[],[3,'--','0',,'other_addr[0]'],[3,'--','0',,'other_addr[1]'],[3,'--','0',,'other_addr[2]'],[3,'--','0',,'other_addr[3]'],[3,'--','0',,'other_addr[4]'],[3,'--','0',,'other_addr[5]'],[3,'--','0',,'other_addr[6]'],[3,'--','0',,'other_addr[7]'],[3,'--','0',,'other_addr[8]'],[3,'--','0',,'other_addr[9]']
+,[3,'--','0',,'other_addr[1020]'],[3,'--','0',,'other_addr[1021]'],[3,'--','0',,'other_addr[1022]'],[3,'--','0',,'other_addr[1023]'],[0,'1','201',,'intr_addr'],[0,'1','601',,'ctrl_addr'],[0,'1','401',,'io_addr'],[0,'1','401',,'mem_addr'],[0,'1','401',,'extra_info_addr'],[0,'1','201',,'status_addr']
+,[0,'1','201',,'transfer_count_addr'],[0,'1','401',,'descriptor_addr'],[0,'1','401',,'error_status_addr'],[0,'1','401',,'configure_addr']],[]],
+c2798:[4,'rst_cp',[],,'2797',2,1,'\\/dma_pkg::dma_subscriber::cg ','2785','work.dma_pkg::dma_subscriber',[[],[0,'1','0',1,'rst_bin[0]'],[0,'1','3610',,'rst_bin[1]']],[]],
+c2799:[4,'wr_en_cp',[],,'2797',2,1,'\\/dma_pkg::dma_subscriber::cg ','2785','work.dma_pkg::dma_subscriber',[[],[0,'1','1610',,'wr_en_bin[0]'],[0,'1','2000',,'wr_en_bin[1]']],[]],
+c2800:[4,'rd_en_cp',[],,'2797',2,1,'\\/dma_pkg::dma_subscriber::cg ','2785','work.dma_pkg::dma_subscriber',[[],[0,'1','2000',,'rd_en_bin[0]'],[0,'1','1610',,'rd_en_bin[1]']],[]],
+c2801:[4,'wdata_cp',[],,'2797',2,1,'\\/dma_pkg::dma_subscriber::cg ','2785','work.dma_pkg::dma_subscriber',[[],[0,'1','3610',,'wdata_bin']],[]],
+c2802:[4,'rdata_cp',[],,'2797',2,1,'\\/dma_pkg::dma_subscriber::cg ','2785','work.dma_pkg::dma_subscriber',[[],[0,'1','3610',,'rdata_bin']],[]],
+c2803:[4,'addr_cp',[],,'2797',2,1,'\\/dma_pkg::dma_subscriber::cg ','2785','work.dma_pkg::dma_subscriber',[[],[3,'--','0',,'other_addr[0]'],[3,'--','0',,'other_addr[1]'],[3,'--','0',,'other_addr[2]'],[3,'--','0',,'other_addr[3]'],[3,'--','0',,'other_addr[4]'],[3,'--','0',,'other_addr[5]'],[3,'--','0',,'other_addr[6]'],[3,'--','0',,'other_addr[7]'],[3,'--','0',,'other_addr[8]'],[3,'--','0',,'other_addr[9]']
 ,[3,'--','0',,'other_addr[10]'],[3,'--','0',,'other_addr[11]'],[3,'--','0',,'other_addr[12]'],[3,'--','0',,'other_addr[13]'],[3,'--','0',,'other_addr[14]'],[3,'--','0',,'other_addr[15]'],[3,'--','0',,'other_addr[16]'],[3,'--','0',,'other_addr[17]'],[3,'--','0',,'other_addr[18]'],[3,'--','0',,'other_addr[19]']
 ,[3,'--','0',,'other_addr[20]'],[3,'--','0',,'other_addr[21]'],[3,'--','0',,'other_addr[22]'],[3,'--','0',,'other_addr[23]'],[3,'--','0',,'other_addr[24]'],[3,'--','0',,'other_addr[25]'],[3,'--','0',,'other_addr[26]'],[3,'--','0',,'other_addr[27]'],[3,'--','0',,'other_addr[28]'],[3,'--','0',,'other_addr[29]']
 ,[3,'--','0',,'other_addr[30]'],[3,'--','0',,'other_addr[31]'],[3,'--','0',,'other_addr[32]'],[3,'--','0',,'other_addr[33]'],[3,'--','0',,'other_addr[34]'],[3,'--','0',,'other_addr[35]'],[3,'--','0',,'other_addr[36]'],[3,'--','0',,'other_addr[37]'],[3,'--','0',,'other_addr[38]'],[3,'--','0',,'other_addr[39]']
@@ -669,8 +649,8 @@ c2703:[4,'addr_cp',[],,'2697',2,1,'\\/dma_pkg::dma_subscriber::cg ','2685','work
 ,[3,'--','0',,'other_addr[990]'],[3,'--','0',,'other_addr[991]'],[3,'--','0',,'other_addr[992]'],[3,'--','0',,'other_addr[993]'],[3,'--','0',,'other_addr[994]'],[3,'--','0',,'other_addr[995]'],[3,'--','0',,'other_addr[996]'],[3,'--','0',,'other_addr[997]'],[3,'--','0',,'other_addr[998]'],[3,'--','0',,'other_addr[999]']
 ,[3,'--','0',,'other_addr[1000]'],[3,'--','0',,'other_addr[1001]'],[3,'--','0',,'other_addr[1002]'],[3,'--','0',,'other_addr[1003]'],[3,'--','0',,'other_addr[1004]'],[3,'--','0',,'other_addr[1005]'],[3,'--','0',,'other_addr[1006]'],[3,'--','0',,'other_addr[1007]'],[3,'--','0',,'other_addr[1008]'],[3,'--','0',,'other_addr[1009]']
 ,[3,'--','0',,'other_addr[1010]'],[3,'--','0',,'other_addr[1011]'],[3,'--','0',,'other_addr[1012]'],[3,'--','0',,'other_addr[1013]'],[3,'--','0',,'other_addr[1014]'],[3,'--','0',,'other_addr[1015]'],[3,'--','0',,'other_addr[1016]'],[3,'--','0',,'other_addr[1017]'],[3,'--','0',,'other_addr[1018]'],[3,'--','0',,'other_addr[1019]']
-,[3,'--','0',,'other_addr[1020]'],[3,'--','0',,'other_addr[1021]'],[3,'--','0',,'other_addr[1022]'],[3,'--','0',,'other_addr[1023]'],[0,'1','1',,'intr_addr'],[0,'1','4',,'ctrl_addr'],[0,'1','3',,'io_addr'],[0,'1','3',,'mem_addr'],[0,'1','3',,'extra_info_addr'],[0,'1','1',,'status_addr']
-,[0,'1','1',,'transfer_count_addr'],[0,'1','3',,'descriptor_addr'],[0,'1','3',,'error_status_addr'],[0,'1','3',,'configure_addr']],[]],
+,[3,'--','0',,'other_addr[1020]'],[3,'--','0',,'other_addr[1021]'],[3,'--','0',,'other_addr[1022]'],[3,'--','0',,'other_addr[1023]'],[0,'1','201',,'intr_addr'],[0,'1','601',,'ctrl_addr'],[0,'1','401',,'io_addr'],[0,'1','401',,'mem_addr'],[0,'1','401',,'extra_info_addr'],[0,'1','201',,'status_addr']
+,[0,'1','201',,'transfer_count_addr'],[0,'1','401',,'descriptor_addr'],[0,'1','401',,'error_status_addr'],[0,'1','401',,'configure_addr']],[]],
 dummyEnd:0
 };
 processCovergroupsData(g_data);

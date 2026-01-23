@@ -19,7 +19,7 @@ class top_dma_reg_block extends uvm_reg_block;
   endfunction
   
   function void build;
-    add_hdl_path("dut", "RTL");
+    //add_hdl_path("dut", "RTL");
     uvm_reg::include_coverage("*", UVM_CVR_ALL);
     //intr_reg
     intr_reg_inst = intr_reg::type_id::create("intr_reg_inst");
@@ -83,10 +83,16 @@ class top_dma_reg_block extends uvm_reg_block;
     
     
     //HDL_PATH slice for backdoor access
-    //intr_reg_inst.add_hdl_path_slice("intr_status", 0, 32);
-    //status_reg_inst.add_hdl_path_slice("intr_status", 0, 32);
-    //transfer_count_reg_inst.add_hdl_path_slice("intr_status", 0, 32);
-    
+    intr_reg_inst.add_hdl_path_slice("intr_status", 0, 16);
+    intr_reg_inst.add_hdl_path_slice("intr_mask", 16, 16);
+    io_addr_reg_inst.add_hdl_path_slice("io_addr", 0, 32);
+    status_reg_inst.add_hdl_path_slice("status_busy", 0, 1);
+	status_reg_inst.add_hdl_path_slice("status_done", 1, 1);
+	status_reg_inst.add_hdl_path_slice("status_error", 2, 1);
+	status_reg_inst.add_hdl_path_slice("status_paused", 3, 1);
+    status_reg_inst.add_hdl_path_slice("status_current_state", 4, 4);
+    status_reg_inst.add_hdl_path_slice("status_fifo_level", 8, 8);
+    transfer_count_reg_inst.add_hdl_path_slice("transfer_count", 0, 32); 
     
     //MAP
     default_map = create_map("default_map", 'h400, 4, UVM_LITTLE_ENDIAN);
