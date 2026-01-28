@@ -1,1 +1,2 @@
-
+This repository contains a SystemVerilog UVM-based verification environment developed to verify DMA (Direct Memory Access) registers. The environment includes a UVM Register Abstraction Layer (RAL) for comprehensive register-level verification, along with all essential testbench components.
+This repository also includes a detailed verification plan and testbench architecture, ensuring structured coverage of register functionality, access types, reset behavior, and corner cases. Both frontdoor and backdoor accesses are used to validate correct register behavior and RAL synchronization.
