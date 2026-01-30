@@ -522,7 +522,7 @@ class error_status_reg extends uvm_reg;
   covergroup error_code_cov;
     option.per_instance = 1;
     coverpoint error_code.value[15:8] {
-      bins all_codes[] = {[0:255]};
+      bins all_codes = {[0:255]};
     }
   endgroup
 

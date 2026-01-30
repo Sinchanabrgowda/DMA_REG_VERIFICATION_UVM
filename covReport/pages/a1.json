@@ -1,12 +1,12 @@
 var g_data = {
 a1591:{
 scopes:[{s:'1241',b:'1',val:'dma_pkg'},{val:'top_dma_adapter'},{link:'z.htm?f=0&s=1591',val:'bus2reg'}]
-,assertions:[{dummy:0},{cr:'c',c:'g',z:'immed__20',fc:'Gr',pc:'Gr',h0:'0',h1:'7220'}
+,assertions:[{dummy:0},{cr:'c',c:'g',z:'immed__20',fc:'Gr',pc:'Gr',h0:'0',h1:'36020'}
 ],
 },
-a2481:{
-scopes:[{s:'2131',b:'1',val:'work.dma_pkg'},{val:'top_dma_adapter'},{link:'z.htm?f=0&s=2481',val:'bus2reg'}]
-,assertions:[{dummy:0},{cr:'c',c:'g',z:'immed__20',fc:'Gr',pc:'Gr',h0:'0',h1:'7220'}
+a2479:{
+scopes:[{s:'2129',b:'1',val:'work.dma_pkg'},{val:'top_dma_adapter'},{link:'z.htm?f=0&s=2479',val:'bus2reg'}]
+,assertions:[{dummy:0},{cr:'c',c:'g',z:'immed__20',fc:'Gr',pc:'Gr',h0:'0',h1:'36020'}
 ],
 },
 dummyEnd:0

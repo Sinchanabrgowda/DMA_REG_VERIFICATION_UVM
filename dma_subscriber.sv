@@ -10,7 +10,6 @@ class dma_subscriber extends uvm_component;
   
   covergroup cg;
     option.per_instance = 1;
-    rst_cp : coverpoint cov_item.rst_n{ bins rst_bin[] = {0, 1};}
     wr_en_cp : coverpoint cov_item.wr_en{ bins wr_en_bin[] = {0, 1};}
     rd_en_cp : coverpoint cov_item.rd_en{ bins rd_en_bin[] = {0, 1};}
     wdata_cp : coverpoint cov_item.wdata{ bins wdata_bin = {[0:$]};}

@@ -1,5 +1,5 @@
 QuestaSim vlog 10.6c Compiler 2017.07 Jul 25 2017
-Start time: 16:28:36 on Jan 22,2026
+Start time: 15:20:49 on Jan 23,2026
 vlog -sv "+acc" "+cover" "+fcover" -l cov.log top.sv 
 ** Note: (vlog-2286) top.sv(1): Using implicit +incdir+/tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
 -- Compiling package dma_pkg
@@ -31,5 +31,5 @@ vlog -sv "+acc" "+cover" "+fcover" -l cov.log top.sv
 
 Top level modules:
 	top
-End time: 16:28:37 on Jan 22,2026, Elapsed time: 0:00:01
+End time: 15:20:50 on Jan 23,2026, Elapsed time: 0:00:01
 Errors: 0, Warnings: 10

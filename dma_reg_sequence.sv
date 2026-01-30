@@ -242,33 +242,32 @@ class ctrl_reg_seq extends dma_base_reg_seq;
   task body();
     uvm_reg_data_t wdata;
 
-//    wdata[0]     = 1'b1;     // start_dma
-  //  wdata[15:1]  = $urandom();   // w_count
-   // wdata[16]    = 1'b1;     // io_mem
+    wdata[0]     = 1'b1;     // start_dma
+    wdata[15:1]  = $urandom();   // w_count
+    wdata[16]    = 1'b1;     // io_mem
 
-     wdata = $urandom();
-     
     $display("\n============== ctrl reg seq check ==============");
+   
     dma_regmodel.ctrl_reg_inst.write(status, wdata, UVM_FRONTDOOR);
     `uvm_info("CTRL_SEQ", $sformatf( "WRITE CTRL: start_dma=%0b w_count=%0d io_mem=%0b (wdata=0x%0h)", wdata[0], wdata[15:1], wdata[16], wdata ), UVM_LOW)
 
     rdata   = dma_regmodel.ctrl_reg_inst.get();
     rdata_m = dma_regmodel.ctrl_reg_inst.get_mirrored_value();
-    `uvm_info("SEQ", $sformatf("Write -> Des: %0h Mir: %0h", rdata, rdata_m), UVM_NONE);
+    `uvm_info("SEQ", $sformatf("Write -> Des: %h Mir: %h", rdata, rdata_m), UVM_NONE);
 
     dma_regmodel.ctrl_reg_inst.read(status, dout_t, UVM_FRONTDOOR);
     `uvm_info("CTRL_SEQ",$sformatf( "READ  CTRL: start_dma=%0b w_count=%0d io_mem=%0b (rdata=0x%0h)",dout_t[0], dout_t[15:1], dout_t[16], dout_t ), UVM_LOW)
     rdata   = dma_regmodel.ctrl_reg_inst.get();
     rdata_m = dma_regmodel.ctrl_reg_inst.get_mirrored_value();
 
-    `uvm_info("CTRL_SEQ",$sformatf("read -> Des:%0h Mir:%0h ",rdata, rdata_m),UVM_LOW)
+    `uvm_info("CTRL_SEQ",$sformatf("read -> Des:%h Mir:%h ",rdata, rdata_m),UVM_LOW)
 
      dma_regmodel.ctrl_reg_inst.read(status, dout_t, UVM_FRONTDOOR);
     `uvm_info("CTRL_SEQ",$sformatf( "READ 2nd cycle CTRL: start_dma=%0b w_count=%0d io_mem=%0b (rdata=0x%0h)",dout_t[0], dout_t[15:1], dout_t[16], dout_t ), UVM_LOW)
     rdata   = dma_regmodel.ctrl_reg_inst.get();
     rdata_m = dma_regmodel.ctrl_reg_inst.get_mirrored_value();
 
-    `uvm_info("CTRL_SEQ",$sformatf("read 2nd cycle -> Des:%0h Mir:%0h ",rdata, rdata_m),UVM_LOW)
+    `uvm_info("CTRL_SEQ",$sformatf("read 2nd cycle -> Des:%h Mir:%h ",rdata, rdata_m),UVM_LOW)
     
     if (dout_t[0] != 0)  
       `uvm_error("CTRL_SEQ", "start_dma did not self-clear")
@@ -286,23 +285,24 @@ class io_addr_reg_seq extends dma_base_reg_seq;
 
   task body();
     uvm_reg_data_t wdata;
-   // repeat(`no_of_transactions) begin
+    repeat(`no_of_transactions) begin
     wdata = $urandom();
     
     $display("\n============== io_addr reg seq check ==============");
-    dma_regmodel.io_addr_reg_inst.write(status, wdata, UVM_FRONTDOOR);
-
-   
+      dma_regmodel.io_addr_reg_inst.write(status, wdata, UVM_BACKDOOR);
+    //dma_regmodel.io_addr_reg_inst.mirror(status, UVM_CHECK);
+   dma_regmodel.io_addr_reg_inst.predict(wdata);
+      
     rdata   = dma_regmodel.io_addr_reg_inst.get();
     rdata_m = dma_regmodel.io_addr_reg_inst.get_mirrored_value();
      `uvm_info("SEQ", $sformatf("Write -> Des: %0h Mir: %0h", rdata, rdata_m), UVM_NONE);
 
     dma_regmodel.io_addr_reg_inst.read(status, dout_t, UVM_FRONTDOOR);
-   //  dma_regmodel.io_addr_reg_inst.mirror(status, UVM_CHECK);
+ 
      rdata   = dma_regmodel.io_addr_reg_inst.get();
     rdata_m = dma_regmodel.io_addr_reg_inst.get_mirrored_value();
     `uvm_info("IO_ADDR_SEQ",$sformatf("read  -> Des:%0h Mir:%0h ",rdata, rdata_m),UVM_LOW)
-
+      end
   endtask
 endclass
 
@@ -322,7 +322,8 @@ class mem_addr_reg_seq extends dma_base_reg_seq;
 
     $display("\n============== mem_addr reg seq check ==============");
     dma_regmodel.mem_addr_reg_inst.write(status, wdata, UVM_FRONTDOOR);
-
+    dma_regmodel.io_addr_reg_inst.predict(wdata);
+    
     rdata   = dma_regmodel.mem_addr_reg_inst.get();
     rdata_m = dma_regmodel.mem_addr_reg_inst.get_mirrored_value();
     `uvm_info("mem SEQ", $sformatf("Write -> Des: %0h Mir: %0h", rdata, rdata_m), UVM_NONE);
@@ -351,7 +352,8 @@ class extra_info_reg_seq extends dma_base_reg_seq;
     
     $display("\n============== extra_info reg seq check ==============");
     dma_regmodel.extra_info_reg_inst.write(status, wdata, UVM_FRONTDOOR);
-
+    dma_regmodel.io_addr_reg_inst.predict(wdata);
+    
     rdata   = dma_regmodel.extra_info_reg_inst.get();
     rdata_m = dma_regmodel.extra_info_reg_inst.get_mirrored_value();
  `uvm_info("SEQ", $sformatf("Write -> Des: %0h Mir: %0h", rdata, rdata_m), UVM_NONE);
@@ -375,24 +377,24 @@ class status_reg_seq extends dma_base_reg_seq;
 
   task body();
     uvm_reg_data_t    bd_value;  // value to backdoor write
-
    
    $display("\n========== status Register seq check ==========");
 
-    //bd_value = 32'hA5A5_5A5A;
-      bd_value = $urandom();    
-
-
+    bd_value = 32'hA5A5_5A5A;
+    
     `uvm_info("STATUS_SEQ", $sformatf("Frontdoor write value: 0x%0h", bd_value), UVM_LOW)
     dma_regmodel.status_reg_inst.write(status, bd_value, UVM_FRONTDOOR);
 
     dma_regmodel.status_reg_inst.read(status, dout_t, UVM_BACKDOOR);
+    dma_regmodel.io_addr_reg_inst.predict(dout_t);
     `uvm_info("STATUS_SEQ", $sformatf("Backdoor read value = 0x%0h", dout_t), UVM_LOW)
+    
 
     if (bd_value == dout_t)
       `uvm_error("STATUS_SEQ", $sformatf("Mismatch: dout_t=0x%0h MIRROR=0x%0h", dout_t, bd_value))
     else
       `uvm_info("STATUS_SEQ", " no write happend to RO status register verified", UVM_NONE)
+
   endtask
 endclass
 
@@ -407,9 +409,8 @@ class transfer_count_reg_seq extends dma_base_reg_seq;
 
   task body();
 
-  uvm_reg_data_t bd_value;
-//  bd value = 32'hA5A5_5A5A; //backdoor write
-  bd_value = $urandom();
+  uvm_reg_data_t bd_value = 32'hA5A5_5A5A; //backdoor write
+
   $display("\n========== TRANSFER COUNT RO Register check ==========");
     `uvm_info("TRANSFER_SEQ", $sformatf("Frontdoor write value: 0x%0h", bd_value), UVM_LOW)
     dma_regmodel.transfer_count_reg_inst.write(status, bd_value, UVM_FRONTDOOR);
@@ -441,7 +442,7 @@ class descriptor_addr_reg_seq extends dma_base_reg_seq;
 
 $display("\n============== DESCRIPTOR_addr reg seq check ==============");
     dma_regmodel.descriptor_addr_reg_inst.write(status, wdata, UVM_FRONTDOOR);
-
+ 	dma_regmodel.io_addr_reg_inst.predict(wdata);
     rdata   = dma_regmodel.descriptor_addr_reg_inst.get();
     rdata_m = dma_regmodel.descriptor_addr_reg_inst.get_mirrored_value();
     `uvm_info("mem SEQ", $sformatf("Write -> Des: %0h Mir: %0h", rdata, rdata_m), UVM_NONE);   
@@ -501,15 +502,16 @@ class config_reg_seq extends dma_base_reg_seq;
 
     $display("\n============== cOnfig reg seq check ==============");
     dma_regmodel.config_reg_inst.write(status, wdata, UVM_FRONTDOOR);
-
+	dma_regmodel.io_addr_reg_inst.predict(wdata);
+    
     rdata   = dma_regmodel.config_reg_inst.get();
     rdata_m = dma_regmodel.config_reg_inst.get_mirrored_value();
-    `uvm_info("SEQ", $sformatf("Write -> Des: %0h Mir: %0h", rdata, rdata_m), UVM_NONE);
+    `uvm_info("SEQ", $sformatf("Write -> Des: %h Mir: %h", rdata, rdata_m), UVM_NONE);
 
     dma_regmodel.config_reg_inst.read(status, dout_t, UVM_FRONTDOOR);
      rdata   = dma_regmodel.config_reg_inst.get();
     rdata_m = dma_regmodel.config_reg_inst.get_mirrored_value();
-    `uvm_info("CONFIG_SEQ",$sformatf("read  -> Des:%0h Mir:%0h ", rdata, rdata_m),UVM_LOW)
+    `uvm_info("CONFIG_SEQ",$sformatf("read  -> Des:%h Mir:%h ", rdata, rdata_m),UVM_LOW)
 
     if (dout_t[31:9] != 0)
       `uvm_error("CONFIG_SEQ", "Reserved bits modified")

@@ -95,7 +95,7 @@ module dma_design_ (
     logic        error_underflow;
     logic [7:0]  error_code;
     logic [15:0] error_addr_offset;
-    
+ 
     // CONFIG Register [31:0] - NEW
     // [1:0]   - priority (RW)
     // [2]     - auto_restart (RW)
